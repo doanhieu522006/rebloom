@@ -1,0 +1,22 @@
+HOI MAN AUDIO CREDITS
+
+Len ngan - Thanh Tung.ogg
+Composer/performer credited by source: Nguyen Thanh Tung
+Source: https://commons.wikimedia.org/wiki/File:Len_ngan_-_Thanh_Tung.ogg
+License: CC BY 3.0 https://creativecommons.org/licenses/by/3.0/
+Changes: MP3 transcoding, loudness normalization; short excerpts faded for open/complete/print SFX.
+Files: dan-bau-len-ngan.mp3, dan-bau-complete.mp3, dan-bau-open.mp3, dan-bau-print.mp3
+
+Dan moi.ogg
+Author: Cassa342
+Source: https://commons.wikimedia.org/wiki/File:Dan_moi.ogg
+License: CC BY-SA 4.0 https://creativecommons.org/licenses/by-sa/4.0/
+Changes: MP3 transcoding, loudness normalization, fades; short excerpts for touch/motif/drop SFX. These adapted audio files remain licensed CC BY-SA 4.0.
+Files: dan-moi.mp3, dan-moi-touch.mp3, dan-moi-motif.mp3, dan-moi-drop.mp3
+
+Friction/wind effects generated in Web Audio for the concept; not recordings of a Vietnamese workshop.
+No endorsement by the performers is implied.
+
+Gong and Drum — Dragfyre, https://commons.wikimedia.org/wiki/File:Gong_and_Drum.ogv — CC BY-SA 3.0 https://creativecommons.org/licenses/by-sa/3.0/ . Audio extracted, MP3, normalized, fades. Adapted audio retains CC BY-SA 3.0.
+Sound of rain — Effib, https://commons.wikimedia.org/wiki/File:Sound_of_rain.ogg — CC BY-SA 3.0. MP3, normalized, fades. Adapted audio retains CC BY-SA 3.0. Not a recording from Vietnam.
+wind, water, bamboo, bell, paper, ember: original synthesized sound design, not field or traditional instrument recordings.

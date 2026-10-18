@@ -1,0 +1,1200 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<script id="reload-home">
+(()=>{
+  const navigation=performance.getEntriesByType('navigation')[0];
+  const isReload=navigation ? navigation.type==='reload' : performance.navigation?.type===1;
+  if(!isReload)return;
+  if('scrollRestoration' in history)history.scrollRestoration='manual';
+  history.replaceState(history.state,'',location.pathname+location.search);
+  const goHome=()=>window.scrollTo({top:0,left:0,behavior:'instant'});
+  goHome();
+  window.addEventListener('pageshow',()=>{goHome();requestAnimationFrame(goHome);},{once:true});
+})();
+</script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#272c24">
+  <meta name="description" content="Hồi Mẫn by ReBloom — Từ cánh hoa đã qua mùa nở, mở ra một vòng đời mới. Khám phá nhang từ hoa và những khoảng lặng trong ngày.">
+  <meta property="og:title" content="Hồi Mẫn — Từ hoa, trở về hương">
+  <meta property="og:description" content="Một đời sống mới cho hoa. Một khoảng lặng dành cho bạn.">
+  <meta property="og:image" content="/assets/hero-cinematic.webp">
+  <title>Hồi Mẫn — Từ hoa, trở về hương</title>
+  <link rel="icon" href="assets/logo-rebloom-icon.png" type="image/png">
+  
+  <link rel="preload" href="assets/hero-cinematic.webp" as="image" fetchpriority="high">
+  
+  
+  
+  
+  
+  
+
+  
+  
+<link rel="stylesheet" href="assets/site.css"></head>
+<body><div class="site-dragonflies" aria-hidden="true"><span class="dragonfly dragonfly-one"><svg viewBox="0 0 120 100" aria-hidden="true"><g class="dragonfly-wings" fill="#d9d8b540" stroke="#d3c497" stroke-width="1"><ellipse cx="36" cy="43" rx="30" ry="9" transform="rotate(25 36 43)"/><ellipse cx="84" cy="43" rx="30" ry="9" transform="rotate(-25 84 43)"/><ellipse cx="35" cy="62" rx="25" ry="7" transform="rotate(-15 35 62)"/><ellipse cx="85" cy="62" rx="25" ry="7" transform="rotate(15 85 62)"/></g><path d="M60 29v57" stroke="#bfaa7c" stroke-width="3" stroke-linecap="round"/><circle cx="60" cy="26" r="5" fill="#d8c49b"/></svg></span><span class="dragonfly dragonfly-two"><svg viewBox="0 0 120 100" aria-hidden="true"><g class="dragonfly-wings" fill="#d9d8b540" stroke="#d3c497" stroke-width="1"><ellipse cx="36" cy="43" rx="30" ry="9" transform="rotate(25 36 43)"/><ellipse cx="84" cy="43" rx="30" ry="9" transform="rotate(-25 84 43)"/><ellipse cx="35" cy="62" rx="25" ry="7" transform="rotate(-15 35 62)"/><ellipse cx="85" cy="62" rx="25" ry="7" transform="rotate(15 85 62)"/></g><path d="M60 29v57" stroke="#bfaa7c" stroke-width="3" stroke-linecap="round"/><circle cx="60" cy="26" r="5" fill="#d8c49b"/></svg></span><span class="dragonfly dragonfly-three"><svg viewBox="0 0 120 100" aria-hidden="true"><g class="dragonfly-wings" fill="#d9d8b540" stroke="#d3c497" stroke-width="1"><ellipse cx="36" cy="43" rx="30" ry="9" transform="rotate(25 36 43)"/><ellipse cx="84" cy="43" rx="30" ry="9" transform="rotate(-25 84 43)"/><ellipse cx="35" cy="62" rx="25" ry="7" transform="rotate(-15 35 62)"/><ellipse cx="85" cy="62" rx="25" ry="7" transform="rotate(15 85 62)"/></g><path d="M60 29v57" stroke="#bfaa7c" stroke-width="3" stroke-linecap="round"/><circle cx="60" cy="26" r="5" fill="#d8c49b"/></svg></span></div>
+<div class="nature-petals" aria-hidden="true"><span class="nature-petal nature-petal-1"></span><span class="nature-petal nature-petal-2"></span><span class="nature-petal nature-petal-3"></span><span class="nature-petal nature-petal-4"></span></div>
+  <a class="skip" href="#main">Đến nội dung chính</a>
+  <div class="reading-progress" aria-hidden="true"><span id="reading-progress"></span></div>
+  <header class="header" id="header">
+    <a class="brand" href="#trang-chu" aria-label="Hồi Mẫn — Trang chủ">
+      <img class="brand-logo-clean" src="assets/logo-rebloom.svg" width="362" height="197" alt="Hồi Mẫn">
+      <span>By ReBloom</span>
+    </a>
+    <nav class="nav" id="main-nav" aria-label="Điều hướng chính">
+      <a href="#cau-chuyen">Câu chuyện</a>
+      <a href="#nep-viet">Nếp Việt</a>
+      <a href="#san-pham" class="nav-shop">Sản phẩm <span aria-hidden="true"><svg class="ui-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 18 18 6M6 6h12v12"/></svg></span></a>
+      <a href="#hanh-trinh">Hành trình</a>
+      <a href="#xuong-huong">Xưởng hương</a>
+    <a href="#gui-hoa">Gửi hoa</a></nav>
+    <div class="header-actions">
+      <button class="sound-toggle" id="sound-toggle" data-sound-toggle aria-label="Bật không gian âm thanh" aria-pressed="false" title="Bật không gian âm thanh"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 10v4m4-7v10m4-13v16m4-13v10m4-7v4"/></svg><i aria-hidden="true"></i></button>
+      <button class="saved-trigger" id="saved-open" aria-label="Xem những mẫu đã lưu" title="Những mẫu đã lưu"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 4.5h12v16l-6-4-6 4z"/></svg><span id="saved-count" hidden>0</span></button>
+      <button class="nav-connect" data-connect>Trao đổi <span aria-hidden="true"><svg class="ui-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 19 19 5M5 5h14v14"/></svg></span></button>
+      <button class="menu-toggle" id="menu-toggle" aria-label="Mở menu" aria-controls="main-nav" aria-expanded="false"><span></span><span></span></button>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="trang-chu" aria-labelledby="hero-title">
+      <div class="hero-media" aria-hidden="true">
+        <img src="assets/hero-cinematic.webp" alt="" width="1672" height="941" fetchpriority="high" class="hero-poster">
+        <video id="ambient-video" class="ambient-video" muted loop playsinline preload="none" poster="assets/hero-cinematic.webp" data-src="assets/ambient.mp4" tabindex="-1"></video>
+      </div>
+      <div class="hero-overlay" aria-hidden="true"></div>
+      <div class="hero-copy wrap"><button class="hero-listen" data-sound-toggle aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 10v4m4-7v10m4-13v16m4-13v10m4-7v4"/></svg><span><strong>Lắng nghe một nhịp Việt.</strong><small>Thư giãn · âm sắc Việt · nhạc cụ tự chọn</small></span><span data-sound-label>Bật âm thanh</span></button>
+        <p class="eyebrow hero-eyebrow"><span class="tiny-line"></span> Hồi mẫn · thương hiệu thuộc dự án ReBloom</p>
+        <h1 id="hero-title">Từ hoa,<br><em>trở về hương.</em></h1>
+        <p class="hero-description">ReBloom phát triển nhang thơm từ nguồn hoa đã qua sử dụng, lấy cảm hứng từ nếp hương Việt.</p>
+        <div class="hero-ctas">
+          <a class="button button-cream" href="#san-pham">Khám phá hai dòng nhang <span aria-hidden="true"><svg class="ui-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 19 19 5M5 5h14v14"/></svg></span></a>
+          
+        </div>
+        <a class="hero-story-link" href="#cau-chuyen">Câu chuyện từ hoa đến hương <span aria-hidden="true"><svg class="ui-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 4v16m-6-6 6 6 6-6"/></svg></span></a>
+      </div>
+      <div class="hero-edge"><span>Hoi man<br>Botanical incense concept</span><span>Việt nam · 2026</span></div>
+      <div class="hero-foot wrap">
+        <a href="#cau-chuyen" class="scroll-cue"><span class="scroll-line" aria-hidden="true"></span>Cuộn chậm thôi</a>
+        <span class="hero-status"><i aria-hidden="true"></i>Dự án đang nghiên cứu & phát triển</span><button type="button" id="gentle-motion-toggle" class="motion-control" aria-pressed="false"><svg class="ui-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14M16 5v14"/></svg><span>Tắt chuyển động</span></button>
+        <button class="ambient-toggle" id="ambient-toggle" aria-label="Tạm dừng chuyển động nền" aria-pressed="false"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M7 5v10m6-10v10"/></svg></button>
+      </div>
+    </section>
+
+<aside class="brand-overview wrap"><p><strong>Hồi Mẫn</strong> là thương hiệu thuộc dự án <strong>ReBloom</strong>, kết nối nguồn hoa đã qua sử dụng với câu chuyện nhang thơm và nếp sống Việt.</p><span>Đang phát triển · Chưa mở bán</span></aside>
+    <section class="products section" id="san-pham" aria-labelledby="products-title"><div class="viet-section-mark" aria-hidden="true"><svg><use href="assets/viet-motifs.svg#wave"/></svg></div>
+      <div class="wrap">
+        <div class="section-meta reveal"><span>Bộ sưu tập Hồi Mẫn</span><span>Made to mean something</span></div>
+        <div class="section-heading reveal">
+          <h2 id="products-title">Chọn một dáng hương.<br><em>Giữ một khoảng an.</em></h2>
+          <div class="heading-aside"><p>Nhang thơm và Nhang nụ ReBloom.<br>Chọn hình dáng và mùi hương bạn muốn tìm hiểu.</p><span class="quiet-label">Đang phát triển · chưa mở bán</span></div>
+        </div>
+<div class="product-grid" id="product-grid"><article class="product-card reveal" data-category="incense" data-id="incense">
+            <div class="product-image-wrap"><svg class="nature-smoke" viewBox="0 0 60 180" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true" focusable="false"><path d="M25 172c-24-34 26-36 5-70S6 56 32 14"/><path d="M40 170c-18-28 22-36 4-62s-16-49 6-76"/></svg><span class="product-tag">Dòng nhang ReBloom</span><button class="save-button" data-save="incense" aria-label="Khám phá Nhang thơm" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 4.5h12v16l-6-4-6 4z"/></svg></button><button class="product-image-button" data-product="incense" aria-label="Khám phá Nhang thơm"><img src="assets/rebloom-lavender-studio.webp" alt="Nhang thơm ReBloom hương Lavender — ảnh bao bì do nhóm cung cấp" loading="lazy" width="1254" height="1254"><span class="product-hover">Khám phá mẫu <span><svg class="ui-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 19 19 5M5 5h14v14"/></svg></span></span></button></div>
+            <div class="product-info"><div><span class="eyebrow">Nhang thơm / ReBloom</span><h3><button data-product="incense">Nhang thơm</button></h3><p>Lavender · White Sage · Osmanthus · Magnolia · 10 nén/hộp</p></div><button class="round-arrow" data-product="incense" aria-label="Khám phá Nhang thơm"><svg class="ui-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 19 19 5M5 5h14v14"/></svg></button></div>
+          <div class="store-scents" role="group" aria-label="Chọn mùi Nhang thơm"><button type="button" data-store-product="incense" data-scent-index="0" aria-pressed="true">Lavender</button><button type="button" data-store-product="incense" data-scent-index="1" aria-pressed="false">White Sage</button><button type="button" data-store-product="incense" data-scent-index="2" aria-pressed="false">Osmanthus</button><button type="button" data-store-product="incense" data-scent-index="3" aria-pressed="false">Magnolia</button></div><p class="store-selected" aria-live="polite">Mùi đang chọn: <strong>Lavender</strong></p><div class="shop-card-actions"><button data-product="incense">Xem sản phẩm <span aria-hidden="true"><svg class="ui-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 18 18 6M6 6h12v12"/></svg></span></button><span>Đang phát triển · Chưa mở bán</span></div></article><article class="product-card reveal" data-category="cone" data-id="cone"><div class="product-image-wrap"><svg class="nature-smoke" viewBox="0 0 60 180" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true" focusable="false"><path d="M25 172c-24-34 26-36 5-70S6 56 32 14"/><path d="M40 170c-18-28 22-36 4-62s-16-49 6-76"/></svg><span class="product-tag">Dòng nhang ReBloom</span><button class="save-button" data-save="cone" aria-pressed="false" aria-label="Khám phá Nhang nụ ReBloom"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 4.5h12v16l-6-4-6 4z"/></svg></button><button class="product-image-button" data-product="cone" aria-label="Khám phá Nhang nụ ReBloom"><img src="assets/rebloom-cone-frangipani-studio.webp" width="1448" height="1086" loading="lazy" alt="Nhang nụ ReBloom hương Frangipani — ảnh bao bì do nhóm cung cấp"><span class="product-hover">Xem sản phẩm <svg class="ui-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 18 18 6M6 6h12v12"/></svg></span></button></div><div class="product-info"><div><span class="eyebrow">Nhang nụ / ReBloom</span><h3><button data-product="cone">Nhang nụ ReBloom</button></h3><p>Frangipani · Grace · 10 nụ/hộp · Khối lượng tịnh: 20 g</p></div></div><div class="store-scents" role="group" aria-label="Chọn mùi Nhang nụ ReBloom"><button type="button" data-store-product="cone" data-scent-index="0" aria-pressed="true">Frangipani</button><button type="button" data-store-product="cone" data-scent-index="1" aria-pressed="false">Grace</button></div><p class="store-selected" aria-live="polite">Mùi đang chọn: <strong>Frangipani</strong></p><div class="shop-card-actions"><button data-product="cone">Xem sản phẩm <span aria-hidden="true"><svg class="ui-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 18 18 6M6 6h12v12"/></svg></span></button><span>Đang phát triển · Chưa mở bán</span></div></article></div><details class="usage-disclosure" id="huong-dan-su-dung"><summary><span class="usage-disclosure-label"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M12 8v.01M12 11v6"/><circle cx="12" cy="12" r="9"/></svg><span>Hướng dẫn sử dụng & bảo quản</span></span><span class="usage-disclosure-toggle" aria-hidden="true"><svg class="ui-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 5v14M5 12h14"/></svg></span></summary><div class="usage-guide"><p>Hướng dẫn cơ bản cho Nhang thơm và Nhang nụ ReBloom. Khi có sản phẩm hoàn thiện, ưu tiên hướng dẫn đi kèm trên bao bì.</p><div class="usage-columns"><div><h4>Nhang thơm dạng que</h4><ol><li>Cắm phần tăm tre vào đế giữ nhang chắc chắn, có khay hứng tro chịu nhiệt.</li><li>Châm đầu nhang cho bắt lửa, rồi nhẹ nhàng dập ngọn lửa để đầu nhang cháy âm ỉ.</li><li>Kiểm tra nhang được giữ vững, tro rơi trong khay và không chạm đồ vật xung quanh.</li></ol></div><div><h4>Nhang nụ ReBloom</h4><ol><li>Đặt nụ nhang thẳng trên đĩa hoặc đế chuyên dụng chịu nhiệt, có bề mặt ổn định.</li><li>Châm phần đỉnh nụ cho bắt lửa, rồi nhẹ nhàng dập ngọn lửa để nụ cháy âm ỉ.</li><li>Không cầm hoặc di chuyển nụ và đế khi đang cháy hoặc còn nóng.</li></ol></div></div><h4>Không gian và an toàn khi đốt</h4><ul><li>Dùng trong không gian thông thoáng, tránh phòng kín và luồng gió mạnh. Không hít khói trực tiếp.</li><li>Đặt đế trên mặt phẳng chịu nhiệt, xa giấy, rèm, vải và các vật dễ cháy; tránh xa trẻ em và vật nuôi.</li><li>Luôn có người trông coi. Dập tắt hoàn toàn trước khi rời đi hoặc đi ngủ; đợi tro và đế nguội hẳn mới thu dọn.</li><li>Nếu thấy mùi hoặc khói gây khó chịu, ngừng đốt và mở thoáng không gian.</li></ul><h4>Bảo quản</h4><p>Giữ nhang trong hộp kín, nơi khô ráo, thoáng mát; tránh ẩm, ánh nắng trực tiếp và nguồn nhiệt. Không dùng sản phẩm có dấu hiệu ẩm mốc.</p><p class="usage-note">Thời gian cháy: sẽ được công bố sau khi thử mẫu thực tế. Hiện chưa có số liệu xác nhận.</p></div></details><aside class="upcoming-shelf"><span class="eyebrow">Những hướng phát triển tiếp theo</span><h3>Đang ươm hương</h3><p>Nến thơm · Túi thơm · Các dòng refill - set quà tặng đang được nghiên cứu & phát triển.</p><div class="upcoming-grid"><button type="button" class="upcoming-item" data-product="candle"><img src="assets/rebloom-future-candle.webp" alt="Minh họa tạm Nến thơm" loading="lazy" width="600" height="650"><span>Nến thơm</span><small>Đang nghiên cứu</small></button><button type="button" class="upcoming-item" data-product="sachet"><img src="assets/rebloom-future-sachet.webp" alt="Minh họa tạm Túi thơm" loading="lazy" width="600" height="650"><span>Túi thơm</span><small>Đang nghiên cứu</small></button><button type="button" class="upcoming-item" data-product="refill"><img src="assets/rebloom-future-refill.webp" alt="Minh họa tạm Các dòng refill" loading="lazy" width="600" height="650"><span>Các dòng refill</span><small>Đang nghiên cứu</small></button><button type="button" class="upcoming-item" data-product="gift"><img src="assets/rebloom-future-gift.webp" alt="Minh họa tạm Set quà tặng" loading="lazy" width="600" height="650"><span>Set quà tặng</span><small>Đang nghiên cứu</small></button></div><p class="motif-note">Phối cảnh ý tưởng sản phẩm đang phát triển. Quy cách và thiết kế chưa chốt.</p></aside>        <div class="product-note"><p>Hình ảnh minh họa tạm. Bao bì, logo và font chữ đang được hoàn thiện.</p><button class="text-link" data-connect>Đồng hành phát triển <span aria-hidden="true"><svg class="ui-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 19 19 5M5 5h14v14"/></svg></span></button></div>
+      </div>
+    </section><div class="marquee" aria-hidden="true"><div class="marquee-track"><span>Nếp Việt · nhịp mới</span><i><svg class="petal-mark" viewBox="0 0 100 100" aria-hidden="true"><path d="M50 83C20 65 21 35 50 12c29 23 30 53 0 71ZM50 83C21 85 8 65 12 39c24 0 38 17 38 44ZM50 83c29 2 42-18 38-44-24 0-38 17-38 44Z"/></svg></i><span>Từ hoa, trở về hương</span><i><svg class="petal-mark" viewBox="0 0 100 100" aria-hidden="true"><path d="M50 83C20 65 21 35 50 12c29 23 30 53 0 71ZM50 83C21 85 8 65 12 39c24 0 38 17 38 44ZM50 83c29 2 42-18 38-44-24 0-38 17-38 44Z"/></svg></i><span>Trân trọng điều đã có</span><i><svg class="petal-mark" viewBox="0 0 100 100" aria-hidden="true"><path d="M50 83C20 65 21 35 50 12c29 23 30 53 0 71ZM50 83C21 85 8 65 12 39c24 0 38 17 38 44ZM50 83c29 2 42-18 38-44-24 0-38 17-38 44Z"/></svg></i><span>Nếp Việt · nhịp mới</span><i><svg class="petal-mark" viewBox="0 0 100 100" aria-hidden="true"><path d="M50 83C20 65 21 35 50 12c29 23 30 53 0 71ZM50 83C21 85 8 65 12 39c24 0 38 17 38 44ZM50 83c29 2 42-18 38-44-24 0-38 17-38 44Z"/></svg></i><span>Từ hoa, trở về hương</span><i><svg class="petal-mark" viewBox="0 0 100 100" aria-hidden="true"><path d="M50 83C20 65 21 35 50 12c29 23 30 53 0 71ZM50 83C21 85 8 65 12 39c24 0 38 17 38 44ZM50 83c29 2 42-18 38-44-24 0-38 17-38 44Z"/></svg></i><span>Trân trọng điều đã có</span><i><svg class="petal-mark" viewBox="0 0 100 100" aria-hidden="true"><path d="M50 83C20 65 21 35 50 12c29 23 30 53 0 71ZM50 83C21 85 8 65 12 39c24 0 38 17 38 44ZM50 83c29 2 42-18 38-44-24 0-38 17-38 44Z"/></svg></i></div></div>
+
+    <section class="story section" id="cau-chuyen" aria-labelledby="story-title"><svg class="nature-leaf-shadow" viewBox="0 0 240 340" aria-hidden="true" focusable="false"><path d="M216 0C170 85 154 178 58 324" fill="none" stroke="currentColor" stroke-width="3"/><path d="M190 54c-52-12-83 1-105 37 47 7 77-5 105-37ZM177 94c45 3 60 26 59 58-35-6-52-25-59-58ZM156 146c-55-15-90 1-110 40 48 8 82-5 110-40ZM138 180c45 5 59 30 51 66-33-10-49-31-51-66ZM107 231c-50-13-82 4-99 41 43 4 73-7 99-41ZM86 266c39 6 52 29 43 61-29-8-43-30-43-61Z"/></svg><div class="viet-section-mark" aria-hidden="true"><svg><use href="assets/viet-motifs.svg#cloud"/></svg></div>
+      <div class="wrap">
+        <div class="section-meta reveal"><span>01 — khởi nguồn</span><span>The art of another life</span></div>
+        <div class="story-grid">
+          <div class="story-copy reveal">
+            <h2 id="story-title">Một mùa hoa đi qua.<br><em>Một câu chuyện<br>ở lại.</em></h2><svg class="drawn-flower" viewBox="0 0 100 80" width="64" height="52" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M50 68C24 52 26 28 50 9c24 19 26 43 0 59Z"/><path d="M50 68C24 70 12 52 15 30c20 0 34 15 35 38Z"/><path d="M50 68c26 2 38-16 35-38-20 0-34 15-35 38Z"/></svg>
+            <p>Có những cánh hoa đã hoàn thành sứ mệnh của mình: làm đẹp một không gian, gửi gắm một lời chúc, hay hiện diện trong một nghi lễ.</p>
+            <p>ReBloom bắt đầu từ mong muốn trao cho những cánh hoa ấy một vòng đời mới. Hồi Mẫn kể tiếp câu chuyện đó qua ý tưởng <strong>nhang từ hoa</strong> — từ nguồn hoa đã qua sử dụng, đến những sản phẩm đang được nghiên cứu và hoàn thiện.</p>
+            <a class="text-link" href="#hanh-trinh">Theo dấu một cánh hoa <span aria-hidden="true"><svg class="ui-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 19 19 5M5 5h14v14"/></svg></span></a>
+            <div class="story-signature"><img src="assets/logo-rebloom-icon.png" width="48" height="55" alt=""><span>Trân trọng nguồn hoa.<br>Trân trọng những giá trị còn lại.</span></div>
+          </div>
+          <figure class="story-art reveal">
+            <div class="story-image"><img src="assets/nep-viet-living.webp" alt="Ảnh concept góc sống đương đại với sen, gốm, mây và hương" loading="lazy" width="1122" height="1402"></div>
+            <span class="art-caption">Nếp Việt / sống đương đại</span>
+            <figcaption><span>Không gian sống · Hình ảnh concept</span><span>Hồi mẫn <svg class="ui-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 19 19 5M5 5h14v14"/></svg></span></figcaption>
+            <div class="round-seal" aria-hidden="true"><span>Re:bloom</span><strong><svg class="petal-mark" viewBox="0 0 100 100" aria-hidden="true"><path d="M50 83C20 65 21 35 50 12c29 23 30 53 0 71ZM50 83C21 85 8 65 12 39c24 0 38 17 38 44ZM50 83c29 2 42-18 38-44-24 0-38 17-38 44Z"/></svg></strong><span>Another life</span></div>
+          </figure>
+        </div>
+        <div class="principles">
+          <article class="reveal"><span class="principle-number">I.</span><h3>Trân trọng nguyên liệu</h3><p>Tìm kiếm giá trị mới từ nguồn hoa đã qua sử dụng.</p></article>
+          <article class="reveal"><span class="principle-number">II.</span><h3>Gìn giữ văn hóa</h3><p>Tiếp nối ý nghĩa của hoa và hương trong đời sống Việt.</p></article>
+          <article class="reveal"><span class="principle-number">III.</span><h3>Nuôi dưỡng cơ hội</h3><p>Hướng đến việc làm phù hợp cho lao động địa phương và nhóm yếu thế.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="heritage section" id="nep-viet" aria-labelledby="heritage-title"><svg class="nature-leaf-shadow" viewBox="0 0 240 340" aria-hidden="true" focusable="false"><path d="M216 0C170 85 154 178 58 324" fill="none" stroke="currentColor" stroke-width="3"/><path d="M190 54c-52-12-83 1-105 37 47 7 77-5 105-37ZM177 94c45 3 60 26 59 58-35-6-52-25-59-58ZM156 146c-55-15-90 1-110 40 48 8 82-5 110-40ZM138 180c45 5 59 30 51 66-33-10-49-31-51-66ZM107 231c-50-13-82 4-99 41 43 4 73-7 99-41ZM86 266c39 6 52 29 43 61-29-8-43-30-43-61Z"/></svg>
+      <div class="wrap">
+        <div class="section-meta reveal"><span>Gốc Việt / thẩm mỹ đương đại</span><span>Vietnamese roots. Contemporary soul.</span></div>
+        <div class="heritage-heading reveal"><h2 id="heritage-title">Nếp Việt.<br><em>Nhịp mới.</em><img class="heritage-fan" src="assets/incense-fan.svg" alt="" width="100" height="100"></h2><div><span class="heritage-kicker">Giữ một nếp hương. Mở một vòng đời.</span><p>Từ nếp nhà và nghề làm hương đến cách sống của hôm nay, Hồi Mẫn tìm một cách tiếp nối: gìn giữ ý nghĩa văn hóa của hoa, đồng thời tìm kiếm giá trị mới cho phần nguyên liệu từng bị bỏ lại.</p><a class="text-link" href="#heritage-tabs">Chạm vào một câu chuyện <span aria-hidden="true"><svg class="ui-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 19 19 5M5 5h14v14"/></svg></span></a></div></div>
+        <div class="heritage-motion"><div><span class="eyebrow">Một sắc hương Việt</span><h3>Sắc hương.<br><em>Nếp Việt.</em></h3><p>Những bó hương xòe sắc, một nhịp sống lặng thầm giữa nếp nghề thân thuộc.</p></div><figure><div class="heritage-motion-frame"><video id="heritage-decor-video" muted loop playsinline preload="none" poster="assets/nep-viet-red-incense-poster.webp" width="512" height="910" aria-label="Những bó hương đỏ trong làng nghề"><source src="assets/nep-viet-red-incense.mp4" type="video/mp4"></video><button type="button" id="heritage-video-toggle" aria-label="Phát video" aria-pressed="false">Phát video</button></div></figure></div><figure class="heritage-figure reveal"><div class="heritage-picture" id="heritage-picture"><img src="assets/nep-viet-craft.webp" alt="Hình minh họa concept nghề làm hương Việt: bàn tay xếp nhang, các bó hương hình quạt, giỏ tre và sân gạch" loading="lazy" width="1672" height="941"><div class="heritage-picture-shade" aria-hidden="true"></div><span class="heritage-stamp" aria-hidden="true">Nếp<br>Việt<span>— Hồi mẫn —</span></span><span class="heritage-picture-note">The hands that carry a story forward</span></div><figcaption><span>Hương · bàn tay nghề · nếp nhà</span><span>Hình ảnh minh họa concept</span></figcaption></figure>
+        <div class="heritage-tabs" id="heritage-tabs" role="tablist" aria-label="Khám phá gốc Việt của Hồi Mẫn">
+          <button class="heritage-tab is-active" id="heritage-tab-0" data-heritage="0" role="tab" aria-selected="true" aria-controls="heritage-panel"><span>01 / ký ức</span><strong>Nếp nhà</strong><i aria-hidden="true"><svg class="ui-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 19 19 5M5 5h14v14"/></svg></i></button>
+          <button class="heritage-tab" id="heritage-tab-1" data-heritage="1" role="tab" aria-selected="false" aria-controls="heritage-panel" tabindex="-1"><span>02 / tiếp nối</span><strong>Bàn tay nghề</strong><i aria-hidden="true"><svg class="ui-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 19 19 5M5 5h14v14"/></svg></i></button>
+          <button class="heritage-tab" id="heritage-tab-2" data-heritage="2" role="tab" aria-selected="false" aria-controls="heritage-panel" tabindex="-1"><span>03 / tương lai</span><strong>Vòng đời mới</strong><i aria-hidden="true"><svg class="ui-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 19 19 5M5 5h14v14"/></svg></i></button>
+        </div>
+        <div class="heritage-panel" id="heritage-panel" role="tabpanel" aria-labelledby="heritage-tab-0" tabindex="0"><h3 id="heritage-panel-title">Một nén hương.<br>Một cảm giác trở về.</h3><div><p id="heritage-panel-copy">Hoa và hương gắn với những nghi lễ, ký ức gia đình và lời gửi gắm trong đời sống Việt. Hồi Mẫn lấy cảm hứng từ sự hiện diện ấy để kể một câu chuyện gần gũi với thế hệ hôm nay.</p><span id="heritage-panel-tag">Gìn giữ ý nghĩa. Kể bằng ngôn ngữ mới.</span></div></div>
+<div class="motif-atlas"><div class="motif-intro"><span class="eyebrow">Bộ nét Việt / Hồi Mẫn</span><h3>Dấu xưa.<br><em>Nét hôm nay.</em></h3><p>Chạm vào một họa tiết để khám phá cách chúng mình đưa cảm hứng Việt vào câu chuyện mới.</p></div><div class="motif-browser"><div class="motif-grid" role="group" aria-label="Khám phá họa tiết Việt"><button class="motif-choice" data-motif="lac" data-title="Chim Lạc" data-copy="Một đường bay thanh thoát được cách điệu thành nét dài, gợi tinh thần tiếp nối trong câu chuyện Hồi Mẫn." aria-pressed="true"><svg aria-hidden="true"><use href="assets/viet-motifs.svg#lac"/></svg><span>Chim Lạc</span></button><button class="motif-choice" data-motif="drum" data-title="Vòng Đông Sơn" data-copy="Những vòng tròn và tia hướng tâm trở thành nhịp đồ họa cho ý tưởng tuần hoàn: hoa đi qua một mùa, giá trị được kể tiếp." aria-pressed="false"><svg aria-hidden="true"><use href="assets/viet-motifs.svg#drum"/></svg><span>Vòng Đông Sơn</span></button><button class="motif-choice" data-motif="wave" data-title="Thủy ba" data-copy="Các lớp sóng nối nhau tạo nhịp chuyển đoạn, gợi dòng chảy liên tục giữa những giá trị cũ và đời sống mới." aria-pressed="false"><svg aria-hidden="true"><use href="assets/viet-motifs.svg#wave"/></svg><span>Thủy ba</span></button><button class="motif-choice" data-motif="cloud" data-title="Vân mây" data-copy="Đường mây mềm được đưa vào khoảng trống và khung thiệp, cùng ngôn ngữ thị giác với làn hương." aria-pressed="false"><svg aria-hidden="true"><use href="assets/viet-motifs.svg#cloud"/></svg><span>Vân mây</span></button><button class="motif-choice" data-motif="lattice" data-title="Kỷ hà" data-copy="Nét vuông và hình thoi đan xen gợi khung cửa gỗ, tạo cấu trúc cho những câu chuyện đương đại." aria-pressed="false"><svg aria-hidden="true"><use href="assets/viet-motifs.svg#lattice"/></svg><span>Kỷ hà</span></button><button class="motif-choice" data-motif="lotus" data-title="Sen" data-copy="Dáng cánh sen giản lược kết nối bộ họa tiết với hoa và logo Hồi Mẫn." aria-pressed="false"><svg aria-hidden="true"><use href="assets/viet-motifs.svg#lotus"/></svg><span>Sen</span></button><button class="motif-choice" data-motif="carp" data-title="Cá chép" data-copy="Dáng cá uốn mình mang nhịp chuyển động vào bộ nét vẽ, gợi một khởi đầu mới." aria-pressed="false"><svg aria-hidden="true"><use href="assets/viet-motifs.svg#carp"/></svg><span>Cá chép</span></button><button class="motif-choice" data-motif="rooster" data-title="Gà trống" data-copy="Hình gà trống cách điệu lấy cảm hứng từ ngôn ngữ tranh dân gian, dùng làm điểm nhấn nhỏ trên nền giấy ấm." aria-pressed="false"><svg aria-hidden="true"><use href="assets/viet-motifs.svg#rooster"/></svg><span>Gà trống</span></button><button class="motif-choice" data-motif="roof" data-title="Nếp mái" data-copy="Đường mái và nhịp ngói được giản lược thành đường viền, gợi kiến trúc nhà Việt trong bố cục hiện đại." aria-pressed="false"><svg aria-hidden="true"><use href="assets/viet-motifs.svg#roof"/></svg><span>Nếp mái</span></button><button class="motif-choice" data-motif="lantern" data-title="Đèn lồng" data-copy="Dáng đèn và nan dọc mang sắc ấm vào phần chuyển đoạn, gợi một không gian phố và nghề." aria-pressed="false"><svg aria-hidden="true"><use href="assets/viet-motifs.svg#lantern"/></svg><span>Đèn lồng</span></button><button class="motif-choice" data-motif="boat" data-title="Thuyền" data-copy="Nét thuyền nhẹ gợi đời sống ven sông và những dòng chảy nối tiếp." aria-pressed="false"><svg aria-hidden="true"><use href="assets/viet-motifs.svg#boat"/></svg><span>Thuyền</span></button><button class="motif-choice" data-motif="kite" data-title="Diều" data-copy="Dáng diều gợi trò chơi ngoài trời, được dùng như một điểm chuyển động nhẹ trong bộ nét Việt." aria-pressed="false"><svg aria-hidden="true"><use href="assets/viet-motifs.svg#kite"/></svg><span>Diều</span></button><button class="motif-choice" data-motif="pottery" data-title="Gốm" data-copy="Dáng gốm mộc gợi chất liệu của đế hương và góc sống, liên kết với trải nghiệm Hồi Mẫn." aria-pressed="false"><svg aria-hidden="true"><use href="assets/viet-motifs.svg#pottery"/></svg><span>Gốm</span></button><button class="motif-choice" data-motif="weave" data-title="Nong đan" data-copy="Nhịp nan đan tạo lớp nền và bề mặt chơi, nối trực tiếp với mẹt tre trong Xưởng hương." aria-pressed="false"><svg aria-hidden="true"><use href="assets/viet-motifs.svg#weave"/></svg><span>Nong đan</span></button><button class="motif-choice" data-motif="leaf" data-title="Lá" data-copy="Gân lá gợi vật liệu tự nhiên và cách gói bọc mộc mạc, phù hợp tinh thần trân trọng nguyên liệu." aria-pressed="false"><svg aria-hidden="true"><use href="assets/viet-motifs.svg#leaf"/></svg><span>Lá</span></button><button class="motif-choice" data-motif="cup" data-title="Trà cụ" data-copy="Một dáng chén và đường hơi trà đưa nhịp sống chậm vào những khoảng nghỉ trên trang." aria-pressed="false"><svg aria-hidden="true"><use href="assets/viet-motifs.svg#cup"/></svg><span>Trà cụ</span></button></div><div class="motif-caption" aria-live="polite"><strong id="motif-name">Chim Lạc</strong><p id="motif-description">Một đường bay thanh thoát được cách điệu thành nét dài, gợi tinh thần tiếp nối trong câu chuyện Hồi Mẫn.</p></div><p class="motif-note">Bộ nét vẽ đương đại lấy cảm hứng từ các mô-típ Việt; không phải bản sao hiện vật hay mẫu hoa văn lịch sử.</p></div></div>        <div class="heritage-sound"><div><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 10v4m4-7v10m4-13v16m4-13v10m4-7v4"/></svg><span>Lắng nghe một nhịp Việt.<small>Không gian âm thanh concept · chạm để bật</small></span></div><div class="soundscape-chips" role="group" aria-label="Chọn không gian âm thanh"><button data-soundscape="courtyard" aria-pressed="false">Sân nhà <span aria-hidden="true"><svg class="ui-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 19 19 5M5 5h14v14"/></svg></span></button><button data-soundscape="bamboo" aria-pressed="false">Tre & gió <span aria-hidden="true"><svg class="ui-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 19 19 5M5 5h14v14"/></svg></span></button><button data-soundscape="modern" aria-pressed="false">Nhịp mới <span aria-hidden="true"><svg class="ui-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 19 19 5M5 5h14v14"/></svg></span></button></div></div>
+      </div>
+    </section>
+
+
+
+<section class="rebloom-sort section" id="cuu-mua-hoa" aria-labelledby="sort-title"><div class="wrap"><div class="section-meta"><span>Rebloom play / 01</span><span>Mỗi cánh hoa còn một hành trình</span></div><div class="section-heading"><h2 id="sort-title">Giữ lại một mùa hoa.<br><em>Mở một mùa hương.</em></h2><p>Hoa sau một phiên chợ, những mảnh dây buộc còn lẫn trong mẹt. Chạm, giữ và kéo để phân loại: hoa vào mẹt nguyên liệu, dây buộc vào khay tạp chất.</p></div><div class="sort-layout"><canvas id="sort-canvas" width="960" height="650" tabindex="0" role="group" aria-label="Phân loại hoa bằng kéo thả" aria-describedby="sort-help"></canvas><div class="sort-copy"><span class="eyebrow">Trạm 01 / giữ lại nguyên liệu</span><h3>Một bàn tay.<br>Một vòng đời mới.</h3><p id="sort-message" role="status" aria-live="polite">Kéo từng bông hoa vào mẹt bên trái. Tách dây buộc vào khay bên phải.</p><progress id="sort-progress" value="0" max="8" aria-label="Số vật đã phân loại"></progress><p id="sort-help">Chạm & kéo trên màn hình hoặc giữ chuột để di chuyển. Với bàn phím: mũi tên trái chọn mẹt hoa, phải chọn khay tạp chất cho vật đang sáng.</p><button id="sort-reset" class="craft-restart">Bắt đầu một mùa mới</button><a id="sort-next" class="button button-dark" href="#xuong-huong" hidden>Đưa hoa đến xưởng hương <svg class="ui-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 18 18 6M6 6h12v12"/></svg></a><p class="print-footnote">Mô phỏng câu chuyện dự án; việc đánh giá nguyên liệu thực tế cần quy trình kiểm tra riêng. Số hoa trong game không quy đổi thành tác động môi trường.</p></div></div></div></section>    <section class="soul-film wrap" aria-labelledby="soul-film-title"><div class="soul-film-copy"><span class="eyebrow">Nếp nghề Việt</span><h2 id="soul-film-title">Đằng sau một bó nhang.</h2><p>Một góc nhìn về nghề làm hương và những bàn tay gìn giữ nếp nghề.</p></div><div class="credited-films"><figure><video controls playsinline preload="none" data-source-film poster="assets/soul-of-viet-nam-poster.webp" width="512" height="910" aria-label="Đằng sau một bó nhang — Soul of Viet Nam"><source src="assets/soul-of-viet-nam-incense.mp4" type="video/mp4">Trình duyệt của bạn không hỗ trợ phát video.</video><figcaption>Nguồn: <strong>Soul of Viet Nam</strong></figcaption></figure><figure class="hoa-huong-film"><video controls playsinline preload="none" data-source-film poster="assets/hoa-huong-poster.webp" width="910" height="512" aria-label="Nghề làm hương — Hoạ Hương"><source src="assets/hoa-huong-craft.mp4" type="video/mp4">Trình duyệt của bạn không hỗ trợ phát video.</video><figcaption>Nguồn: <strong>Hoạ Hương</strong></figcaption></figure><figure class="hoa-huong-workshop-film"><video controls playsinline preload="none" data-source-film poster="assets/hoa-huong-workshop-poster.webp" width="512" height="910" aria-label="Một góc xưởng hương — Hoạ Hương"><source src="assets/hoa-huong-workshop.mp4" type="video/mp4">Trình duyệt của bạn không hỗ trợ phát video.</video><figcaption>Nguồn: <strong>Hoạ Hương</strong></figcaption></figure></div></section><details class="optional-experience wrap"><summary>Trải nghiệm se hương<span aria-hidden="true"><svg class="ui-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 5v14M5 12h14"/></svg></span></summary><section class="craft-section section" id="xuong-huong" aria-labelledby="craft-title">
+      <div class="wrap">
+        <div class="section-meta"><span>Chạm vào một nếp nghề</span><span>Trải nghiệm tương tác / 01</span></div>
+        <div class="craft-heading"><div><img class="atelier-logo-color" src="assets/logo-rebloom.svg" width="362" height="197" alt="Biểu tượng hoa Hồi Mẫn / ReBloom"><span class="eyebrow">Hồi mẫn · xưởng hương nhỏ</span><a class="atelier-jump" href="#in-sac-viet">Khám phá xưởng in <svg class="ui-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 4v16m-6-6 6 6 6-6"/></svg></a><h2 id="craft-title">Se một mùa hương.<br><em>Từ hoa đã qua sơ chế.</em></h2></div><p>Bạn vừa giữ lại một mùa hoa. Giờ hãy sàng bột, se từng nén hương và xòe thành một bó hương Việt — hình dung hành trình nguyên liệu của ReBloom.</p></div>
+        <div class="craft-frame">
+          <ol class="craft-steps" aria-label="Tiến trình trải nghiệm"><li aria-current="step"><span>01</span>Nhặt cánh</li><li><span>02</span>Sàng bột</li><li><span>03</span>Se hương</li><li><span>04</span>Xòe hương</li></ol>
+          <div class="craft-layout">
+            <div class="craft-stage"><canvas id="craft-canvas" width="960" height="840" aria-label="Kéo cánh hoa vào mẹt tre để bắt đầu." role="group" tabindex="0" aria-describedby="craft-instruction craft-keyboard-help"></canvas><span class="craft-stage-label">Tre · hoa · bàn tay · nếp nghề</span><span class="craft-grain" aria-hidden="true"></span></div>
+            <div class="craft-controls"><span class="eyebrow" id="craft-step-label">Bước 01 / nhặt cánh</span><h3 id="craft-task-title">Giữ lại<br>những cánh hoa.</h3><p id="craft-instruction">Giữ và kéo từng cánh hoa vào vòng tròn giữa mẹt tre. Thả tay để đặt hoa xuống.</p><div class="craft-progress-label"><span id="craft-progress-text">0 / 6 cánh hoa</span><span id="craft-percent">0%</span></div><progress id="craft-progress" max="100" value="0" aria-label="Tiến độ bước hiện tại"></progress><div class="craft-gesture-cue"><span class="gesture-track" aria-hidden="true"><i></i></span><p id="craft-gesture-hint">Kéo từng cánh hoa vào mẹt</p><small>Chạm & kéo / giữ chuột & di chuyển</small></div><p class="sr-only" id="craft-keyboard-help">Dùng phím mũi tên, Enter hoặc phím cách để thực hiện thao tác tương đương.</p><button class="craft-restart" id="craft-restart">Làm lại từ đầu</button><p class="craft-context" id="craft-context">Mẹt tre trở thành nơi bắt đầu: chọn, giữ và trân trọng từng phần nguyên liệu.</p></div>
+          </div>
+          <div class="craft-result" id="craft-result" hidden><div><span class="eyebrow">Một mùa hương do bạn tạo</span><h3>Gửi một nếp an.</h3><p>Thêm tên và lời gửi gắm để lưu tấm thiệp của riêng bạn.</p></div><div class="craft-card-form"><label for="craft-name">Tên người gửi</label><input id="craft-name" maxlength="32" placeholder="Tên của bạn" autocomplete="given-name"><label for="craft-wish">Lời gửi gắm</label><select id="craft-wish"><option>Một nếp an, một ngày mới.</option><option>Giữ điều đẹp. Gửi điều lành.</option><option>Mong những ngày bình yên ở lại.</option></select><button class="button button-dark" id="craft-download">Tải thiệp PNG</button></div></div>
+        </div>
+        <p class="craft-disclaimer">Trò chơi mô phỏng lấy cảm hứng từ nghề làm hương Việt. Các thao tác được giản lược cho trải nghiệm, không phải hướng dẫn hay công thức sản xuất.</p><p class="sr-only" id="craft-status" role="status" aria-live="polite"></p>
+      </div>
+    </section></details>
+
+<details class="optional-experience wrap"><summary>Khám phá xưởng in<span aria-hidden="true"><svg class="ui-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 5v14M5 12h14"/></svg></span></summary><section class="print-section section" id="in-sac-viet" aria-labelledby="print-title"><div class="wrap"><div class="section-meta"><span>Sân chơi nếp Việt / 02</span><span>Vẽ bằng chạm. Kể bằng nét.</span></div><div class="print-heading"><div><span class="eyebrow">Xưởng in nhỏ</span><h2 id="print-title">In dấu ReBloom.<br><em>Gửi một mùa hoa.</em></h2></div><p>Thiết kế tấm nhãn cho mùa hương của bạn: chọn hoa văn Việt, lăn mực, miết giấy và kéo góc nhãn để hé lộ dấu ấn ReBloom.</p></div><div class="print-options"><div class="print-motifs" role="group" aria-label="Chọn hình in"><button data-print-motif="rooster" aria-pressed="true"><svg aria-hidden="true"><use href="assets/viet-motifs.svg#rooster"/></svg>Gà trống</button><button data-print-motif="carp" aria-pressed="false"><svg aria-hidden="true"><use href="assets/viet-motifs.svg#carp"/></svg>Cá chép</button><button data-print-motif="lotus" aria-pressed="false"><svg aria-hidden="true"><use href="assets/viet-motifs.svg#lotus"/></svg>Sen</button></div><div class="print-colors" role="group" aria-label="Chọn màu mực"><button data-print-color="#994732" aria-label="Mực đỏ son" aria-pressed="true" style="--swatch:#994732"></button><button data-print-color="#354d3b" aria-label="Mực xanh lá trầm" aria-pressed="false" style="--swatch:#354d3b"></button><button data-print-color="#282b29" aria-label="Mực đen" aria-pressed="false" style="--swatch:#282b29"></button></div></div><div class="print-layout"><div class="print-stage"><canvas id="print-canvas" width="960" height="900" tabindex="0" role="group" aria-label="Lăn mực: giữ và kéo trên khuôn gỗ." aria-describedby="print-instruction print-keyboard"></canvas><span class="print-stage-note">Nét Việt · giấy ấm · mực son</span></div><div class="print-controls"><span class="eyebrow" id="print-step">01 / lăn mực</span><h3 id="print-task">Một lượt mực.<br>Một nét bắt đầu.</h3><p id="print-instruction">Giữ ngón tay hoặc chuột, kéo con lăn phủ mực lên khắp khuôn gỗ.</p><progress id="print-progress" max="100" value="0" aria-label="Tiến độ in tranh"></progress><p class="print-hint" id="print-hint">Lăn qua các vùng chưa có mực.</p><div class="print-result" id="print-result" hidden><label for="print-name">Tên trên bức tranh</label><input id="print-name" maxlength="32" placeholder="Tên của bạn" autocomplete="given-name"><button class="button button-dark" id="print-download">Tải nhãn ReBloom PNG</button></div><button class="craft-restart" id="print-reset">In một bức mới</button><p class="print-footnote">Xưởng nhãn concept ReBloom lấy cảm hứng từ in tranh dân gian. Tấm nhãn gắn câu chuyện đưa hoa trở về hương với hình thức bao bì Việt đương đại.</p><p class="sr-only" id="print-keyboard">Dùng mũi tên hoặc phím cách để thực hiện thao tác tương đương.</p></div></div><p id="print-status" class="sr-only" role="status" aria-live="polite"></p></div></section></details>
+    
+
+    <section class="journey section" id="hanh-trinh" aria-labelledby="journey-title">
+      <div class="wrap">
+        <div class="section-meta reveal"><span>03 — hành trình từ hoa đến hương</span><span>From petals to possibility</span></div>
+        <div class="journey-heading reveal"><h2 id="journey-title">Không phải kết thúc.<br><em>Là một khởi đầu khác.</em></h2><p>Chọn từng chặng để theo dấu cánh hoa.<br>Đây là quy trình dự kiến của dự án.</p></div>
+        <div class="journey-layout">
+          <div class="journey-tabs" role="tablist" aria-label="Các giai đoạn từ hoa đến hương">
+            <button class="journey-tab is-active" id="journey-tab-0" role="tab" aria-selected="true" aria-controls="journey-panel" data-step="0"><span>01</span><div><strong>Thu gom</strong><small>Trân trọng nguồn hoa</small></div><span aria-hidden="true"><svg class="ui-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 19 19 5M5 5h14v14"/></svg></span></button>
+            <button class="journey-tab" id="journey-tab-1" role="tab" aria-selected="false" aria-controls="journey-panel" tabindex="-1" data-step="1"><span>02</span><div><strong>Sơ chế</strong><small>Chuẩn bị một vòng đời mới</small></div><span aria-hidden="true"><svg class="ui-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 19 19 5M5 5h14v14"/></svg></span></button>
+            <button class="journey-tab" id="journey-tab-2" role="tab" aria-selected="false" aria-controls="journey-panel" tabindex="-1" data-step="2"><span>03</span><div><strong>Tạo hình</strong><small>Đi từ hoa đến hương</small></div><span aria-hidden="true"><svg class="ui-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 19 19 5M5 5h14v14"/></svg></span></button>
+            <button class="journey-tab" id="journey-tab-3" role="tab" aria-selected="false" aria-controls="journey-panel" tabindex="-1" data-step="3"><span>04</span><div><strong>Hoàn thiện</strong><small>Tiếp nối những giá trị</small></div><span aria-hidden="true"><svg class="ui-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 19 19 5M5 5h14v14"/></svg></span></button>
+          </div>
+          <div class="journey-panel" id="journey-panel" role="tabpanel" aria-labelledby="journey-tab-0" tabindex="0">
+            <div class="journey-art" aria-hidden="true"><img src="assets/nep-viet-craft.webp" alt="" loading="lazy" width="1672" height="941"><div class="journey-art-overlay"></div><span class="journey-big-number" id="step-number">01</span><span class="journey-art-label" id="step-art-label">Every flower has a story</span></div>
+            <div class="journey-panel-copy"><span class="eyebrow" id="step-stage">Giai đoạn 01 / nguyên liệu</span><h3 id="step-title">Điều đẹp đẽ<br>bắt đầu từ hoa.</h3><p id="step-description">Hoa đã qua sử dụng từ các điểm thờ tự, chợ hoa, hộ gia đình, cửa hàng và sự kiện được dự kiến thu gom riêng. Phân loại ngay từ đầu giúp nhóm xác định nguồn nguyên liệu phù hợp.</p><div class="step-detail" id="step-detail"><span>Nguồn hoa</span><p>Điểm thờ tự · Chợ hoa · Khu dân cư · Sự kiện</p></div></div>
+          </div>
+        </div>
+      </div>
+    </section><section class="flower-partners section" id="gui-hoa" aria-labelledby="flower-partners-title"><svg class="nature-scroll-flower" viewBox="0 0 140 160" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true" focusable="false"><path class="bloom-stem" d="M70 153V92m0 43c-25 0-41-18-43-35 24 0 38 14 43 35Zm0-13c25 0 41-17 43-34-24 0-38 13-43 34Z"/><g class="bloom-petals"><path d="M70 94C47 77 44 48 70 18c26 30 23 59 0 76Z"/><path d="M70 94C41 98 23 78 20 49c30 0 47 15 50 45Z"/><path d="M70 94c29 4 47-16 50-45-30 0-47 15-50 45Z"/><path d="M70 94C42 109 18 99 8 79c25-11 44-7 62 15Zm0 0c28 15 52 5 62-15-25-11-44-7-62 15Z"/></g></svg><div class="wrap"><div class="section-meta"><span>Cùng ReBloom nối tiếp câu chuyện của hoa</span><span>Đang tìm kiếm đối tác nguồn hoa</span></div><div class="flower-partners-layout"><div><h2 id="flower-partners-title">Gửi hoa,<br>nối tiếp hương.</h2><p class="flower-invite">Sau những ngày vui, hay khi một mùa hoa khép lại, hương thơm vẫn còn một hành trình phía trước. ReBloom mong cùng bạn nâng niu những cánh hoa ấy — từ hoa, trở về hương.</p><p>ReBloom mong được kết nối cùng cửa hàng hoa, tiểu thương, cá nhân, nhà hàng, trung tâm sự kiện và wedding planner.</p><ol class="partner-steps"><li><strong>01 · Chia sẻ nguồn hoa</strong><span>Loại hoa, tình trạng, lượng ước tính, địa điểm và thời điểm có hoa.</span></li><li><strong>02 · Cùng trao đổi</strong><span>Nhóm tìm hiểu mức độ phù hợp của nguyên liệu và khả năng thu gom.</span></li><li><strong>03 · Thống nhất tiếp nhận</strong><span>Hai bên thống nhất cách thức, thời gian và điều kiện phù hợp.</span></li></ol><p class="motif-note">Việc tiếp nhận phụ thuộc tình trạng nguyên liệu, địa điểm và khả năng thu gom. Chưa cam kết nhận mọi loại hoa hoặc thu gom tận nơi.</p></div><form id="flower-source-form" class="flower-form"><h3>Kết nối nguồn hoa</h3><p>Điền thông tin để tạo lời nhắn. Bạn có thể sao chép và lưu lại; biểu mẫu chưa gửi dữ liệu cho ReBloom.</p><label>Bạn là<select name="source"><option>Cá nhân</option><option>Cửa hàng hoa / tiểu thương</option><option>Nhà hàng / trung tâm sự kiện</option><option>Wedding planner</option><option>Đơn vị khác</option></select></label><label>Loại hoa và tình trạng<textarea name="flowers" rows="3" required placeholder="Chia sẻ ngắn về nguồn hoa của bạn"></textarea></label><div class="flower-form-pair"><label>Lượng ước tính<input name="amount" placeholder="Ví dụ: khoảng 2 kg"></label><label>Thời điểm có hoa<input name="when" placeholder="Ngày dự kiến hoặc tần suất"></label></div><label>Khu vực / địa điểm<input name="location" required placeholder="Quận / huyện, tỉnh / thành"></label><label>Thông tin liên hệ<input name="contact" placeholder="Tên và email hoặc số điện thoại"></label><button class="button button-dark" type="submit">Tạo lời nhắn kết nối <span aria-hidden="true"><svg class="ui-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 18 18 6M6 6h12v12"/></svg></span></button><p class="motif-note">Thông tin chỉ dùng để tạo bản nháp trên thiết bị, không tự động gửi đi. Kênh tiếp nhận chính thức đang được cập nhật.</p></form></div></div></section>
+
+    
+
+    <details class="optional-experience wrap"><summary>Dành một phút thư giãn<span aria-hidden="true"><svg class="ui-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 5v14M5 12h14"/></svg></span></summary><section class="ritual section" id="khoang-lang" aria-labelledby="ritual-title"><div class="viet-section-mark" aria-hidden="true"><svg><use href="assets/viet-motifs.svg#drum"/></svg></div>
+      <div class="wrap">
+        <div class="section-meta reveal"><span>04 — một khoảng lặng</span><span>Take a moment, make it yours</span></div>
+        <div class="ritual-grid">
+          <div class="ritual-copy reveal"><span class="quiet-label">Một trải nghiệm nhỏ dành cho bạn</span><h2 id="ritual-title">Chậm một nhịp.<br><em>Gần mình hơn.</em></h2><p>Đặt những vội vàng xuống một chút.<br>Chọn một khoảng thời gian, nhìn theo vòng sáng và hít thở ở nhịp độ bạn thấy thoải mái.</p><div class="duration-options" role="group" aria-label="Chọn thời gian khoảng lặng"><button class="duration-option is-active" data-duration="60" aria-pressed="true">1 phút</button><button class="duration-option" data-duration="180" aria-pressed="false">3 phút</button><button class="duration-option" data-duration="300" aria-pressed="false">5 phút</button></div><div class="ritual-actions"><button class="button button-dark" id="ritual-start">Bắt đầu khoảng lặng <span aria-hidden="true"><svg class="ui-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 19 19 5M5 5h14v14"/></svg></span></button><button class="ritual-reset" id="ritual-reset" aria-label="Bắt đầu lại khoảng lặng" hidden><svg class="ui-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 10a8 8 0 1 1 1 8M4 4v6h6"/></svg></button></div><p class="ritual-note">Bạn có thể tạm dừng bất cứ lúc nào.</p></div>
+          <div class="ritual-visual" id="ritual-visual"><canvas class="smoke-canvas ritual-smoke" data-smoke aria-hidden="true"></canvas><div class="ritual-halo" aria-hidden="true"></div><div class="ritual-orbit orbit-one" aria-hidden="true"></div><div class="ritual-orbit orbit-two" aria-hidden="true"></div><div class="ritual-orbit orbit-three" aria-hidden="true"></div><svg class="ritual-progress" viewBox="0 0 300 300" aria-hidden="true"><circle cx="150" cy="150" r="145" class="ritual-track"/><circle cx="150" cy="150" r="145" class="ritual-track-fill" id="ritual-progress"/></svg><div class="ritual-center"><span class="ritual-flower" aria-hidden="true"><svg class="petal-mark" viewBox="0 0 100 100" aria-hidden="true"><path d="M50 83C20 65 21 35 50 12c29 23 30 53 0 71ZM50 83C21 85 8 65 12 39c24 0 38 17 38 44ZM50 83c29 2 42-18 38-44-24 0-38 17-38 44Z"/></svg></span><span id="ritual-phase">Một khoảng an</span><strong id="ritual-time">01:00</strong><span class="ritual-center-note" id="ritual-center-note">Chỉ cần hiện diện</span></div><p class="ritual-bottom">Hít vào nhẹ nhàng. Thở ra thảnh thơi.</p></div>
+        </div>
+        <p class="sr-only" id="ritual-announcement" role="status" aria-live="polite"></p>
+      </div>
+    </section></details>
+
+    <section class="notes section" aria-labelledby="notes-title">
+      <div class="wrap">
+        <div class="section-meta reveal"><span>05 — những ghi chép đang mở</span><span>Work in bloom</span></div>
+        <div class="notes-grid"><div class="notes-title reveal"><h2 id="notes-title">Chúng mình<br><em>đang bắt đầu.</em></h2><p>Mỗi câu hỏi được làm rõ là một bước để ý tưởng đến gần thực tế hơn.</p><button class="text-link" data-connect>Cùng viết chương tiếp theo <span aria-hidden="true"><svg class="ui-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 19 19 5M5 5h14v14"/></svg></span></button></div><div class="notes-list">
+          <details class="note reveal" open><summary><span>01</span><h3>Hồi Mẫn đang ở giai đoạn nào?</h3><span class="plus" aria-hidden="true"><svg class="ui-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 5v14M5 12h14"/></svg></span></summary><div class="note-body"><p>Dự án đang trong giai đoạn nghiên cứu và phát triển: khảo sát nguồn hoa, công thức nhang, quy trình sản xuất và nhận diện thương hiệu. Các mẫu trên website là hình ảnh concept; hiện chưa mở bán.</p></div></details>
+          <details class="note reveal"><summary><span>02</span><h3>Nhang hoa dự kiến được làm từ gì?</h3><span class="plus" aria-hidden="true"><svg class="ui-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 5v14M5 12h14"/></svg></span></summary><div class="note-body"><p>Thành phần Nhang thơm: Bột hoa đã qua sơ chế, tăm tre, bột bời lời, canxi cacbonat (CaCO₃) và hương liệu.</p></div></details>
+          <details class="note reveal"><summary><span>03</span><h3>Có thể đồng hành cùng dự án như thế nào?</h3><span class="plus" aria-hidden="true"><svg class="ui-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 5v14M5 12h14"/></svg></span></summary><div class="note-body"><p>Nhóm tìm kiếm cơ hội hợp tác về nguồn hoa, khảo sát làng nghề, sản xuất thử, kiểm nghiệm, thiết kế bao bì và phát triển kênh phân phối. Bạn có thể tạo một nội dung trao đổi ngắn qua nút “Kết nối”. Kênh liên hệ chính thức sẽ được nhóm bổ sung.</p></div></details>
+          <details class="note reveal"><summary><span>04</span><h3>Nến và túi thơm có trong kế hoạch không?</h3><span class="plus" aria-hidden="true"><svg class="ui-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 5v14M5 12h14"/></svg></span></summary><div class="note-body"><p>Đang nghiên cứu & phát triển: Nến thơm · Túi thơm · Các dòng refill - set quà tặng.</p></div></details>
+        </div></div>
+      </div>
+    </section>
+
+    <section class="connect section" id="ket-noi" aria-labelledby="connect-title"><div class="wrap connect-inner reveal"><span class="eyebrow">The next chapter is ours to create</span><h2 id="connect-title">Những điều đẹp đẽ<br><em>có thể bắt đầu cùng nhau.</em></h2><button class="button button-cream" data-connect>Soạn lời nhắn cho ReBloom <span aria-hidden="true"><svg class="ui-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 19 19 5M5 5h14v14"/></svg></span></button><p>Bạn muốn tìm hiểu sản phẩm hoặc hợp tác? Soạn lời nhắn để bắt đầu. Kênh liên hệ chính thức đang được cập nhật.</p><div class="connect-material" aria-hidden="true"><img src="assets/nep-viet-living.webp" alt="" loading="lazy" width="600" height="650"></div></div></section>
+  </main>
+
+  <footer class="footer"><div class="wrap"><div class="footer-top"><a class="brand footer-brand" href="#trang-chu" aria-label="Hồi Mẫn — về đầu trang"><svg class="footer-fragrance-trail" viewBox="0 0 80 100" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true" focusable="false"><path d="M39 96C8 70 70 67 43 43S23 14 43 3"/></svg><svg class="brand-logo-clean footer-draw-logo" viewBox="59 63 362 197" width="363" height="197" aria-hidden="true" focusable="false"><path fill="#d9989c" fill-rule="evenodd" stroke="#d9989c" stroke-width="1" d="M 240.191 72.559C 243.897 72.321 247.639 74.600 250.980 77.875C 254.320 81.149 257.250 85.234 259.370 89.389C 261.490 93.544 262.808 97.922 262.954 102.361C 263.101 106.800 262.094 111.297 260.234 115.586C 258.373 119.875 255.642 124.070 252.402 127.472C 249.162 130.873 245.433 133.337 241.664 133.549C 237.894 133.760 234.084 131.746 230.696 128.665C 227.308 125.583 224.356 121.530 222.247 117.276C 220.137 113.021 218.858 108.473 218.762 104.036C 218.666 99.599 219.761 95.276 221.688 91.100C 223.614 86.923 226.376 82.734 229.596 79.143C 232.816 75.552 236.485 72.797 240.191 72.559ZM 351.894 94.720C 356.567 94.504 361.279 94.628 366.016 94.919C 370.753 95.209 375.995 95.164 380.158 96.250C 384.320 97.336 382.737 103.080 379.209 106.486C 375.681 109.892 373.268 113.861 371.684 118.198C 370.100 122.536 369.011 127.093 367.784 131.584C 366.556 136.076 365.288 140.554 363.746 144.946C 362.203 149.338 360.400 153.646 358.350 157.836C 356.300 162.026 354.003 166.097 351.472 170.016C 348.941 173.935 346.177 177.701 343.193 181.280C 340.208 184.860 337.004 188.252 333.593 191.424C 330.182 194.595 326.564 197.546 322.753 200.241C 318.942 202.936 314.931 205.371 310.778 207.547C 306.626 209.724 302.334 211.644 297.968 213.318C 293.602 214.991 289.162 216.417 284.714 217.605C 280.265 218.793 275.806 219.744 271.243 220.628C 266.680 221.512 262.135 223.115 256.984 222.487C 251.833 221.860 252.570 218.810 256.522 216.143C 260.473 213.475 264.572 211.073 268.719 208.789C 272.867 206.504 277.063 204.338 281.211 202.141C 285.358 199.944 289.456 197.718 293.406 195.313C 297.357 192.908 301.160 190.326 304.718 187.418C 308.275 184.509 311.587 181.275 314.555 177.568C 317.523 173.860 320.191 169.592 322.127 165.274C 324.062 160.957 325.041 156.946 325.443 152.480C 325.845 148.014 327.408 139.956 324.516 138.621C 321.625 137.285 317.045 139.857 312.983 142.397C 308.922 144.937 304.771 147.789 300.708 150.133C 296.645 152.477 292.674 154.691 288.960 157.418C 285.246 160.145 281.763 163.281 278.486 166.661C 275.208 170.040 272.136 173.663 269.243 177.364C 266.350 181.065 263.657 184.812 261.044 188.581C 258.431 192.351 255.482 197.720 252.363 200.368C 249.244 203.016 248.634 197.607 249.121 192.866C 249.608 188.125 250.479 183.369 251.620 178.766C 252.761 174.164 254.201 169.669 255.918 165.302C 257.634 160.934 259.628 156.695 261.874 152.606C 264.121 148.516 266.622 144.576 269.353 140.806C 272.085 137.037 275.047 133.438 278.218 130.032C 281.389 126.626 284.769 123.411 288.333 120.412C 291.896 117.412 295.642 114.628 299.542 112.085C 303.442 109.541 307.495 107.239 311.674 105.202C 315.853 103.165 320.158 101.393 324.559 99.913C 328.960 98.432 333.457 97.242 338.023 96.369C 342.588 95.495 347.222 94.937 351.894 94.720ZM 104.654 96.097C 109.424 95.480 114.202 95.174 118.958 95.167C 123.713 95.160 128.446 95.453 133.126 96.036C 137.806 96.619 142.433 97.491 146.977 98.643C 151.521 99.795 155.982 101.226 160.329 102.926C 164.677 104.626 168.911 106.596 173.001 108.824C 177.091 111.053 181.038 113.540 184.810 116.276C 188.582 119.012 192.181 121.997 195.584 125.200C 198.987 128.403 202.195 131.825 205.187 135.436C 208.179 139.046 210.955 142.845 213.493 146.802C 216.032 150.759 218.333 154.874 220.376 159.118C 222.418 163.361 224.203 167.732 225.708 172.202C 227.213 176.671 228.476 181.259 229.274 185.823C 230.071 190.387 230.452 195.135 229.941 199.221C 229.429 203.306 225.554 199.853 222.699 195.993C 219.843 192.134 217.312 188.155 214.594 184.245C 211.876 180.334 209.082 176.488 206.084 172.881C 203.087 169.275 199.882 165.918 196.359 162.956C 192.837 159.994 189.029 157.381 185.077 154.883C 181.125 152.386 177.030 150.004 172.934 147.505C 168.837 145.006 164.817 142.037 160.675 139.923C 156.532 137.809 153.941 140.584 153.342 144.837C 152.743 149.090 153.328 153.951 154.637 158.662C 155.945 163.373 157.933 167.815 160.372 171.844C 162.811 175.872 165.721 179.539 168.943 182.882C 172.166 186.224 175.701 189.242 179.389 191.972C 183.078 194.703 186.921 197.147 190.912 199.441C 194.903 201.735 199.041 203.879 203.317 206.010C 207.594 208.140 212.154 210.228 216.455 212.515C 220.756 214.802 224.663 217.387 226.433 220.523C 228.204 223.659 221.719 223.629 216.863 223.110C 212.006 222.590 207.458 221.715 202.860 220.722C 198.262 219.729 193.716 218.547 189.252 217.139C 184.788 215.732 180.407 214.099 176.138 212.206C 171.870 210.313 167.713 208.151 163.703 205.730C 159.692 203.308 155.827 200.631 152.142 197.723C 148.457 194.816 144.952 191.677 141.661 188.333C 138.371 184.989 135.295 181.438 132.467 177.706C 129.640 173.975 127.061 170.061 124.765 165.991C 122.469 161.921 120.479 157.686 118.735 153.344C 116.990 149.001 115.470 144.557 114.031 140.096C 112.593 135.634 111.236 131.156 109.819 126.744C 108.402 122.332 107.057 117.955 104.917 113.868C 102.777 109.781 97.670 106.349 96.278 102.584C 94.885 98.819 99.884 96.713 104.654 96.097ZM 68.520 172.522C 70.101 171.130 76.865 175.105 81.506 177.303C 86.147 179.502 89.928 181.151 94.041 183.324C 98.154 185.496 102.329 187.925 106.482 190.417C 110.636 192.910 114.755 195.447 118.851 197.984C 122.946 200.522 127.021 203.066 131.096 205.590C 135.170 208.113 139.245 210.616 143.339 213.073C 147.434 215.530 151.547 217.942 155.708 220.269C 159.868 222.597 164.077 224.839 168.364 226.952C 172.651 229.065 177.017 231.049 181.492 232.860C 185.967 234.672 190.594 236.315 195.212 237.728C 199.831 239.141 204.408 240.320 208.664 241.194C 212.921 242.068 219.834 242.605 225.340 243.902C 230.847 245.200 225.181 247.026 220.659 248.401C 216.136 249.777 211.524 250.809 206.856 251.518C 202.188 252.227 197.464 252.613 192.719 252.697C 187.974 252.781 183.206 252.562 178.452 252.061C 173.697 251.560 168.955 250.776 164.259 249.730C 159.564 248.684 154.915 247.376 150.346 245.826C 145.778 244.276 141.291 242.484 136.918 240.470C 132.545 238.456 128.287 236.220 124.179 233.783C 120.070 231.346 116.111 228.707 112.293 225.880C 108.475 223.052 104.799 220.036 101.255 216.844C 97.711 213.652 94.299 210.284 91.012 206.753C 87.724 203.221 84.557 199.520 81.544 195.772C 78.530 192.024 75.658 188.423 73.009 184.345C 70.360 180.267 66.939 173.915 68.520 172.522ZM 407.799 173.745C 411.531 173.671 411.234 177.250 408.431 181.419C 405.628 185.588 402.414 189.466 399.358 193.258C 396.303 197.049 393.255 200.711 390.086 204.250C 386.916 207.788 383.613 211.207 380.166 214.477C 376.719 217.747 373.131 220.868 369.398 223.811C 365.665 226.753 361.787 229.517 357.760 232.072C 353.734 234.626 349.555 236.971 345.255 239.090C 340.956 241.208 336.535 243.101 332.025 244.753C 327.515 246.404 322.916 247.815 318.260 248.968C 313.603 250.122 308.889 251.018 304.149 251.643C 299.408 252.267 294.642 252.620 289.881 252.684C 285.121 252.748 280.365 252.525 275.648 251.998C 270.930 251.472 266.249 250.642 261.637 249.493C 257.025 248.345 250.992 246.793 252.527 245.329C 254.061 243.865 262.507 242.936 267.287 242.177C 272.067 241.418 276.709 240.295 281.257 238.925C 285.806 237.554 290.264 235.943 294.668 234.185C 299.072 232.426 303.417 230.506 307.713 228.457C 312.010 226.407 316.259 224.227 320.470 221.947C 324.681 219.667 328.856 217.286 333.004 214.835C 337.151 212.385 341.271 209.869 345.366 207.337C 349.461 204.805 353.531 202.257 357.579 199.745C 361.626 197.233 365.649 194.758 369.655 192.367C 373.661 189.976 377.663 187.655 381.859 185.256C 386.056 182.856 390.562 180.195 395.088 177.898C 399.615 175.602 404.067 173.819 407.799 173.745Z"/></svg><span>By ReBloom</span></a><p>Từ hoa, trở về hương.<br>Một khoảng lặng dành cho bạn.</p><a class="back-top" href="#trang-chu">Về đầu trang <span aria-hidden="true"><svg class="ui-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 20V4m-6 6 6-6 6 6"/></svg></span></a></div><div class="footer-bottom"><span>© 2026 Hồi Mẫn / dự án ReBloom</span><span>Website concept · Hình ảnh minh họa · Chưa mở bán</span><button id="privacy-open">Về bản trải nghiệm</button></div></div></footer>
+
+  <dialog class="product-dialog" id="product-dialog" aria-labelledby="product-dialog-title"><button class="dialog-close" data-close aria-label="Đóng chi tiết sản phẩm"><svg class="ui-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m6 6 12 12M18 6 6 18"/></svg></button><div class="product-dialog-image"><img id="product-dialog-image" src="assets/rebloom-lavender-studio.webp" alt="Nhang thơm ReBloom hương Lavender" width="1254" height="1254"><p class="product-photo-caption" id="product-photo-caption" aria-live="polite"></p><div class="product-photo-gallery" id="product-photo-gallery" role="group" aria-label="Chọn góc ảnh sản phẩm" hidden></div></div><div class="product-dialog-copy"><span class="eyebrow" id="product-dialog-category">Nhang hoa / concept</span><h2 id="product-dialog-title">Nhang thơm</h2><p class="dialog-lede" id="product-dialog-description"></p><div class="dialog-rule"></div><span class="quiet-label" id="product-option-label">Quy cách dự kiến</span><div class="product-options" id="product-options" role="group" aria-label="Chọn mùi hương hoặc hướng phát triển"></div><p class="option-note" id="product-option-note"></p><div class="product-details" id="product-details"></div><p class="dialog-fineprint">Đặt nhang trên đế chịu nhiệt, dùng nơi thông thoáng và luôn có người trông coi. Dập tắt hoàn toàn sau khi dùng. Bảo quản nơi khô ráo. Thời gian cháy chờ thử mẫu.</p><div class="dialog-actions"><button class="button button-dark" id="product-dialog-save">Lưu mẫu này <span aria-hidden="true"><svg class="ui-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 19 19 5M5 5h14v14"/></svg></span></button><button class="text-link" id="product-dialog-connect">Quan tâm mẫu này <span aria-hidden="true"><svg class="ui-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 19 19 5M5 5h14v14"/></svg></span></button></div><p class="dialog-fineprint">Hình ảnh minh họa tạm. Bao bì, logo và font chữ đang được hoàn thiện. Chưa có giá bán và chưa nhận đơn hàng.</p></div></dialog>
+
+  
+
+  <dialog class="saved-dialog" id="saved-dialog" aria-labelledby="saved-title"><button class="dialog-close" data-close aria-label="Đóng những mẫu đã lưu"><svg class="ui-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m6 6 12 12M18 6 6 18"/></svg></button><span class="eyebrow">Your little collection</span><h2 id="saved-title">Những mẫu<br><em>bạn đã lưu.</em></h2><div id="saved-list"></div><p class="dialog-fineprint">Danh sách được lưu trên trình duyệt bạn đang dùng.</p></dialog>
+
+  <dialog class="connect-dialog" id="connect-dialog" aria-labelledby="connect-dialog-title"><button class="dialog-close" data-close aria-label="Đóng kết nối"><svg class="ui-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m6 6 12 12M18 6 6 18"/></svg></button><span class="eyebrow">Let's make something meaningful</span><h2 id="connect-dialog-title">Cùng Hồi Mẫn<br><em>viết tiếp câu chuyện.</em></h2><p class="dialog-lede">Chọn chủ đề, chỉnh lời nhắn rồi sao chép để lưu hoặc gửi khi có kênh liên hệ chính thức. Đây là công cụ soạn lời nhắn, chưa gửi thông tin cho ReBloom.</p><div class="connect-options" role="group" aria-label="Chủ đề kết nối"><button class="connect-option is-active" data-connect-type="flowers" aria-pressed="true">Nguồn hoa</button><button class="connect-option" data-connect-type="production" aria-pressed="false">Sản xuất</button><button class="connect-option" data-connect-type="design" aria-pressed="false">Thiết kế & phát triển</button></div><label class="quiet-label" for="connect-draft">Nội dung trao đổi của bạn</label><textarea id="connect-draft" rows="6" spellcheck="false"></textarea><div class="dialog-actions"><button class="button button-dark" id="copy-connect">Sao chép nội dung <span aria-hidden="true"><svg class="ui-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 19 19 5M5 5h14v14"/></svg></span></button><span class="copy-status" id="copy-status" role="status"></span></div><p class="dialog-fineprint">Đây là bản nháp để bạn sao chép và trao đổi với nhóm khi có kênh liên hệ chính thức. Chưa gửi đăng ký, đặt hàng hoặc thanh toán.</p></dialog>
+
+  <dialog class="info-dialog" id="info-dialog" aria-labelledby="info-title"><button class="dialog-close" data-close aria-label="Đóng thông tin"><svg class="ui-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m6 6 12 12M18 6 6 18"/></svg></button><span class="eyebrow">About this experience</span><h2 id="info-title">Về bản trải nghiệm.</h2><p>Website giới thiệu định hướng thương hiệu Hồi Mẫn của dự án ReBloom. Nội dung dự án dựa trên hồ sơ do nhóm cung cấp; tên mẫu và hình ảnh là concept để trình bày hướng thiết kế.</p><p>Danh sách mẫu yêu thích được lưu cục bộ trên trình duyệt. Bộ đếm khoảng lặng và nội dung kết nối chạy trên thiết bị; website không xử lý đơn hàng hay gửi biểu mẫu.</p><p>Công thức, đặc tính sản phẩm, kết quả kiểm nghiệm và kênh liên hệ chính thức sẽ được nhóm cập nhật trong quá trình phát triển.</p></dialog>
+  <dialog class="sound-dialog" id="sound-dialog" aria-labelledby="sound-dialog-title"><button class="dialog-close" data-close aria-label="Đóng không gian âm thanh"><svg class="ui-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m6 6 12 12M18 6 6 18"/></svg></button><span class="eyebrow">A contemporary sound study</span><h2 id="sound-dialog-title">Một nhịp nghe.<br><em>Một khoảng gần.</em></h2><p class="dialog-lede">Bắt đầu bằng Khoảng an: gió nhẹ, giọt nước và tiếng ngân rất nhỏ. Đàn bầu, đàn môi và chiêng trống là lựa chọn thêm khi bạn muốn nghe âm sắc Việt. Không gian gợi nếp nhà, sân đình và xưởng hoa ReBloom.</p><div class="sound-library-meta"><span>08 bản phối</span><span>10 lớp âm / phối theo ý bạn</span></div><div class="soundscape-cards" role="group" aria-label="Chọn bản phối"><button data-soundscape="quiet" aria-pressed="false"><span>01 / thư giãn nhẹ</span><strong>Khoảng an</strong><small>Chuông · gió · nước</small><i aria-hidden="true"><svg class="ui-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 18 18 6M6 6h12v12"/></svg></i></button><button data-soundscape="courtyard" aria-pressed="false"><span>02 / tự chọn</span><strong>Hiên nhà</strong><small>Đàn bầu · gió · chuông</small><i aria-hidden="true"><svg class="ui-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 18 18 6M6 6h12v12"/></svg></i></button><button data-soundscape="bamboo" aria-pressed="false"><span>03 / tự chọn</span><strong>Nếp núi</strong><small>Đàn môi · nhịp tre · gió</small><i aria-hidden="true"><svg class="ui-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 18 18 6M6 6h12v12"/></svg></i></button><button data-soundscape="modern" aria-pressed="false"><span>04 / tự chọn</span><strong>Hương & gió</strong><small>Gió · than hương</small><i aria-hidden="true"><svg class="ui-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 18 18 6M6 6h12v12"/></svg></i></button><button data-soundscape="rainy" aria-pressed="false"><span>05 / tự chọn</span><strong>Một chiều mưa</strong><small>Đàn bầu · mưa dịu</small><i aria-hidden="true"><svg class="ui-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 18 18 6M6 6h12v12"/></svg></i></button><button data-soundscape="workshop" aria-pressed="false"><span>06 / tự chọn</span><strong>Xưởng ReBloom</strong><small>Tre · giấy · gió</small><i aria-hidden="true"><svg class="ui-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 18 18 6M6 6h12v12"/></svg></i></button><button data-soundscape="festival" aria-pressed="false"><span>07 / tự chọn</span><strong>Nhịp sân đình</strong><small>Chiêng trống · gió</small><i aria-hidden="true"><svg class="ui-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 18 18 6M6 6h12v12"/></svg></i></button><button data-soundscape="river" aria-pressed="false"><span>08 / tự chọn</span><strong>Bên dòng nước</strong><small>Giọt nước · đàn bầu</small><i aria-hidden="true"><svg class="ui-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 18 18 6M6 6h12v12"/></svg></i></button></div><div class="sound-mixer-heading"><h3>Phối một nhịp riêng.</h3><button class="text-link" id="sound-save-mix">Lưu bản phối của tôi <svg class="ui-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 18 18 6M6 6h12v12"/></svg></button></div><p class="sound-mixer-help">Chọn bản phối ở trên để nghe ngay. Bật thêm lớp âm, nghe riêng hoặc kéo thanh âm lượng để tinh chỉnh. Bản phối được lưu trên thiết bị này.</p><div class="sound-layer-grid"><article class="sound-layer"><label class="sound-layer-title"><input type="checkbox" data-layer="courtyard"><span><strong>Đàn bầu</strong><small>Bản thu · Nguyễn Thanh Tùng</small></span></label><button class="sound-solo" data-solo="courtyard" aria-label="Nghe riêng Đàn bầu">Nghe riêng</button><div class="sound-layer-volume"><input type="range" min="0" max="100" value="65" data-layer-volume="courtyard" aria-label="Âm lượng Đàn bầu"><output data-layer-output="courtyard">65%</output></div></article><article class="sound-layer"><label class="sound-layer-title"><input type="checkbox" data-layer="bamboo" ><span><strong>Đàn môi</strong><small>Bản thu · Cassa342</small></span></label><button class="sound-solo" data-solo="bamboo" aria-label="Nghe riêng Đàn môi">Nghe riêng</button><div class="sound-layer-volume"><input type="range" min="0" max="100" value="45" data-layer-volume="bamboo" aria-label="Âm lượng Đàn môi"><output data-layer-output="bamboo">45%</output></div></article><article class="sound-layer"><label class="sound-layer-title"><input type="checkbox" data-layer="gong" ><span><strong>Chiêng & trống</strong><small>Bản thu tại Đà Nẵng · Dragfyre</small></span></label><button class="sound-solo" data-solo="gong" aria-label="Nghe riêng Chiêng & trống">Nghe riêng</button><div class="sound-layer-volume"><input type="range" min="0" max="100" value="25" data-layer-volume="gong" aria-label="Âm lượng Chiêng & trống"><output data-layer-output="gong">25%</output></div></article><article class="sound-layer"><label class="sound-layer-title"><input type="checkbox" data-layer="rain" ><span><strong>Mưa dịu</strong><small>Bản thu mưa · Effib · không ghi tại Việt Nam</small></span></label><button class="sound-solo" data-solo="rain" aria-label="Nghe riêng Mưa dịu">Nghe riêng</button><div class="sound-layer-volume"><input type="range" min="0" max="100" value="45" data-layer-volume="rain" aria-label="Âm lượng Mưa dịu"><output data-layer-output="rain">45%</output></div></article><article class="sound-layer"><label class="sound-layer-title"><input type="checkbox" data-layer="wind" checked ><span><strong>Gió qua hiên</strong><small>Không gian mô phỏng</small></span></label><button class="sound-solo" data-solo="wind" aria-label="Nghe riêng Gió qua hiên">Nghe riêng</button><div class="sound-layer-volume"><input type="range" min="0" max="100" value="35" data-layer-volume="wind" aria-label="Âm lượng Gió qua hiên"><output data-layer-output="wind">35%</output></div></article><article class="sound-layer"><label class="sound-layer-title"><input type="checkbox" data-layer="water" checked ><span><strong>Giọt nước</strong><small>Không gian mô phỏng</small></span></label><button class="sound-solo" data-solo="water" aria-label="Nghe riêng Giọt nước">Nghe riêng</button><div class="sound-layer-volume"><input type="range" min="0" max="100" value="20" data-layer-volume="water" aria-label="Âm lượng Giọt nước"><output data-layer-output="water">20%</output></div></article><article class="sound-layer"><label class="sound-layer-title"><input type="checkbox" data-layer="tre" ><span><strong>Nhịp tre</strong><small>Tiếng gõ mô phỏng</small></span></label><button class="sound-solo" data-solo="tre" aria-label="Nghe riêng Nhịp tre">Nghe riêng</button><div class="sound-layer-volume"><input type="range" min="0" max="100" value="35" data-layer-volume="tre" aria-label="Âm lượng Nhịp tre"><output data-layer-output="tre">35%</output></div></article><article class="sound-layer"><label class="sound-layer-title"><input type="checkbox" data-layer="bell" checked ><span><strong>Chuông ngân</strong><small>Âm ngân mô phỏng</small></span></label><button class="sound-solo" data-solo="bell" aria-label="Nghe riêng Chuông ngân">Nghe riêng</button><div class="sound-layer-volume"><input type="range" min="0" max="100" value="18" data-layer-volume="bell" aria-label="Âm lượng Chuông ngân"><output data-layer-output="bell">18%</output></div></article><article class="sound-layer"><label class="sound-layer-title"><input type="checkbox" data-layer="paper" ><span><strong>Giấy & bàn tay</strong><small>Tiếng giấy mô phỏng</small></span></label><button class="sound-solo" data-solo="paper" aria-label="Nghe riêng Giấy & bàn tay">Nghe riêng</button><div class="sound-layer-volume"><input type="range" min="0" max="100" value="45" data-layer-volume="paper" aria-label="Âm lượng Giấy & bàn tay"><output data-layer-output="paper">45%</output></div></article><article class="sound-layer"><label class="sound-layer-title"><input type="checkbox" data-layer="ember" ><span><strong>Than hương</strong><small>Tiếng lách tách mô phỏng</small></span></label><button class="sound-solo" data-solo="ember" aria-label="Nghe riêng Than hương">Nghe riêng</button><div class="sound-layer-volume"><input type="range" min="0" max="100" value="45" data-layer-volume="ember" aria-label="Âm lượng Than hương"><output data-layer-output="ember">45%</output></div></article></div><div class="sound-sfx-bank"><h3>Chạm thử một nhịp.</h3><p>Nghe thử là lựa chọn bật SFX nhạc cụ. Nếu chưa chọn, thao tác chỉ có tiếng giấy và ma sát nhẹ mô phỏng.</p><div><button data-sfx-preview="touch">Chạm · đàn môi ▷</button><button data-sfx-preview="motif">Hoa văn · đàn môi ▷</button><button data-sfx-preview="drop">Thả hoa · đàn môi ▷</button><button data-sfx-preview="open">Mở xưởng · đàn bầu ▷</button><button data-sfx-preview="complete">Hoàn thành · đàn bầu ▷</button><button data-sfx-preview="print">In nhãn · đàn bầu ▷</button></div></div><div class="sound-extra-controls"><button class="text-link" id="sound-load-mix">Mở bản phối đã lưu</button><label for="sound-sleep">Tự tắt sau <select id="sound-sleep"><option value="0">Không hẹn giờ</option><option value="5">5 phút</option><option value="15">15 phút</option><option value="30">30 phút</option></select></label></div><p id="mix-status" role="status" aria-live="polite"></p><label class="sound-volume-label" for="sound-volume"><span>Âm lượng</span><output id="sound-volume-value" for="sound-volume">35%</output></label><input id="sound-volume" type="range" min="0" max="100" value="35" aria-label="Âm lượng không gian âm thanh"><div class="sound-controls"><button class="button button-dark" data-sound-toggle aria-pressed="false"><span data-sound-label>Bật âm thanh</span><span aria-hidden="true"><svg class="ui-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 19 19 5M5 5h14v14"/></svg></span></button><label class="sfx-checkbox"><input type="checkbox" id="sfx-enabled" checked><span>Tiếng thao tác nhẹ khi chạm</span></label><label class="sfx-checkbox"><input type="checkbox" id="sfx-instruments"><span>Thêm SFX nhạc cụ Việt</span></label></div><p class="dialog-fineprint">Bản thu thật: “Lên ngàn” — Nguyễn Thanh Tùng (<a href="https://commons.wikimedia.org/wiki/File:Len_ngan_-_Thanh_Tung.ogg" target="_blank" rel="noopener">nguồn</a>, <a href="https://creativecommons.org/licenses/by/3.0/" target="_blank" rel="noopener">Cc by 3.0</a>); “Dan moi” — Cassa342 (<a href="https://commons.wikimedia.org/wiki/File:Dan_moi.ogg" target="_blank" rel="noopener">nguồn</a>, <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener">Cc by-sa 4.0</a>). Bản dùng trên web đã chuyển MP3, chỉnh âm lượng; SFX nhạc cụ được cắt đoạn. Chiêng & trống: Dragfyre, bản thu Đà Nẵng (<a href="https://commons.wikimedia.org/wiki/File:Gong_and_Drum.ogv" target="_blank" rel="noopener">nguồn</a>, CC BY-SA 3.0). Mưa: Effib (<a href="https://commons.wikimedia.org/wiki/File:Sound_of_rain.ogg" target="_blank" rel="noopener">nguồn</a>, CC BY-SA 3.0), không phải tư liệu thu tại Việt Nam. Hai bản mới đã trích âm/chuyển MP3, chuẩn hóa âm lượng và thêm fade; bản chuyển thể giữ CC BY-SA 3.0. Gió, nước, tre, chuông, giấy, than hương và tiếng sàng/se là âm thanh mô phỏng. <a href="assets/audio/CREDITS.txt">Xem ghi công</a>.</p></dialog>
+  <div class="sound-dock" id="sound-dock" hidden><button id="sound-open" aria-label="Điều chỉnh không gian âm thanh"><span class="sound-dock-bars" aria-hidden="true"><i></i><i></i><i></i><i></i></span><span id="sound-dock-name">Đàn bầu</span></button><button data-sound-toggle aria-label="Tắt không gian âm thanh" aria-pressed="false"><svg class="ui-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m6 6 12 12M18 6 6 18"/></svg></button></div>
+  <p class="sr-only" id="sound-status" role="status" aria-live="polite"></p>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+<svg style="position:absolute;width:0;height:0;overflow:hidden" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><symbol id="lac" viewBox="0 0 100 100"><path d="M15 66Q37 56 53 31L43 65 62 51 52 73 35 77 13 85 28 68M53 31 66 18 78 25 95 26 78 31 70 30 63 52M36 75 44 90M45 72 56 86"/></symbol><symbol id="drum" viewBox="0 0 100 100"><circle cx="50" cy="50" r="44"/><circle cx="50" cy="50" r="37"/><circle cx="50" cy="50" r="29"/><path d="M50.0 26.0 L53.1 38.4 L62.0 29.2 L58.5 41.5 L70.8 38.0 L61.6 46.9 L74.0 50.0 L61.6 53.1 L70.8 62.0 L58.5 58.5 L62.0 70.8 L53.1 61.6 L50.0 74.0 L46.9 61.6 L38.0 70.8 L41.5 58.5 L29.2 62.0 L38.4 53.1 L26.0 50.0 L38.4 46.9 L29.2 38.0 L41.5 41.5 L38.0 29.2 L46.9 38.4Z"/><circle cx="83.0" cy="50.0" r="1"/><circle cx="78.6" cy="66.5" r="1"/><circle cx="66.5" cy="78.6" r="1"/><circle cx="50.0" cy="83.0" r="1"/><circle cx="33.5" cy="78.6" r="1"/><circle cx="21.4" cy="66.5" r="1"/><circle cx="17.0" cy="50.0" r="1"/><circle cx="21.4" cy="33.5" r="1"/><circle cx="33.5" cy="21.4" r="1"/><circle cx="50.0" cy="17.0" r="1"/><circle cx="66.5" cy="21.4" r="1"/><circle cx="78.6" cy="33.5" r="1"/></symbol><symbol id="wave" viewBox="0 0 100 100"><path d="M7 35Q18 14 34 25T61 30Q76 5 91 24M7 51Q18 30 34 41T61 46Q76 21 91 40M7 67Q18 46 34 57T61 62Q76 37 91 56M7 83Q18 62 34 73T61 78Q76 53 91 72"/></symbol><symbol id="cloud" viewBox="0 0 100 100"><path d="M13 63C-1 54 9 39 22 45 15 22 43 17 47 37 50 12 83 19 78 41 100 31 103 62 80 63H38Q25 63 30 51T45 50M21 73H74Q87 73 92 65M34 83H65M58 49Q56 37 65 39T69 53"/></symbol><symbol id="lattice" viewBox="0 0 100 100"><path d="M9 9H91V91H9ZM9 50 50 9 91 50 50 91ZM30 30H70V70H30ZM30 50 50 30 70 50 50 70ZM9 30H30V9M70 9V30H91M91 70H70V91M30 91V70H9"/></symbol><symbol id="lotus" viewBox="0 0 100 100"><path d="M50 82C23 65 24 38 50 13 76 38 77 65 50 82ZM50 82C19 83 8 62 12 38 35 41 49 59 50 82ZM50 82C81 83 92 62 88 38 65 41 51 59 50 82ZM17 87Q50 96 83 87"/></symbol><symbol id="carp" viewBox="0 0 100 100"><path d="M18 65C22 22 64 16 79 39 61 75 38 85 18 65ZM79 39 95 20 93 52ZM20 55 7 46M20 61 7 67M35 33 43 15 57 24M44 73 60 87 63 65M38 32Q50 50 38 73M47 31 60 39 50 49 61 57M60 31 72 39 61 49"/><circle cx="29" cy="48" r="3"/></symbol><symbol id="rooster" viewBox="0 0 100 100"><path d="M28 71C9 62 18 35 36 45L36 29 30 25 38 21 42 12 48 21 57 17 55 29Q65 36 51 47L57 58C70 36 77 34 93 37L78 52 94 48 77 67Q63 84 45 78ZM36 78 34 91 25 92M48 79 51 91 62 92M35 29 23 34 35 36M28 55Q35 48 43 59T54 69"/><circle cx="44" cy="32" r="2"/></symbol><symbol id="roof" viewBox="0 0 100 100"><path d="M8 53Q30 49 50 17 70 49 92 53M18 52H82L74 42H26ZM24 55V86H76V55M41 86V61H59V86M12 61H88M34 34 39 51M44 23 47 51M56 23 53 51M66 34 61 51"/></symbol><symbol id="lantern" viewBox="0 0 100 100"><path d="M39 13H61M50 5V13M26 30Q50 10 74 30V69Q50 91 26 69ZM26 30H74M26 69H74M41 23Q30 50 41 78M59 23Q70 50 59 78M50 21V79M39 84H61M45 84V96M55 84V96"/></symbol><symbol id="boat" viewBox="0 0 100 100"><path d="M10 64Q50 73 90 64L76 79H26ZM50 61V15L78 55H50M45 24 22 57H45M12 87Q25 80 38 87T64 87T90 87"/></symbol><symbol id="kite" viewBox="0 0 100 100"><path d="M50 12 82 46 50 72 18 46ZM50 12V72M18 46H82M50 72Q33 79 50 86T50 98M28 39Q50 31 72 39"/></symbol><symbol id="pottery" viewBox="0 0 100 100"><path d="M36 13H64V26Q83 45 80 68T50 90Q17 89 20 66T36 26ZM32 25H68M24 47H76M23 67H77M30 79H70M39 50 50 61 61 50M39 70 50 59 61 70"/></symbol><symbol id="weave" viewBox="0 0 100 100"><path d="M14 14H86V86H14ZM28 14V86M42 14V86M56 14V86M70 14V86M14 28H86M14 42H86M14 56H86M14 70H86M14 14 86 86M86 14 14 86"/></symbol><symbol id="leaf" viewBox="0 0 100 100"><path d="M49 88C9 65 20 37 52 10c29 34 39 68-3 78ZM52 10 49 88M50 37 31 26M50 51 23 39M49 65 22 55M51 37 69 26M51 51 79 40M50 65 80 56"/></symbol><symbol id="cup" viewBox="0 0 100 100"><path d="M23 42H69Q66 77 46 80 25 77 23 42ZM69 47H78Q93 63 68 67M15 85H80M34 30Q23 22 36 12M49 30Q38 22 51 12M64 30Q53 22 66 12"/></symbol></svg><script>window.HM_ASSET = path => path;</script><script>(() => {
+  'use strict';
+
+  const byId = id => document.getElementById(id);
+  const all = selector => [...document.querySelectorAll(selector)];
+  const motionPreference = window.matchMedia('(prefers-reduced-motion: reduce)');
+  const toast = byId('toast');
+  let toastTimer;
+
+  function notify(message) {
+    clearTimeout(toastTimer);
+    const host = document.querySelector('dialog[open]') || document.body;
+    host.append(toast);
+    toast.textContent = message;
+    toast.classList.add('is-visible');
+    toastTimer = setTimeout(() => toast.classList.remove('is-visible'), 3200);
+  }
+
+  // Dialogs share focus restoration and native Escape / backdrop behavior.
+  const returnFocus = new WeakMap();
+  const dialogs = all('dialog');
+  function openDialog(dialog, opener = document.activeElement) {
+    closeMenu();
+    dialogs.forEach(other => {
+      if (other !== dialog && other.open) other.close();
+    });
+    returnFocus.set(dialog, opener);
+    if (!dialog.open) dialog.showModal();
+    document.body.classList.add('dialog-open');
+    syncAmbient();
+  }
+  dialogs.forEach(dialog => {
+    dialog.querySelectorAll('[data-close]').forEach(button => {
+      button.addEventListener('click', () => dialog.close());
+    });
+    dialog.addEventListener('click', event => {
+      if (event.target !== dialog) return;
+      const rect = dialog.getBoundingClientRect();
+      if (event.clientX < rect.left || event.clientX > rect.right ||
+          event.clientY < rect.top || event.clientY > rect.bottom) dialog.close();
+    });
+    dialog.addEventListener('close', () => {
+
+      const stillOpen = dialogs.some(other => other.open);
+      document.body.classList.toggle('dialog-open', stillOpen);
+      if (!stillOpen) {
+        const target = returnFocus.get(dialog);
+        if (target && target.isConnected) target.focus({ preventScroll: true });
+      }
+      syncAmbient();
+    });
+  });
+
+  const menuToggle = byId('menu-toggle');
+  const nav = byId('main-nav');
+  function closeMenu() {
+    menuToggle.setAttribute('aria-expanded', 'false');
+    menuToggle.setAttribute('aria-label', 'Mở menu');
+    nav.classList.remove('is-open');
+  }
+  menuToggle.addEventListener('click', () => {
+    const expanded = menuToggle.getAttribute('aria-expanded') !== 'true';
+    menuToggle.setAttribute('aria-expanded', String(expanded));
+    menuToggle.setAttribute('aria-label', expanded ? 'Đóng menu' : 'Mở menu');
+    nav.classList.toggle('is-open', expanded);
+  });
+  nav.querySelectorAll('a').forEach(link => link.addEventListener('click', closeMenu));
+  document.addEventListener('click', event => {
+    if (!byId('header').contains(event.target)) closeMenu();
+  });
+  document.addEventListener('keydown', event => {
+    if (event.key === 'Escape' && menuToggle.getAttribute('aria-expanded') === 'true') {
+      closeMenu();
+      menuToggle.focus();
+    }
+  });
+  window.addEventListener('resize', () => {
+    if (window.innerWidth > 1000) closeMenu();
+  }, { passive: true });
+
+  // Motion stays optional. The still photograph remains visible if autoplay fails.
+  const ambient = byId('ambient-video');
+  const ambientToggle = byId('ambient-toggle');
+  let ambientWanted = false;
+  let heroVisible = true;
+  ambientToggle.hidden = true;
+
+  function updateAmbientButton() {
+    ambientToggle.setAttribute('aria-pressed', String(!ambientWanted));
+    ambientToggle.setAttribute('aria-label', ambientWanted ? 'Tạm dừng chuyển động nền' : 'Phát chuyển động nền');
+    ambientToggle.querySelector('path').setAttribute('d', ambientWanted ? 'M7 5v10m6-10v10' : 'm7 4 9 6-9 6z');
+  }
+  function syncAmbient() {
+    const canPlay = ambientWanted && heroVisible && !document.hidden && !dialogs.some(dialog => dialog.open);
+    if (!canPlay) {
+      ambient.pause();
+      return;
+    }
+    if (!ambient.getAttribute('src')) {
+      ambient.src = ambient.dataset.src;
+      ambient.muted = true;
+      ambient.load();
+    }
+    const playback = ambient.play();
+    if (playback) playback.catch(error => {
+      if (error.name !== 'AbortError') {
+        ambientWanted = false;
+        updateAmbientButton();
+      }
+    });
+  }
+  ambient.addEventListener('playing', () => ambient.classList.add('is-playing'));
+  ambient.addEventListener('error', () => {
+    ambient.classList.remove('is-playing');
+    ambientWanted = false;
+    ambientToggle.hidden = true;
+  });
+  ambientToggle.addEventListener('click', () => {
+    ambientWanted = !ambientWanted;
+    updateAmbientButton();
+    syncAmbient();
+  });
+  motionPreference.addEventListener?.('change', event => {
+    ambientWanted = false;
+    ambientToggle.hidden = true;
+    updateAmbientButton();
+    syncAmbient();
+  });
+  updateAmbientButton();
+  syncAmbient();
+
+
+
+  let scrollScheduled = false;
+  function updateScroll() {
+    scrollScheduled = false;
+    byId('header').classList.toggle('is-scrolled', window.scrollY > 30);
+    const length = document.documentElement.scrollHeight - window.innerHeight;
+    byId('reading-progress').style.width = `${length > 0 ? Math.min(100, Math.max(0, window.scrollY / length * 100)) : 0}%`;
+  }
+  window.addEventListener('scroll', () => {
+    if (!scrollScheduled) {
+      scrollScheduled = true;
+      requestAnimationFrame(updateScroll);
+    }
+  }, { passive: true });
+  window.addEventListener('resize', updateScroll, { passive: true });
+  updateScroll();
+  if ('IntersectionObserver' in window) {
+    const motionObserver = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        if (!motionPreference.matches) entry.target.classList.add('is-revealed');
+        motionObserver.unobserve(entry.target);
+      });
+    }, { threshold: 0.1 });
+    all('.reveal').forEach(element => motionObserver.observe(element));
+    const heroObserver = new IntersectionObserver(entries => {
+      heroVisible = entries[0].isIntersecting;
+      syncAmbient();
+    }, { threshold: 0 });
+    heroObserver.observe(byId('trang-chu'));
+    const sectionObserver = new IntersectionObserver(entries => {
+      entries.filter(entry => entry.isIntersecting).forEach(entry => {
+        nav.querySelectorAll('a').forEach(link => {
+          link.classList.toggle('is-current', link.getAttribute('href') === `#${entry.target.id}`);
+        });
+      });
+    }, { rootMargin: '-15% 0px -60% 0px', threshold: 0 });
+    ['trang-chu', 'cau-chuyen', 'nep-viet', 'xuong-huong', 'san-pham', 'hanh-trinh', 'khoang-lang'].forEach(id => sectionObserver.observe(byId(id)));
+  }
+
+  const products = {
+  "incense": {
+    "name": "Nhang thơm",
+    "category": "Nhang thơm / ReBloom",
+    "image": HM_ASSET("assets/rebloom-lavender-studio.webp"),
+    "alt": "Nhang thơm ReBloom hương Lavender — ảnh bao bì do nhóm cung cấp",
+    "description": "Từ hoa, trở về hương. Bốn lựa chọn: Lavender · White Sage · Osmanthus · Magnolia. Mô tả cảm quan, độ đậm và thời gian cháy sẽ được bổ sung sau khi đánh giá mẫu thực tế.",
+    "optionLabel": "Chọn mùi hương",
+    "options": [
+      {
+        "name": "Lavender",
+        "note": "Từ hoa, trở về hương. Hình ảnh minh họa tạm. Bao bì, logo và font chữ đang được hoàn thiện."
+      },
+      {
+        "name": "White Sage",
+        "note": "Từ hoa, trở về hương. Hình ảnh minh họa tạm. Bao bì, logo và font chữ đang được hoàn thiện."
+      },
+      {
+        "name": "Osmanthus",
+        "note": "Từ hoa, trở về hương. Hình ảnh minh họa tạm. Bao bì, logo và font chữ đang được hoàn thiện."
+      },
+      {
+        "name": "Magnolia",
+        "note": "Từ hoa, trở về hương. Hình ảnh minh họa tạm. Bao bì, logo và font chữ đang được hoàn thiện."
+      }
+    ],
+    "details": [
+      [
+        "Quy cách",
+        "10 nén/hộp"
+      ],
+      [
+        "Mùi hương",
+        "Lavender · White Sage · Osmanthus · Magnolia"
+      ],
+      [
+        "Thành phần",
+        "Bột hoa đã qua sơ chế, tăm tre, bột bời lời, canxi cacbonat (CaCO₃) và hương liệu."
+      ],
+      [
+        "Thiết kế",
+        "Hình ảnh minh họa tạm. Bao bì, logo và font chữ đang được hoàn thiện."
+      ]
+    ]
+  },
+  "cone": {
+    "name": "Nhang nụ ReBloom",
+    "category": "Nhang nụ / ReBloom",
+    "image": HM_ASSET("assets/rebloom-cone-frangipani-studio.webp"),
+    "alt": "Nhang nụ ReBloom hương Frangipani — ảnh bao bì do nhóm cung cấp",
+    "description": "Từ hoa, trở về hương. Hai lựa chọn: Frangipani · Grace. Hộp 10 nụ, khối lượng tịnh 20 g. Hướng dẫn sử dụng và thời gian cháy sẽ được cập nhật sau thử nghiệm.",
+    "optionLabel": "Chọn mùi hương",
+    "options": [
+      {
+        "name": "Frangipani",
+        "note": "Từ hoa, trở về hương. Hình ảnh minh họa tạm. Bao bì, logo và font chữ đang được hoàn thiện."
+      },
+      {
+        "name": "Grace",
+        "note": "Từ hoa, trở về hương. Hình ảnh minh họa tạm. Bao bì, logo và font chữ đang được hoàn thiện."
+      }
+    ],
+    "details": [
+      [
+        "Quy cách",
+        "10 nụ/hộp"
+      ],
+      [
+        "Khối lượng tịnh",
+        "20 g"
+      ],
+      [
+        "Mùi hương",
+        "Frangipani · Grace"
+      ],
+      [
+        "Thiết kế",
+        "Hình ảnh minh họa tạm. Bao bì, logo và font chữ đang được hoàn thiện."
+      ]
+    ]
+  },
+  "refill": {
+    "name": "Các dòng refill",
+    "category": "Đang nghiên cứu & phát triển",
+    "image": HM_ASSET("assets/rebloom-future-refill.webp"),
+    "alt": "Hình minh họa tạm cho Các dòng refill — chưa phải thiết kế chính thức",
+    "description": "Đang nghiên cứu & phát triển. Thông tin chi tiết sẽ được cập nhật khi hoàn thiện.",
+    "optionLabel": "Trạng thái phát triển",
+    "options": [
+      {
+        "name": "Đang nghiên cứu & phát triển",
+        "note": "Chưa chốt quy cách. Hình ảnh minh họa tạm. Bao bì, logo và font chữ đang được hoàn thiện."
+      }
+    ],
+    "details": [
+      [
+        "Trạng thái",
+        "Đang nghiên cứu & phát triển"
+      ],
+      [
+        "Thiết kế",
+        "Hình ảnh minh họa tạm. Bao bì, logo và font chữ đang được hoàn thiện."
+      ]
+    ]
+  },
+  "gift": {
+    "name": "Set quà tặng",
+    "category": "Đang nghiên cứu & phát triển",
+    "image": HM_ASSET("assets/rebloom-future-gift.webp"),
+    "alt": "Hình minh họa tạm cho Set quà tặng — chưa phải thiết kế chính thức",
+    "description": "Đang nghiên cứu & phát triển. Thông tin chi tiết sẽ được cập nhật khi hoàn thiện.",
+    "optionLabel": "Trạng thái phát triển",
+    "options": [
+      {
+        "name": "Đang nghiên cứu & phát triển",
+        "note": "Chưa chốt quy cách. Hình ảnh minh họa tạm. Bao bì, logo và font chữ đang được hoàn thiện."
+      }
+    ],
+    "details": [
+      [
+        "Trạng thái",
+        "Đang nghiên cứu & phát triển"
+      ],
+      [
+        "Thiết kế",
+        "Hình ảnh minh họa tạm. Bao bì, logo và font chữ đang được hoàn thiện."
+      ]
+    ]
+  },
+  "candle": {
+    "name": "Nến thơm",
+    "category": "Đang nghiên cứu & phát triển",
+    "image": HM_ASSET("assets/rebloom-future-candle.webp"),
+    "alt": "Hình minh họa tạm cho Nến thơm — chưa phải thiết kế chính thức",
+    "description": "Đang nghiên cứu & phát triển. Thông tin chi tiết sẽ được cập nhật khi hoàn thiện.",
+    "optionLabel": "Trạng thái phát triển",
+    "options": [
+      {
+        "name": "Đang nghiên cứu & phát triển",
+        "note": "Chưa chốt quy cách. Hình ảnh minh họa tạm. Bao bì, logo và font chữ đang được hoàn thiện."
+      }
+    ],
+    "details": [
+      [
+        "Trạng thái",
+        "Đang nghiên cứu & phát triển"
+      ],
+      [
+        "Thiết kế",
+        "Hình ảnh minh họa tạm. Bao bì, logo và font chữ đang được hoàn thiện."
+      ]
+    ]
+  },
+  "sachet": {
+    "name": "Túi thơm",
+    "category": "Đang nghiên cứu & phát triển",
+    "image": HM_ASSET("assets/rebloom-future-sachet.webp"),
+    "alt": "Hình minh họa tạm cho Túi thơm — chưa phải thiết kế chính thức",
+    "description": "Đang nghiên cứu & phát triển. Thông tin chi tiết sẽ được cập nhật khi hoàn thiện.",
+    "optionLabel": "Trạng thái phát triển",
+    "options": [
+      {
+        "name": "Đang nghiên cứu & phát triển",
+        "note": "Chưa chốt quy cách. Hình ảnh minh họa tạm. Bao bì, logo và font chữ đang được hoàn thiện."
+      }
+    ],
+    "details": [
+      [
+        "Trạng thái",
+        "Đang nghiên cứu & phát triển"
+      ],
+      [
+        "Thiết kế",
+        "Hình ảnh minh họa tạm. Bao bì, logo và font chữ đang được hoàn thiện."
+      ]
+    ]
+  }
+};
+
+  const incensePhotography = [{"name": "Lavender", "views": [{"src": "assets/rebloom-lavender-studio.webp", "label": "Phối cảnh studio", "alt": "ReBloom Lavender — phối cảnh trưng bày studio"}, {"src": "assets/rebloom-lavender-packshot.webp", "label": "Sản phẩm", "alt": "Nhang thơm ReBloom hương Lavender — sản phẩm"}, {"src": "assets/rebloom-lavender-packaging.webp", "label": "Chi tiết bao bì", "alt": "Nhang thơm ReBloom hương Lavender — chi tiết bao bì"}, {"src": "assets/rebloom-lavender-lifestyle.webp", "label": "Không gian trưng bày", "alt": "Nhang thơm ReBloom hương Lavender — không gian trưng bày"}]}, {"name": "White Sage", "views": [{"src": "assets/rebloom-white-sage-studio.webp", "label": "Phối cảnh studio", "alt": "ReBloom White Sage — phối cảnh trưng bày studio"}, {"src": "assets/rebloom-white-sage-packshot.webp", "label": "Sản phẩm", "alt": "Nhang thơm ReBloom hương White Sage — sản phẩm"}, {"src": "assets/rebloom-white-sage-lifestyle.webp", "label": "Không gian trưng bày", "alt": "Nhang thơm ReBloom hương White Sage — không gian trưng bày"}]}, {"name": "Osmanthus", "views": [{"src": "assets/rebloom-osmanthus-studio.webp", "label": "Phối cảnh studio", "alt": "ReBloom Osmanthus — phối cảnh trưng bày studio"}, {"src": "assets/rebloom-osmanthus-packshot.webp", "label": "Sản phẩm", "alt": "Nhang thơm ReBloom hương Osmanthus — sản phẩm"}, {"src": "assets/rebloom-osmanthus-lifestyle.webp", "label": "Không gian trưng bày", "alt": "Nhang thơm ReBloom hương Osmanthus — không gian trưng bày"}]}, {"name": "Magnolia", "views": [{"src": "assets/rebloom-magnolia-studio.webp", "label": "Phối cảnh studio", "alt": "ReBloom Magnolia — phối cảnh trưng bày studio"}, {"src": "assets/rebloom-magnolia-packshot.webp", "label": "Sản phẩm", "alt": "Nhang thơm ReBloom hương Magnolia — sản phẩm"}, {"src": "assets/rebloom-magnolia-lifestyle.webp", "label": "Không gian trưng bày", "alt": "Nhang thơm ReBloom hương Magnolia — không gian trưng bày"}]}];
+  const conePhotography = [{"name": "Frangipani", "views": [{"src": "assets/rebloom-cone-frangipani-studio.webp", "label": "Phối cảnh studio", "alt": "ReBloom Frangipani — phối cảnh trưng bày studio"}, {"src": "assets/rebloom-cone-frangipani.webp", "label": "Sản phẩm", "alt": "Nhang nụ ReBloom hương Frangipani"}]}, {"name": "Grace", "views": [{"src": "assets/rebloom-cone-grace-studio.webp", "label": "Phối cảnh studio", "alt": "ReBloom Grace — phối cảnh trưng bày studio"}, {"src": "assets/rebloom-cone-grace.webp", "label": "Sản phẩm", "alt": "Nhang nụ ReBloom hương Grace"}]}];
+  function syncProductCard(productId,index){
+    const photo=(productId==='cone'?conePhotography:incensePhotography)[index];if(!photo)return;
+    const card=document.querySelector(`[data-id="${productId}"]`);if(!card)return;
+    card.dataset.selectedScent=String(index);
+    card.querySelectorAll('[data-store-product]').forEach(button=>button.setAttribute('aria-pressed',String(Number(button.dataset.scentIndex)===index)));
+    card.querySelector('.store-selected strong').textContent=photo.name;
+    const image=card.querySelector('.product-image-button img');image.src=HM_ASSET(photo.views[0].src);image.alt=photo.views[0].alt;
+  }
+  function renderProductPhotography(index){
+    const gallery=byId('product-photo-gallery'),caption=byId('product-photo-caption');gallery.replaceChildren();
+    const photography=activeProduct==='incense'?incensePhotography:activeProduct==='cone'?conePhotography:null;
+    if(!photography){gallery.hidden=true;caption.textContent='';return;}
+    const photo=photography[index];if(!photo)return;
+    syncProductCard(activeProduct,index);
+    function selectView(viewIndex){const view=photo.views[viewIndex];byId('product-dialog-image').src=HM_ASSET(view.src);byId('product-dialog-image').alt=view.alt;caption.textContent=photo.name+' · '+view.label;gallery.querySelectorAll('button').forEach((button,i)=>button.setAttribute('aria-pressed',String(i===viewIndex)));}
+    photo.views.forEach((view,viewIndex)=>{const button=document.createElement('button');button.type='button';button.className='product-gallery-thumb';button.setAttribute('aria-label','Xem '+view.label.toLowerCase()+' hương '+photo.name);const image=document.createElement('img');image.src=HM_ASSET(view.src);image.alt='';image.width=64;image.height=54;image.loading='lazy';const label=document.createElement('span');label.textContent=view.label;button.append(image,label);button.addEventListener('click',()=>selectView(viewIndex));gallery.append(button);});
+    gallery.hidden=photo.views.length<2;selectView(0);
+  }
+  const storageKey = 'hoi-man.saved.v1';
+  let saved = new Set();
+  try {
+    const data = JSON.parse(localStorage.getItem(storageKey) || '[]');
+    if (Array.isArray(data)) saved = new Set(data.filter(id => Object.hasOwn(products, id)));
+  } catch (_) { /* Bookmarks still work for the current session. */ }
+  let activeProduct = null, activeOption = 0;
+  const productDialog = byId('product-dialog');
+
+  function writeBookmarks() {
+    try {
+      localStorage.setItem(storageKey, JSON.stringify([...saved]));
+      return true;
+    } catch (_) { return false; }
+  }
+  function refreshBookmarks() {
+    const count = byId('saved-count');
+    count.textContent = String(saved.size);
+    count.hidden = saved.size === 0;
+    byId('saved-open').setAttribute('aria-label', `Xem ${saved.size} mẫu đã lưu`);
+    all('[data-save]').forEach(button => {
+      const id = button.dataset.save;
+      const selected = saved.has(id);
+      button.setAttribute('aria-pressed', String(selected));
+      button.setAttribute('aria-label', `${selected ? 'Bỏ lưu' : 'Lưu'} mẫu ${products[id].name}`);
+      let confirmation=button.parentElement.querySelector('.save-confirmation');
+      if(!confirmation){confirmation=document.createElement('span');confirmation.className='save-confirmation';confirmation.setAttribute('aria-live','polite');button.parentElement.append(confirmation);}
+      confirmation.textContent=selected?'Đã lưu':'';
+      confirmation.hidden=!selected;
+
+    });
+    if (activeProduct) {
+      const isSaved = saved.has(activeProduct);
+      byId('product-dialog-save').replaceChildren(document.createTextNode(isSaved ? 'Đã lưu mẫu này ' : 'Lưu mẫu này '));
+      const arrow = document.createElement('span');
+      arrow.innerHTML = isSaved ? '<svg class="ui-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg>' : '<svg class="ui-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 19 19 5M5 5h14v14"/></svg>';
+      arrow.setAttribute('aria-hidden', 'true');
+      byId('product-dialog-save').append(arrow);
+      byId('product-dialog-save').setAttribute('aria-pressed', String(isSaved));
+    }
+    if (byId('saved-dialog').open) renderSaved();
+  }
+  function toggleSaved(id) {
+    if (!Object.hasOwn(products, id)) return;
+    const wasSaved = saved.has(id);
+    if (wasSaved) saved.delete(id); else saved.add(id);
+    const persisted = writeBookmarks();
+    refreshBookmarks();
+    notify(wasSaved ? `Đã bỏ lưu ${products[id].name}.` : persisted ? `Đã lưu ${products[id].name} vào bộ sưu tập của bạn.` : 'Đã lưu mẫu cho phiên trải nghiệm hiện tại.');
+  }
+  all('[data-save]').forEach(button => button.addEventListener('click', () => toggleSaved(button.dataset.save)));
+
+  function selectProductOption(index) {
+    if (!activeProduct) return;
+    const product = products[activeProduct];
+    const option = product.options[index];
+    activeOption = index;
+    if (!option) return;
+    byId('product-options').querySelectorAll('button').forEach((button, i) => {
+      button.classList.toggle('is-active', i === index);
+      button.setAttribute('aria-pressed', String(i === index));
+    });
+    byId('product-option-note').textContent = option.note;
+    renderProductPhotography(index);
+  }
+  function showProduct(id, opener) {
+    const product = products[id];
+    if (!product) return;
+    activeProduct = id;
+    byId('product-dialog-title').textContent = product.name;
+    byId('product-dialog-category').textContent = product.category;
+    byId('product-dialog-description').textContent = product.description;
+    byId('product-dialog-image').src = product.image;
+    byId('product-dialog-image').alt = product.alt;
+    byId('product-option-label').textContent = product.optionLabel;
+    byId('product-options').replaceChildren();
+    product.options.forEach((option, index) => {
+      const button = document.createElement('button');
+      button.type = 'button';
+      button.className = 'product-option';
+      button.textContent = option.name;
+      button.addEventListener('click', () => selectProductOption(index));
+      byId('product-options').append(button);
+    });
+    byId('product-details').replaceChildren();
+    product.details.forEach(([label, value]) => {
+      const row = document.createElement('div');
+      row.className = 'product-detail-row';
+      const title = document.createElement('span');
+      title.textContent = label;
+      const text = document.createElement('span');
+      text.textContent = value;
+      row.append(title, text);
+      byId('product-details').append(row);
+    });
+    selectProductOption(Number(document.querySelector(`[data-id="${id}"]`)?.dataset.selectedScent || 0));
+    refreshBookmarks();
+    openDialog(productDialog, opener);
+  }
+  all('[data-product]').forEach(button => button.addEventListener('click', () => showProduct(button.dataset.product, button)));
+  all('[data-store-product]').forEach(button => button.addEventListener('click', () => {
+    const card=button.closest('.product-card');
+    card.dataset.selectedScent=button.dataset.scentIndex;
+    card.querySelectorAll('[data-store-product]').forEach(choice=>choice.setAttribute('aria-pressed',String(choice===button)));
+    card.querySelector('.store-selected strong').textContent=button.textContent;
+    if(['incense','cone'].includes(button.dataset.storeProduct))syncProductCard(button.dataset.storeProduct,Number(button.dataset.scentIndex));
+  }));
+
+  byId('product-dialog-save').addEventListener('click', () => toggleSaved(activeProduct));
+  byId('product-dialog-connect').addEventListener('click', () => openConnect(activeProduct, byId('product-dialog-connect')));
+
+  function renderSaved() {
+    const list = byId('saved-list');
+    list.replaceChildren();
+    if (saved.size === 0) {
+      const text = document.createElement('p');
+      text.className = 'saved-empty';
+      text.textContent = 'Bộ sưu tập đang chờ một câu chuyện. Chọn biểu tượng lưu trên mẫu bạn yêu thích để giữ lại tại đây.';
+      const link = document.createElement('button');
+      link.className = 'text-link';
+      link.textContent = 'Khám phá những mẫu concept';
+      link.addEventListener('click', () => {
+        byId('saved-dialog').close();
+        byId('san-pham').scrollIntoView({ behavior: motionPreference.matches ? 'instant' : 'smooth' });
+      });
+      list.append(text, link);
+      return;
+    }
+    saved.forEach(id => {
+      const product = products[id];
+      const row = document.createElement('div');
+      row.className = 'saved-item';
+      const image = document.createElement('img');
+      image.src = product.image;
+      image.alt = product.alt;
+      const copy = document.createElement('div');
+      copy.className = 'saved-item-copy';
+      const name = document.createElement('strong');
+      name.textContent = product.name;
+      const category = document.createElement('small');
+      category.textContent = product.category;
+      const explore = document.createElement('button');
+      explore.textContent = 'Xem chi tiết';
+      explore.addEventListener('click', () => showProduct(id, byId('saved-open')));
+      copy.append(name, category, explore);
+      const remove = document.createElement('button');
+      remove.className = 'saved-item-remove';
+      remove.innerHTML = '<svg class="ui-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m6 6 12 12M18 6 6 18"/></svg>';
+      remove.setAttribute('aria-label', `Bỏ lưu ${product.name}`);
+      remove.addEventListener('click', () => {
+        toggleSaved(id);
+        byId('saved-dialog').querySelector('button')?.focus();
+      });
+      row.append(image, copy, remove);
+      list.append(row);
+    });
+  }
+  byId('saved-open').addEventListener('click', () => {
+    renderSaved();
+    openDialog(byId('saved-dialog'), byId('saved-open'));
+  });
+  refreshBookmarks();
+
+  const filterAnnouncement = document.createElement('p');
+  filterAnnouncement.className = 'sr-only';
+  filterAnnouncement.setAttribute('role', 'status');
+  byId('product-grid').after(filterAnnouncement);
+  all('[data-filter]').forEach(button => button.addEventListener('click', () => {
+    const selected = button.dataset.filter;
+    all('[data-filter]').forEach(filter => {
+      const active = filter === button;
+      filter.classList.toggle('is-active', active);
+      filter.setAttribute('aria-pressed', String(active));
+    });
+    let visible = 0;
+    all('.product-card').forEach(card => {
+      card.hidden = selected !== 'all' && card.dataset.category !== selected;
+      if (!card.hidden) visible += 1;
+    });
+    filterAnnouncement.textContent = `Đang hiển thị ${visible} mẫu concept.`;
+  }));
+
+  const steps = [
+    { number: '01', stage: 'Giai đoạn 01 / Nguyên liệu', title: ['Điều đẹp đẽ', 'bắt đầu từ hoa.'], art: 'EVERY FLOWER HAS A STORY', description: 'Hoa đã qua sử dụng từ các điểm thờ tự, chợ hoa, hộ gia đình, cửa hàng và sự kiện được dự kiến thu gom riêng. Phân loại ngay từ đầu giúp nhóm xác định nguồn nguyên liệu phù hợp.', label: 'Nguồn hoa', detail: 'Điểm thờ tự · Chợ hoa · Khu dân cư · Sự kiện' },
+    { number: '02', stage: 'Giai đoạn 02 / CHUẨN BỊ', title: ['Gìn giữ phần', 'giá trị còn lại.'], art: 'PREPARE FOR A SECOND BLOOM', description: 'Hoa được dự kiến phân loại, loại bỏ tạp chất, làm sạch, tách cánh và đài hoa. Phần phù hợp được làm khô, nghiền thành bột để chuẩn bị cho công thức nhang thử nghiệm.', label: 'CÔNG ĐOẠN', detail: 'Phân loại · Làm sạch · Làm khô · Nghiền' },
+    { number: '03', stage: 'Giai đoạn 03 / Tạo hình', title: ['Từ những cánh hoa,', 'một nén hương.'], art: 'FROM PETALS TO POSSIBILITY', description: 'Bột hoa được đề xuất phối trộn với bột bời lời và các thành phần theo công thức thử nghiệm. Nguyên liệu được se hoặc ép quanh tăm tre, rồi sấy hoàn thiện và đánh giá chất lượng mẫu.', label: 'TRỌNG TÂM THỬ NGHIỆM', detail: 'Phối trộn · Tạo hình · Sấy · Kiểm tra mẫu' },
+    { number: '04', stage: 'Giai đoạn 04 / TIẾP NỐI', title: ['Một hình hài mới.', 'Một ý nghĩa còn.'], art: 'ANOTHER LIFE, ANOTHER MEANING', description: 'Nhóm hướng đến kiểm nghiệm, hoàn thiện quy cách và thiết kế bao bì trước khi mở rộng phân phối. Mỗi sản phẩm dự kiến mang theo câu chuyện về nguồn hoa và hành trình tiếp nối.', label: 'BƯỚC PHÁT TRIỂN TIẾP THEO', detail: 'Kiểm nghiệm · Bao bì · Truy xuất · Đối tác' }
+  ];
+  const journeyTabs = all('[data-step]');
+  function selectStep(index, moveFocus = false) {
+    const step = steps[index];
+    if (!step) return;
+    journeyTabs.forEach((tab, i) => {
+      tab.classList.toggle('is-active', i === index);
+      tab.setAttribute('aria-selected', String(i === index));
+      tab.tabIndex = i === index ? 0 : -1;
+    });
+    byId('journey-panel').setAttribute('aria-labelledby', `journey-tab-${index}`);
+    byId('step-number').textContent = step.number;
+    byId('step-stage').textContent = step.stage;
+    byId('step-art-label').textContent = step.art;
+    byId('step-title').replaceChildren(document.createTextNode(step.title[0]), document.createElement('br'), document.createTextNode(step.title[1]));
+    byId('step-description').textContent = step.description;
+    byId('step-detail').querySelector('span').textContent = step.label;
+    byId('step-detail').querySelector('p').textContent = step.detail;
+    if (!motionPreference.matches) {
+      const panel = byId('journey-panel');
+      panel.classList.remove('is-changing');
+      void panel.offsetWidth;
+      panel.classList.add('is-changing');
+    }
+    if (moveFocus) journeyTabs[index].focus();
+  }
+  journeyTabs.forEach((tab, index) => {
+    tab.addEventListener('click', () => selectStep(index));
+    tab.addEventListener('keydown', event => {
+      let next;
+      if (event.key === 'ArrowRight' || event.key === 'ArrowDown') next = (index + 1) % steps.length;
+      if (event.key === 'ArrowLeft' || event.key === 'ArrowUp') next = (index - 1 + steps.length) % steps.length;
+      if (event.key === 'Home') next = 0;
+      if (event.key === 'End') next = steps.length - 1;
+      if (next !== undefined) {
+        event.preventDefault();
+        selectStep(next, true);
+      }
+    });
+  });
+
+  // Monotonic elapsed time keeps pause/resume accurate even if interval callbacks drift.
+  const ritualVisual = byId('ritual-visual');
+  const ritualButton = byId('ritual-start');
+  const ritualReset = byId('ritual-reset');
+  let ritualDuration = 60;
+  let elapsedBeforeStart = 0;
+  let startedAt = 0;
+  let ritualRunning = false;
+  let ritualComplete = false;
+  let ritualInterval;
+
+  function ritualElapsed() {
+    return Math.min(ritualDuration * 1000, elapsedBeforeStart + (ritualRunning ? performance.now() - startedAt : 0));
+  }
+  function setRitualButton(label) {
+    const arrow = document.createElement('span');
+    arrow.innerHTML = '<svg class="ui-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 19 19 5M5 5h14v14"/></svg>';
+    arrow.setAttribute('aria-hidden', 'true');
+    ritualButton.replaceChildren(document.createTextNode(`${label} `), arrow);
+  }
+  function renderRitual() {
+    const elapsed = ritualElapsed();
+    const remaining = Math.max(0, Math.ceil(ritualDuration - elapsed / 1000));
+    byId('ritual-time').textContent = `${String(Math.floor(remaining / 60)).padStart(2, '0')}:${String(remaining % 60).padStart(2, '0')}`;
+    byId('ritual-progress').style.strokeDashoffset = String(911.06186954 * (1 - elapsed / (ritualDuration * 1000)));
+    if (ritualRunning) {
+      byId('ritual-phase').textContent = elapsed / 1000 % 10 < 4 ? 'Hít vào nhẹ nhàng' : 'Thở ra thảnh thơi';
+      if (elapsed >= ritualDuration * 1000) completeRitual();
+    }
+  }
+  function resetRitual() {
+    clearInterval(ritualInterval);
+    ritualRunning = false;
+    ritualComplete = false;
+    elapsedBeforeStart = 0;
+    ritualVisual.classList.remove('is-running', 'is-paused');
+    ritualReset.hidden = true;
+    setRitualButton('Bắt đầu khoảng lặng');
+    byId('ritual-phase').textContent = 'Một khoảng an';
+    byId('ritual-center-note').textContent = 'CHỈ CẦN HIỆN DIỆN';
+    renderRitual();
+  }
+  function startRitual() {
+    if (ritualComplete) resetRitual();
+    startedAt = performance.now();
+    ritualRunning = true;
+    ritualVisual.classList.add('is-running');
+    ritualVisual.classList.remove('is-paused');
+    ritualReset.hidden = false;
+    setRitualButton('Tạm dừng');
+    byId('ritual-center-note').textContent = 'THEO NHỊP BẠN THẤY THOẢI MÁI';
+    byId('ritual-announcement').textContent = `Khoảng lặng ${ritualDuration / 60} phút đã bắt đầu. Bạn có thể tạm dừng bất cứ lúc nào.`;
+    clearInterval(ritualInterval);
+    ritualInterval = setInterval(renderRitual, 250);
+    renderRitual();
+  }
+  function pauseRitual() {
+    if (!ritualRunning) return;
+    elapsedBeforeStart = ritualElapsed();
+    ritualRunning = false;
+    clearInterval(ritualInterval);
+    ritualVisual.classList.add('is-paused');
+    setRitualButton('Tiếp tục khoảng lặng');
+    byId('ritual-phase').textContent = 'Tạm dừng một chút';
+    byId('ritual-announcement').textContent = 'Khoảng lặng đã tạm dừng.';
+    renderRitual();
+  }
+  function completeRitual() {
+    elapsedBeforeStart = ritualDuration * 1000;
+    ritualRunning = false;
+    ritualComplete = true;
+    clearInterval(ritualInterval);
+    ritualVisual.classList.remove('is-running', 'is-paused');
+    byId('ritual-phase').textContent = 'Mang bình yên theo';
+    byId('ritual-center-note').textContent = 'CẢM ƠN BẠN ĐÃ DỪNG LẠI';
+    byId('ritual-announcement').textContent = 'Khoảng lặng đã hoàn thành. Cảm ơn bạn đã dành thời gian cho mình.';
+    setRitualButton('Thêm một khoảng lặng');
+  }
+  ritualButton.addEventListener('click', () => ritualRunning ? pauseRitual() : startRitual());
+  ritualReset.addEventListener('click', resetRitual);
+  all('[data-duration]').forEach(button => button.addEventListener('click', () => {
+    ritualDuration = Number(button.dataset.duration);
+    all('[data-duration]').forEach(option => {
+      option.classList.toggle('is-active', option === button);
+      option.setAttribute('aria-pressed', String(option === button));
+    });
+    resetRitual();
+    byId('ritual-announcement').textContent = `Đã chọn khoảng lặng ${ritualDuration / 60} phút.`;
+  }));
+  document.addEventListener('visibilitychange', () => {
+    if (document.hidden) pauseRitual();
+    syncAmbient();
+  });
+
+  const contactDrafts = {
+    flowers: 'Chào nhóm Hồi Mẫn / ReBloom,\n\nMình muốn trao đổi về việc đồng hành cung cấp nguồn hoa đã qua sử dụng cho dự án.\n\nNguồn hoa / địa điểm: …\nTần suất và lượng hoa dự kiến: …\nThông tin để nhóm liên hệ lại: …\n\nMong được cùng nhóm tìm hiểu phương án thu gom phù hợp.',
+    production: 'Chào nhóm Hồi Mẫn / ReBloom,\n\nMình muốn trao đổi về cơ hội hợp tác sản xuất thử và phát triển sản phẩm nhang hoa.\n\nĐơn vị / kinh nghiệm: …\nNội dung có thể hỗ trợ: …\nThông tin để nhóm liên hệ lại: …\n\nMong được trao đổi thêm về mẫu thử, nguyên liệu và yêu cầu chất lượng.',
+    design: 'Chào nhóm Hồi Mẫn / ReBloom,\n\nMình muốn đồng hành cùng dự án trong thiết kế, phát triển thương hiệu hoặc kênh phân phối.\n\nLĩnh vực / ý tưởng hợp tác: …\nNội dung có thể hỗ trợ: …\nThông tin để nhóm liên hệ lại: …\n\nMong được cùng nhóm viết tiếp câu chuyện của những cánh hoa.'
+  };
+  function selectConnectType(type) {
+    if (!Object.hasOwn(contactDrafts, type)) return;
+    all('[data-connect-type]').forEach(button => {
+      const active = button.dataset.connectType === type;
+      button.classList.toggle('is-active', active);
+      button.setAttribute('aria-pressed', String(active));
+    });
+    byId('connect-draft').value = contactDrafts[type];
+    byId('copy-status').textContent = '';
+  }
+  function openConnect(productId = null, opener = document.activeElement) {
+    if (productId && Object.hasOwn(products, productId)) {
+      selectConnectType('design');
+      byId('connect-draft').value = `Chào nhóm Hồi Mẫn / ReBloom,\n\nMình quan tâm đến mẫu concept ${products[productId].name} với lựa chọn ${products[productId].options[activeOption]?.name || products[productId].options[0].name} và muốn tìm hiểu khi sản phẩm sẵn sàng.\n\nNội dung muốn trao đổi: …\nThông tin để nhóm liên hệ lại: …\n\nMong được cùng nhóm tìm hiểu và hoàn thiện ý tưởng này.`;
+    } else if (!byId('connect-draft').value) selectConnectType('flowers');
+    byId('copy-status').textContent = '';
+    openDialog(byId('connect-dialog'), opener);
+  }
+  all('[data-connect]').forEach(button => button.addEventListener('click', () => openConnect(null, button)));
+  all('[data-connect-type]').forEach(button => button.addEventListener('click', () => selectConnectType(button.dataset.connectType)));
+  byId('copy-connect').addEventListener('click', async () => {
+    const textarea = byId('connect-draft');
+    let copied = false;
+    try {
+      if (navigator.clipboard && window.isSecureContext) {
+        await navigator.clipboard.writeText(textarea.value);
+        copied = true;
+      }
+    } catch (_) { /* Native selection remains available when clipboard access is blocked. */ }
+    if (!copied) {
+      textarea.focus();
+      textarea.select();
+      try { copied = document.execCommand('copy'); } catch (_) { /* Preserve the selection for manual copy. */ }
+    }
+    byId('copy-status').textContent = copied ? 'Đã sao chép. Bạn có thể gửi qua kênh liên hệ của nhóm.' : 'Hãy chọn và sao chép nội dung thủ công.';
+  });
+  byId('privacy-open').addEventListener('click', () => openDialog(byId('info-dialog'), byId('privacy-open')));
+  document.addEventListener('hoi:open-dialog', event => {
+    const dialog = byId(event.detail?.id);
+    if (dialog?.tagName === 'DIALOG') openDialog(dialog, event.detail.opener || document.activeElement);
+  });
+})();
+</script><script>(() => {
+  'use strict';
+  const $ = id => document.getElementById(id);
+  const tabs = [...document.querySelectorAll('[data-heritage]')];
+  const stories = [
+    ['Một nén hương.<br>Một cảm giác trở về.', 'Hoa và hương gắn với những nghi lễ, ký ức gia đình và lời gửi gắm trong đời sống Việt. Hồi Mẫn lấy cảm hứng từ sự hiện diện ấy để kể một câu chuyện gần gũi với thế hệ hôm nay.', 'GÌN GIỮ Ý NGHĨA. KỂ BẰNG NGÔN NGỮ MỚI.'],
+    ['Từ bàn tay nghề.<br>Đến đời sống hôm nay.', 'Tre, gốm, sân gạch và những bó hương là nguồn cảm hứng cho ngôn ngữ hình ảnh của Hồi Mẫn. Nhóm mong muốn học hỏi kỹ thuật làm hương và tìm cơ hội hợp tác khi phát triển sản phẩm.', 'CẢM HỨNG TỪ NGHỀ VIỆT. TIẾP NỐI BẰNG SÁNG TẠO.'],
+    ['Hoa khép một mùa.<br>Giá trị mở một vòng.', 'Bắt đầu từ nguồn hoa đã qua sử dụng, ReBloom nghiên cứu khả năng tạo nhang hoa. Tinh thần trân trọng tài nguyên được tiếp nối qua từng lựa chọn nguyên liệu, công thức và bao bì đang được thử nghiệm.', 'MỘT Ý TƯỞNG tiếp nối. TỪNG BƯỚC ĐỂ THÀNH HIỆN THỰC.']
+  ];
+  function selectTab(index, focus = false) {
+    tabs.forEach((tab, i) => { tab.classList.toggle('is-active', i === index); tab.setAttribute('aria-selected', String(i === index)); tab.tabIndex = i === index ? 0 : -1; });
+    $('heritage-panel').setAttribute('aria-labelledby', tabs[index].id);
+    $('heritage-panel-title').innerHTML = stories[index][0];
+    $('heritage-panel-copy').textContent = stories[index][1];
+    $('heritage-panel-tag').textContent = stories[index][2];
+    if (focus) tabs[index].focus();
+  }
+  tabs.forEach((tab, i) => {
+    tab.addEventListener('click', () => selectTab(i));
+    tab.addEventListener('keydown', e => {
+      const n = {ArrowRight:(i+1)%3, ArrowDown:(i+1)%3, ArrowLeft:(i+2)%3, ArrowUp:(i+2)%3, Home:0, End:2}[e.key];
+      if (n !== undefined) { e.preventDefault(); selectTab(n, true); }
+    });
+  });
+  document.querySelectorAll('[data-motif]').forEach(button => button.addEventListener('click', () => {
+    document.querySelectorAll('[data-motif]').forEach(item => item.setAttribute('aria-pressed', String(item === button)));
+    $('motif-name').textContent = button.dataset.title;
+    $('motif-description').textContent = button.dataset.copy;
+  }));
+  const picture = $('heritage-picture');
+  if (matchMedia('(hover:hover) and (pointer:fine)').matches && !matchMedia('(prefers-reduced-motion:reduce)').matches) {
+    picture.addEventListener('pointermove', e => { const r = picture.getBoundingClientRect(); picture.style.setProperty('--heritage-x', `${(e.clientX-r.left-r.width/2)*.009}px`); picture.style.setProperty('--heritage-y', `${(e.clientY-r.top-r.height/2)*.009}px`); });
+    picture.addEventListener('pointerleave', () => { picture.style.setProperty('--heritage-x','0px'); picture.style.setProperty('--heritage-y','0px'); });
+  }
+  let context, master, noiseBuffer, suspendTimer, samplePromise;
+  let enabled=false, volume=.35, mode='quiet', request=0, lastFx=0, mediaPlaying=false;
+  const beds={}, samples={}, layerGains={};
+  let selected=new Set(["wind","water","bell"]),sleepTimer; const levels={"courtyard": 0.65, "bamboo": 0.45, "gong": 0.25, "rain": 0.45, "wind": 0.35, "water": 0.2, "tre": 0.35, "bell": 0.18, "paper": 0.45, "ember": 0.45};
+  const names={"courtyard": "Hiên nhà", "bamboo": "Nếp núi", "modern": "Hương & gió", "rainy": "Một chiều mưa", "workshop": "Xưởng ReBloom", "festival": "Nhịp sân đình", "river": "Bên dòng nước", "quiet": "Khoảng an"};
+ const mixes={courtyard:["courtyard","wind","bell"],bamboo:["bamboo","tre","wind"],modern:["wind","ember"],rainy:["courtyard","rain"],workshop:["tre","paper","wind"],festival:["gong","wind"],river:["water","courtyard"],quiet:["bell","wind","water"]};
+  const sources={"courtyard": HM_ASSET("assets/audio/dan-bau-len-ngan.mp3"), "bamboo": HM_ASSET("assets/audio/dan-moi.mp3"), "gong": HM_ASSET("assets/audio/gong-drum.mp3"), "rain": HM_ASSET("assets/audio/rain.mp3"), "wind": HM_ASSET("assets/audio/wind.mp3"), "water": HM_ASSET("assets/audio/water.mp3"), "tre": HM_ASSET("assets/audio/bamboo.mp3"), "bell": HM_ASSET("assets/audio/bell.mp3"), "paper": HM_ASSET("assets/audio/paper.mp3"), "ember": HM_ASSET("assets/audio/ember.mp3")};
+  const effectSources={touch:'dan-moi-touch',complete:'dan-bau-complete',motif:'dan-moi-motif',drop:'dan-moi-drop',open:'dan-bau-open',print:'dan-bau-print'};
+  function initialize(){
+    if(context)return;
+    const API=window.AudioContext||window.webkitAudioContext;
+    if(!API)throw Error('AudioContext');
+    context=new API();master=context.createGain();master.gain.value=0;master.connect(context.destination);
+    noiseBuffer=context.createBuffer(1,context.sampleRate,context.sampleRate);const data=noiseBuffer.getChannelData(0);for(let i=0;i<data.length;i++)data[i]=Math.random()*2-1;
+    Object.entries(sources).forEach(([key,src])=>{const audio=new Audio(src);audio.loop=true;audio.preload='none';const node=context.createMediaElementSource(audio),gain=context.createGain();gain.gain.value=levels[key]*.5;layerGains[key]=gain;node.connect(gain);gain.connect(master);beds[key]=audio;});
+    samplePromise=Promise.all(Object.entries(effectSources).map(async([key,file])=>{try{const response=await fetch(HM_ASSET(`assets/audio/${file}.mp3`));if(!response.ok)throw Error('sample');samples[key]=await context.decodeAudioData(await response.arrayBuffer());}catch(_){}}));
+  }
+  function playSample(key,level=.35){
+    if(!enabled||!$('sfx-enabled').checked||document.hidden||mediaPlaying||!context||context.state!=='running')return;
+    if(!$('sfx-instruments').checked){friction(key==='drop'?'roll':'paper',.3);return;}
+    const buffer=samples[key]||samples.touch;if(!buffer)return;
+    const source=context.createBufferSource(),gain=context.createGain();source.buffer=buffer;gain.gain.value=level;source.connect(gain);gain.connect(master);source.start();source.onended=()=>{source.disconnect();gain.disconnect();};
+  }
+  function friction(kind,intensity=.5){
+    if(!enabled||!$('sfx-enabled').checked||document.hidden||mediaPlaying||!context||context.state!=='running')return;
+    const now=performance.now();if(now-lastFx<90)return;lastFx=now;
+    const source=context.createBufferSource(),filter=context.createBiquadFilter(),gain=context.createGain(),t=context.currentTime;
+    source.buffer=noiseBuffer;filter.type='bandpass';filter.frequency.value=kind==='roll'?750:kind==='paper'?2200:1400;filter.Q.value=1.1;
+    gain.gain.setValueAtTime(.0001,t);gain.gain.linearRampToValueAtTime(.035*Math.min(1,intensity),t+.01);gain.gain.exponentialRampToValueAtTime(.0001,t+.12);
+    source.connect(filter);filter.connect(gain);gain.connect(master);source.start(t,Math.random()*.5);source.stop(t+.14);source.onended=()=>{source.disconnect();filter.disconnect();gain.disconnect();};
+  }
+  function pauseBeds(){Object.values(beds).forEach(audio=>audio.pause());}
+  async function startBed(){
+    if(!enabled||document.hidden||mediaPlaying){pauseBeds();return;}
+    await Promise.all(Object.entries(beds).map(async([key,audio])=>{if(selected.has(key)){if(audio.paused)await audio.play();}else audio.pause();}));
+  }
+  function update(){
+    document.querySelectorAll('[data-sound-toggle]').forEach(button=>{button.setAttribute('aria-pressed',String(enabled));const label=enabled?'Tắt âm thanh':'Bật âm thanh';button.querySelectorAll('[data-sound-label]').forEach(el=>el.textContent=label);if(button.hasAttribute('aria-label'))button.setAttribute('aria-label',label);button.title=label;button.classList.toggle('is-on',enabled);});
+    document.querySelectorAll('[data-soundscape]').forEach(button=>button.setAttribute('aria-pressed',String(enabled&&button.dataset.soundscape===mode)));
+    $('sound-dock').hidden=!enabled;$('sound-dock-name').textContent=names[mode]||'Bản phối riêng · '+selected.size+' lớp';
+ document.querySelectorAll('[data-layer]').forEach(input=>input.checked=selected.has(input.dataset.layer));
+  }
+  async function setEnabled(value){
+    const version=++request;clearTimeout(suspendTimer);
+    if(!value){enabled=false;pauseBeds();update();if(context){master.gain.setTargetAtTime(0,context.currentTime,.05);suspendTimer=setTimeout(()=>{if(!enabled)context.suspend();},200);}$('sound-status').textContent='Đã tắt âm thanh.';return;}
+    try{initialize();await context.resume();if(version!==request)return;enabled=true;master.gain.setTargetAtTime(volume,context.currentTime,.12);update();await startBed();if(version!==request)return;$('sound-status').textContent=`Đang nghe ${(names[mode]||"bản phối riêng")}.`;}
+    catch(_){enabled=false;pauseBeds();update();$('sound-status').textContent='Chưa bật được âm thanh. Hãy chạm để thử lại.';}
+  }
+  document.querySelectorAll('[data-sound-toggle]').forEach(button=>button.addEventListener('click',()=>setEnabled(!enabled)));
+  document.querySelectorAll('[data-soundscape]').forEach(button=>button.addEventListener('click',()=>{mode=button.dataset.soundscape;selected=new Set(mixes[mode]);setEnabled(true);}));
+  document.querySelectorAll('[data-layer]').forEach(input=>input.addEventListener('change',()=>{if(input.checked)selected.add(input.dataset.layer);else selected.delete(input.dataset.layer);mode='custom';if(selected.size)setEnabled(true);else setEnabled(false);}));
+  document.querySelectorAll('[data-solo]').forEach(button=>button.addEventListener('click',()=>{selected=new Set([button.dataset.solo]);mode='custom';setEnabled(true);}));
+  document.querySelectorAll('[data-layer-volume]').forEach(input=>input.addEventListener('input',()=>{const key=input.dataset.layerVolume;levels[key]=Number(input.value)/100;document.querySelector(`[data-layer-output="${key}"]`).value=input.value+'%';if(context)layerGains[key].gain.setTargetAtTime(levels[key]*.5,context.currentTime,.05);}));
+  document.querySelectorAll('[data-sfx-preview]').forEach(button=>button.addEventListener('click',async()=>{if(!enabled)await setEnabled(true);$('sfx-enabled').checked=true;$('sfx-instruments').checked=true;await samplePromise;playSample(button.dataset.sfxPreview,.65);$('mix-status').textContent='Nghe thử: '+button.textContent.replace(' ▷','');}));
+  $('sound-save-mix').addEventListener('click',()=>{try{localStorage.setItem('rebloom.mix.v1',JSON.stringify({selected:[...selected],levels,volume}));$('mix-status').textContent='Đã lưu bản phối trên thiết bị này.';}catch(_){$('mix-status').textContent='Thiết bị chưa cho phép lưu bản phối.';}});
+  $('sound-load-mix').addEventListener('click',()=>{try{const data=JSON.parse(localStorage.getItem('rebloom.mix.v1'));if(!data)throw Error();selected=new Set(data.selected.filter(key=>sources[key]));Object.keys(levels).forEach(key=>{if(Number.isFinite(data.levels[key]))levels[key]=Math.max(0,Math.min(1,data.levels[key]));const input=document.querySelector(`[data-layer-volume="${key}"]`);input.value=Math.round(levels[key]*100);document.querySelector(`[data-layer-output="${key}"]`).value=input.value+'%';if(context)layerGains[key].gain.setTargetAtTime(levels[key]*.5,context.currentTime,.05);});if(Number.isFinite(data.volume)){volume=Math.max(0,Math.min(1,data.volume));$('sound-volume').value=Math.round(volume*100);$('sound-volume-value').value=Math.round(volume*100)+'%';}mode='custom';setEnabled(selected.size>0);$('mix-status').textContent='Đã mở bản phối của bạn.';}catch(_){$('mix-status').textContent='Chưa có bản phối đã lưu trên thiết bị này.';}});
+  $('sound-sleep').addEventListener('change',e=>{clearTimeout(sleepTimer);const minutes=Number(e.target.value);if(minutes)sleepTimer=setTimeout(()=>{setEnabled(false);$('sound-sleep').value='0';$('mix-status').textContent='Đã tắt âm thanh theo hẹn giờ.';},minutes*60000);$('mix-status').textContent=minutes?`Âm thanh sẽ tắt sau ${minutes} phút.`:'Đã bỏ hẹn giờ.';});
+  $('sound-volume').addEventListener('input',e=>{volume=Number(e.target.value)/100;$('sound-volume-value').value=`${Math.round(volume*100)}%`;if(context&&enabled)master.gain.setTargetAtTime(volume,context.currentTime,.05);});
+  $('sound-open').addEventListener('click',e=>document.dispatchEvent(new CustomEvent('hoi:open-dialog',{detail:{id:'sound-dialog',opener:e.currentTarget}})));
+  document.addEventListener('click',e=>{const target=e.target.closest('button,a');if(target&&!target.matches('[data-sound-toggle],[data-soundscape]'))playSample(target.matches('[data-motif]')?'motif':target.matches('[data-film]')?'open':'touch',.25);});
+  document.addEventListener('hoi:craft-sound',e=>playSample(e.detail?.kind||'drop'));
+  document.addEventListener('hoi:gesture-sound',e=>friction(e.detail?.kind||'sift',e.detail?.intensity||.6));
+  document.addEventListener('hoi:print-sound',e=>{if(e.detail?.kind==='complete')playSample('print');else friction(e.detail?.kind||'paper');});
+  document.querySelectorAll('video[data-source-film]').forEach(video=>{
+    video.addEventListener('play',()=>{document.querySelectorAll('video[data-source-film]').forEach(other=>{if(other!==video)other.pause();});mediaPlaying=true;pauseBeds();});
+    const resume=()=>{mediaPlaying=[...document.querySelectorAll('video[data-source-film]')].some(v=>!v.paused&&!v.ended);if(enabled&&!mediaPlaying&&!document.hidden)startBed().catch(()=>setEnabled(false));};video.addEventListener('pause',resume);video.addEventListener('ended',resume);
+  });
+  document.addEventListener('visibilitychange',()=>{if(!context)return;if(document.hidden){pauseBeds();context.suspend();}else if(enabled)context.resume().then(startBed).catch(()=>setEnabled(false));});
+  window.addEventListener('pagehide',()=>{pauseBeds();if(context)context.suspend();});
+  window.addEventListener('pageshow',()=>{if(context&&enabled&&!document.hidden)context.resume().then(startBed).catch(()=>setEnabled(false));});
+  update();
+})();
+</script><script>(() => {
+'use strict';
+const $ = id => document.getElementById(id), canvas = $('craft-canvas'), ctx = canvas.getContext('2d');
+if (!ctx) return;
+const reduced = matchMedia('(prefers-reduced-motion:reduce)').matches;
+let stage=0, count=0, spread=8, completed=false, drag=false, last=null, distance=0, frame=0, shake=0;
+let activePointer=null, held=-1, heldPoint=null, transitionTimer=null, transitioning=false;
+const rolled=Array(6).fill(0);
+const picked=new Set();
+const petals=[{x:120,y:240,r:-.7},{x:250,y:100,r:.4},{x:780,y:180,r:1.2},{x:850,y:425,r:.8},{x:165,y:650,r:-.6},{x:745,y:690,r:2.2}];
+const steps=[
+ ['NHẶT CÁNH','Giữ lại<br>những cánh hoa.','Giữ và kéo từng cánh hoa vào vòng tròn giữa mẹt tre. Thả tay để đặt hoa xuống.','Nhặt một cánh hoa','Mẹt tre trở thành nơi bắt đầu: chọn, giữ và trân trọng từng phần nguyên liệu.'],
+ ['SÀNG BỘT','Một lần sàng.<br>Một chút nâng niu.','Đặt ngón tay hoặc giữ chuột trên sàng, rồi lắc qua lại. Sàng và lớp bột chuyển động theo tay bạn.','Sàng một lượt','Sàng tre gợi nhắc những dụng cụ mộc mạc trong đời sống và lao động thủ công.'],
+ ['SE HƯƠNG','Từng đường se.<br>Từng nếp chăm chút.','Giữ và miết dọc từng tăm tre từ trái sang phải. Se đủ sáu nén hương để đi tiếp.','Se một lượt','Tăm tre và sắc nâu hương tạo nên hình ảnh thân quen. Thao tác trong game chỉ mang tính tượng trưng.'],
+ ['XÒE HƯƠNG','Xòe một mùa mới.<br>Gửi một nếp an.','Nắm đầu bó hương và kéo sang trái hoặc phải để mở thành hình quạt. Kéo rộng tay đến khi bó hương xòe hết.','Xòe thêm một chút','Bó hương xòe quạt là hình ảnh chủ đạo của trải nghiệm: nhiều nén hương cùng tạo nên một dáng hình.']
+];
+function path(points,stroke,width=1){ctx.beginPath();points.forEach((p,i)=>i?ctx.lineTo(...p):ctx.moveTo(...p));ctx.strokeStyle=stroke;ctx.lineWidth=width;ctx.stroke();}
+function petal(x,y,rotation,color,size=1){ctx.save();ctx.translate(x,y);ctx.rotate(rotation);ctx.scale(size,size);ctx.beginPath();ctx.moveTo(0,42);ctx.bezierCurveTo(-42,8,-32,-40,0,-47);ctx.bezierCurveTo(34,-17,43,18,0,42);const g=ctx.createLinearGradient(-30,-30,25,30);g.addColorStop(0,color);g.addColorStop(1,'#dec5b2');ctx.fillStyle=g;ctx.shadowColor='#54352730';ctx.shadowBlur=8;ctx.shadowOffsetY=5;ctx.fill();ctx.shadowBlur=0;ctx.shadowOffsetY=0;path([[0,35],[-3,2],[0,-36]],'#f8e2cf88',1);ctx.restore();}
+function tray(){ctx.save();ctx.translate(shake,0);ctx.shadowColor='#46382040';ctx.shadowBlur=26;ctx.shadowOffsetY=18;ctx.beginPath();ctx.ellipse(480,397,335,290,0,0,Math.PI*2);ctx.fillStyle='#b99861';ctx.fill();ctx.shadowBlur=0;ctx.shadowOffsetY=0;ctx.save();ctx.clip();ctx.translate(480,397);ctx.rotate(-.35);for(let i=-490;i<490;i+=16){ctx.fillStyle=((i+490)/16)%2?'#c1a16b':'#c9ad78';ctx.fillRect(i,-490,7,980);ctx.fillStyle='#745b3630';ctx.fillRect(i+7,-490,2,980);ctx.fillStyle='#e0c49170';ctx.fillRect(-490,i,980,5);}ctx.restore();for(let r=0;r<5;r++){ctx.beginPath();ctx.ellipse(480,397,335-r*4,290-r*4,0,0,Math.PI*2);ctx.lineWidth=3;ctx.strokeStyle=r%2?'#d6b779':'#9f7a42';ctx.stroke();}ctx.restore();}
+function fan(target, cx,cy,radius,angle,scale=1){target.save();target.translate(cx,cy);target.lineCap='round';for(let i=0;i<43;i++){const a=(-angle+(angle*2*i/42))*Math.PI/180;const ex=Math.sin(a)*radius,ey=-Math.cos(a)*radius;target.beginPath();target.moveTo((i-21)*scale*.55,38*scale);target.lineTo(ex,ey);target.strokeStyle=i%3?'#9b3f2d':'#b85438';target.lineWidth=4*scale;target.stroke();target.beginPath();target.moveTo(Math.sin(a)*radius*.35,-Math.cos(a)*radius*.35);target.lineTo(ex,ey);target.strokeStyle=i%3?'#78603e':'#99805a';target.lineWidth=3.5*scale;target.stroke();}target.strokeStyle='#d4b16f';target.lineWidth=5*scale;target.beginPath();target.moveTo(-19*scale,-8*scale);target.quadraticCurveTo(0,2*scale,19*scale,-8*scale);target.stroke();target.restore();}
+function draw(){
+ ctx.clearRect(0,0,960,840);const bg=ctx.createLinearGradient(0,0,960,840);bg.addColorStop(0,'#ddceb3');bg.addColorStop(1,'#bfa785');ctx.fillStyle=bg;ctx.fillRect(0,0,960,840);
+ // Fine, deterministic grain and timber joins; remains stable as the player moves.
+ for(let i=0;i<155;i++){const y=(i*79)%840;path([[0,y],[960,y+Math.sin(i)*9]],i%4?'#6d543309':'#fff9de17',1);}
+ path([[0,162],[960,157]],'#73573718',2);path([[0,727],[960,733]],'#73573718',2);
+ ctx.fillStyle='#f5e6c127';ctx.beginPath();ctx.moveTo(40,0);ctx.lineTo(360,0);ctx.lineTo(910,840);ctx.lineTo(560,840);ctx.fill();
+ if(stage<2){if(stage===0){ctx.save();ctx.translate(480,397);ctx.scale(.72,.72);ctx.translate(-480,-397);tray();ctx.restore();ctx.beginPath();ctx.ellipse(480,397,190,150,0,0,Math.PI*2);ctx.setLineDash([7,10]);ctx.strokeStyle=held>=0?'#fff7dc':'#77572d88';ctx.lineWidth=2;ctx.stroke();ctx.setLineDash([]);petals.forEach((p,i)=>{if(!picked.has(i)&&held!==i)petal(p.x,p.y,p.r,i%2?'#b9787f':'#d4a49e');});let k=0;picked.forEach(i=>{petal(425+(k%3)*55,355+Math.floor(k/3)*80,petals[i].r,'#b9787f',.65);k++;});if(held>=0&&heldPoint)petal(heldPoint.x,heldPoint.y,petals[held].r,'#c18a8e',1.12);ctx.textAlign='center';ctx.font='18px Be Vietnam Pro, sans-serif';ctx.fillStyle='#705536';ctx.fillText('THẢ CÁNH HOA VÀO MẸT',480,610);}else tray();if(stage===0){}
+ else{ctx.save();ctx.translate(shake,0);for(let i=0;i<600;i++){const a=i*2.399,r=Math.sqrt((i*73)%600)/24.5*190,x=480+Math.cos(a)*r,y=397+Math.sin(a)*r*.8;ctx.fillStyle=i%2?'#89684988':'#9b785389';ctx.beginPath();ctx.arc(x,y,Math.max(1.2,5-count*.6),0,Math.PI*2);ctx.fill();}ctx.restore();}}
+ else if(stage===2){ctx.save();ctx.shadowColor='#4c321b33';ctx.shadowBlur=20;ctx.shadowOffsetY=12;ctx.fillStyle='#786044';ctx.fillRect(145,235,670,325);ctx.shadowBlur=0;ctx.shadowOffsetY=0;for(let i=0;i<45;i++)path([[145,240+i*7],[815,242+i*7]],'#e4c69612',1);for(let i=0;i<6;i++){const y=290+i*42;path([[215,y],[760,y]],'#caaa65',5);if(rolled[i]>0)path([[215,y],[215+420*rolled[i],y]],'#8f704b',12);if(rolled[i]<1){ctx.setLineDash([5,10]);path([[215,y],[635,y]],'#dfcca466',10);ctx.setLineDash([]);ctx.beginPath();ctx.arc(215+420*rolled[i],y,13,0,Math.PI*2);ctx.fillStyle='#f5dfaa';ctx.fill();}}ctx.restore();}
+ else{ctx.fillStyle='#995e43';ctx.fillRect(0,0,960,840);for(let y=0;y<840;y+=130){path([[0,y],[960,y]],'#d8b89466',3);for(let x=-(y%260?90:0);x<960;x+=270)path([[x,y],[x,y+130]],'#d8b89466',3);}ctx.fillStyle='#f2d9ac20';ctx.beginPath();ctx.moveTo(0,0);ctx.lineTo(450,0);ctx.lineTo(960,840);ctx.lineTo(600,840);ctx.fill();ctx.save();ctx.shadowColor='#3b211d55';ctx.shadowBlur=15;ctx.shadowOffsetX=20;ctx.shadowOffsetY=20;fan(ctx,480,670,460,spread,1.5);ctx.restore();if(!completed){const x=480+Math.sin(spread*Math.PI/180)*460,y=670-Math.cos(spread*Math.PI/180)*460;ctx.beginPath();ctx.arc(x,y,25,0,Math.PI*2);ctx.strokeStyle='#f5e3be';ctx.lineWidth=2;ctx.stroke();}}
+}
+function percent(){return stage===3?Math.min(100,Math.round((spread-8)/57*100)):Math.round(count/6*100);}
+function update(){const p=percent();$('craft-progress').value=p;$('craft-percent').textContent=p+'%';$('craft-progress-text').textContent=stage===0?`${picked.size} / 6 cánh hoa`:stage===3?'Kéo rộng để xòe bó hương':stage===2?`${rolled.filter(v=>v>=1).length} / 6 nén hương`:'Lắc sàng qua lại';draw();if(p>=100&&!transitioning&&!completed)finishStep();}
+function announce(text){$('craft-status').textContent=text;}
+function sound(kind='drop'){document.dispatchEvent(new CustomEvent('hoi:craft-sound',{detail:{kind}}));}
+function finishStep(){transitioning=true;drag=false;held=-1;activePointer=null;canvas.classList.remove('is-dragging');canvas.classList.add('is-complete');$('craft-gesture-hint').textContent=stage===3?'Một mùa hương đã nở.':'Đã hoàn thành · Đang sang bước tiếp theo';announce($('craft-gesture-hint').textContent);sound('complete');transitionTimer=setTimeout(()=>{transitioning=false;canvas.classList.remove('is-complete');if(stage<3){stage++;showStage();announce(`Bước ${stage+1}: ${steps[stage][0]}. ${steps[stage][2]}`);}else{completed=true;$('craft-result').hidden=false;$('craft-gesture-hint').textContent='Mẻ hương đã hoàn thành · Tạo thiệp của bạn bên dưới';announce('Mẻ hương đã hoàn thành. Bạn có thể nhập tên và tải thiệp bên dưới.');draw();}},900);}
+function showStage(){cancelAnimationFrame(frame);shake=0;count=0;distance=0;last=null;drag=false;held=-1;heldPoint=null;activePointer=null;const d=steps[stage];$('craft-step-label').textContent=`BƯỚC 0${stage+1} / ${d[0]}`;$('craft-task-title').innerHTML=d[1];$('craft-instruction').textContent=d[2];$('craft-context').textContent=d[4];canvas.setAttribute('aria-label',`${d[0]}. ${d[2]}`);$('craft-gesture-hint').textContent=['Kéo từng cánh hoa vào mẹt','Giữ sàng và lắc qua lại','Miết theo từng tăm tre','Giữ đầu bó hương và kéo rộng'][stage];document.querySelectorAll('.craft-steps li').forEach((li,i)=>{li.removeAttribute('aria-current');if(i===stage)li.setAttribute('aria-current','step');li.classList.toggle('is-done',i<stage);});update();}
+$('craft-restart').addEventListener('click',()=>{clearTimeout(transitionTimer);transitioning=false;canvas.classList.remove('is-complete');stage=0;spread=8;completed=false;picked.clear();rolled.fill(0);$('craft-result').hidden=true;showStage();announce('Đã bắt đầu một mẻ hương mới.');});
+function point(e){const r=canvas.getBoundingClientRect();return{x:(e.clientX-r.left)*960/r.width,y:(e.clientY-r.top)*840/r.height};}
+canvas.addEventListener('pointerdown',e=>{if(completed||transitioning||activePointer!==null||(e.button!==undefined&&e.button!==0))return;const p=point(e);if(stage===0){held=petals.findIndex((q,i)=>!picked.has(i)&&Math.hypot(q.x-p.x,q.y-p.y)<72);if(held<0)return;heldPoint=p;}else if(stage===1&&((p.x-480)**2/335**2+(p.y-397)**2/290**2)>1)return;else if(stage===2&&(p.x<170||p.x>790||p.y<260||p.y>530))return;else if(stage===3&&(p.y>650||Math.abs(p.x-480)>Math.sin(spread*Math.PI/180)*460+75))return;activePointer=e.pointerId;drag=true;last=p;canvas.setPointerCapture(e.pointerId);canvas.classList.add('is-dragging');e.preventDefault();draw();});
+canvas.addEventListener('pointermove',e=>{if(!drag||!last||completed||transitioning||e.pointerId!==activePointer)return;const p=point(e),previous=last,dx=p.x-last.x;last=p;e.preventDefault();if(stage===0){heldPoint=p;draw();return;}if(stage===1){shake=Math.max(-35,Math.min(35,(p.x-480)*.15));document.dispatchEvent(new CustomEvent('hoi:gesture-sound',{detail:{kind:'sift',intensity:Math.min(1,Math.abs(dx)/25)}}));distance+=Math.min(Math.abs(dx),100);count=Math.min(6,distance/180);}else if(stage===2){const row=Math.round((p.y-290)/42),prevRow=Math.round((previous.y-290)/42);document.dispatchEvent(new CustomEvent('hoi:gesture-sound',{detail:{kind:'roll',intensity:Math.min(1,Math.abs(dx)/25)}}));if(row>=0&&row<6&&prevRow===row&&Math.abs(p.y-(290+row*42))<20&&Math.abs(previous.y-(290+row*42))<20){const start=215+420*rolled[row];if(previous.x<=start+40&&previous.x>=start-65&&dx>0)rolled[row]=Math.min(1,Math.max(rolled[row],(Math.min(p.x,635)-215)/420));}count=rolled.reduce((a,b)=>a+b,0);}else spread=Math.max(8,Math.min(65,Math.atan2(Math.abs(p.x-480),Math.max(100,670-p.y))*180/Math.PI));update();});
+function release(e,cancelled=false){if(e.pointerId!==activePointer)return;if(stage===0&&held>=0&&!cancelled){const p=point(e);if((p.x-480)**2/190**2+(p.y-397)**2/150**2<=1){picked.add(held);count=picked.size;sound();}else announce('Kéo cánh hoa vào trong vòng tròn trên mẹt.');}drag=false;last=null;held=-1;heldPoint=null;activePointer=null;shake=0;canvas.classList.remove('is-dragging');update();}
+canvas.addEventListener('pointerup',e=>release(e));canvas.addEventListener('pointercancel',e=>release(e,true));canvas.addEventListener('lostpointercapture',e=>release(e,true));
+// Equivalent keyboard gestures keep the canvas usable without a pointing device.
+canvas.addEventListener('keydown',e=>{if(completed||transitioning||!['ArrowLeft','ArrowRight','Enter',' '].includes(e.key))return;e.preventDefault();if(stage===0){picked.add(petals.findIndex((_,i)=>!picked.has(i)));count=picked.size;}else if(stage===1){distance+=180;count=Math.min(6,distance/180);}else if(stage===2){const i=rolled.findIndex(v=>v<1);if(i>=0)rolled[i]=Math.min(1,rolled[i]+.25);count=rolled.reduce((a,b)=>a+b,0);}else spread=Math.min(65,spread+10);update();});
+$('craft-download').addEventListener('click',async()=>{
+ const button=$('craft-download');button.disabled=true;button.textContent='Đang tạo thiệp…';
+ try{await document.fonts.ready;const logo=new Image();logo.src=HM_ASSET("assets/logo-rebloom-icon.png");await logo.decode();const out=document.createElement('canvas');out.width=1200;out.height=1600;const c=out.getContext('2d');c.fillStyle='#f0e8d8';c.fillRect(0,0,1200,1600);c.strokeStyle='#8f5b43';c.lineWidth=2;c.strokeRect(50,50,1100,1500);c.strokeRect(62,62,1076,1476);c.textAlign='center';c.fillStyle='#465039';c.font='22px Be Vietnam Pro, sans-serif';c.save();c.globalCompositeOperation='multiply';c.drawImage(logo,550,80,100,100);c.restore();c.font='63px Lora, serif';c.fillText('Một nén hương.',600,275);c.fillText('Một nếp Việt.',600,360);fan(c,600,1050,540,65,1.6);c.fillStyle='#85503e';let wish=$('craft-wish').value;c.font='35px Lora, serif';c.fillText(wish,600,1190);const name=$('craft-name').value.trim()||'Một người thương điều đẹp';c.fillStyle='#4f5d43';let size=27;c.font=`${size}px Be Vietnam Pro, sans-serif`;while(c.measureText('Từ '+name).width>950&&size>15)c.font=`${--size}px Be Vietnam Pro, sans-serif`;c.fillText('Từ '+name,600,1260);c.font='17px Be Vietnam Pro, sans-serif';c.fillStyle='#837862';c.fillText('TỪ HOA, TRỞ VỀ HƯƠNG · GỬI MỘT NẾP AN',600,1415);const blob=await new Promise(resolve=>out.toBlob(resolve,'image/png'));if(!blob)throw Error('PNG');const url=URL.createObjectURL(blob),link=document.createElement('a');link.href=url;link.download='Hoi-Man-Mot-Nep-An.png';document.body.append(link);link.click();link.remove();setTimeout(()=>URL.revokeObjectURL(url),60000);announce('Đã tạo thiệp PNG. Trình duyệt sẽ tải hoặc mở ảnh để bạn lưu.');}catch(_){announce('Chưa tạo được thiệp. Hãy thử lại.');}finally{button.disabled=false;button.textContent='Tải thiệp PNG';}
+});
+showStage();
+})();
+</script><script>(() => {
+'use strict';
+const $=id=>document.getElementById(id),canvas=$('print-canvas'),ctx=canvas.getContext('2d');if(!ctx)return;
+let phase=0,motif='rooster',color='#994732',active=null,last=null,point=null,peel=0,busy=false,done=false,timer=null,ready=false;
+const ink=new Set(),rub=new Set(),art={};
+const names={rooster:'Gà trống',carp:'Cá chép',lotus:'Sen'};
+function texture(c,x,y,w,h,base){c.fillStyle=base;c.fillRect(x,y,w,h);for(let i=0;i<85;i++){c.strokeStyle=i%2?'#ffffff17':'#6b482410';c.lineWidth=1;c.beginPath();const yy=y+(i*47)%h;c.moveTo(x,yy);c.lineTo(x+w,yy+Math.sin(i)*5);c.stroke();}}
+function drawArt(c,x,y,w,h){if(art[motif]){c.save();c.translate(x,y);c.scale(w/100,h/100);c.strokeStyle=color;c.lineWidth=2.2;c.lineCap='round';c.lineJoin='round';art[motif].forEach(path=>c.stroke(path));c.restore();}}
+function printImage(c,x,y,w,h){texture(c,x,y,w,h,'#f0e5cd');c.strokeStyle=color;c.lineWidth=1.5;c.strokeRect(x+w*.07,y+h*.06,w*.86,h*.87);c.strokeRect(x+w*.09,y+h*.075,w*.82,h*.84);drawArt(c,x+w*.15,y+h*.13,w*.7,h*.6);c.textAlign='center';c.fillStyle=color;c.font=`${w*.057}px Lora,serif`;c.fillText(names[motif],x+w*.5,y+h*.84);c.font=`${w*.023}px Be Vietnam Pro,sans-serif`;c.fillText('REBLOOM · TỪ HOA, TRỞ VỀ HƯƠNG',x+w*.5,y+h*.9);}
+function draw(){ctx.clearRect(0,0,960,900);texture(ctx,0,0,960,900,'#826345');for(let i=0;i<11;i++){ctx.strokeStyle='#3f2d241f';ctx.strokeRect(0,i*85,960,85);}ctx.save();ctx.shadowColor='#271a1b60';ctx.shadowBlur=35;ctx.shadowOffsetY=15;ctx.fillStyle='#4b3829';ctx.fillRect(180,130,600,655);ctx.restore();
+if(phase===0){texture(ctx,210,165,540,570,'#9d7750');drawArt(ctx,250,200,460,460);ink.forEach(n=>{const x=210+(n%6)*90,y=165+Math.floor(n/6)*95;ctx.fillStyle=color+'75';ctx.fillRect(x,y,90,95);});drawArt(ctx,250,200,460,460);if(point){ctx.save();ctx.translate(point.x,point.y);ctx.shadowColor='#25170f44';ctx.shadowBlur=10;ctx.fillStyle='#20251f';ctx.fillRect(-65,-16,130,32);ctx.fillStyle=color;ctx.fillRect(-63,-13,126,25);ctx.strokeStyle='#d1ae71';ctx.lineWidth=6;ctx.beginPath();ctx.moveTo(65,0);ctx.lineTo(83,0);ctx.lineTo(83,65);ctx.stroke();ctx.restore();}}
+else if(phase===1){texture(ctx,210,165,540,570,'#efe6d0');rub.forEach(n=>{const x=210+(n%6)*90,y=165+Math.floor(n/6)*95;ctx.fillStyle='#fff8e820';ctx.fillRect(x,y,90,95);});ctx.save();ctx.globalAlpha=.06+.12*rub.size/36;drawArt(ctx,250,200,460,460);ctx.restore();if(point){ctx.beginPath();ctx.arc(point.x,point.y,45,0,Math.PI*2);ctx.strokeStyle='#aa7a4855';ctx.lineWidth=2;ctx.stroke();}}
+else{printImage(ctx,210,165,540,570);if(!done){const cut=peel*820;ctx.save();ctx.beginPath();ctx.moveTo(210,165);ctx.lineTo(750,165);ctx.lineTo(750,735-cut);ctx.lineTo(750-cut,735);ctx.lineTo(210,735);ctx.closePath();ctx.clip();texture(ctx,210,165,540,570,'#efe6d0');ctx.restore();if(peel>.01){ctx.beginPath();ctx.moveTo(750,735-cut);ctx.lineTo(750-cut,735);ctx.lineTo(750-cut*.55,735-cut*.55);ctx.closePath();ctx.fillStyle='#faf0d9';ctx.shadowColor='#3c2b2355';ctx.shadowBlur=14;ctx.fill();ctx.shadowBlur=0;}else{ctx.beginPath();ctx.arc(735,720,29,0,Math.PI*2);ctx.strokeStyle='#9a523b';ctx.lineWidth=2;ctx.stroke();}}}
+ctx.fillStyle='#e1c895';ctx.textAlign='center';ctx.font='14px Be Vietnam Pro,sans-serif';ctx.fillText(phase===0?'LĂN MỰC TRÊN KHUÔN':phase===1?'MIẾT GIẤY ĐỂ GIỮ NÉT':done?'MỘT SẮC VIỆT DO BẠN TẠO':'KÉO GÓC GIẤY ĐỂ MỞ TRANH',480,830);}
+function progress(){return phase===0?Math.min(100,Math.round(ink.size/30*100)):phase===1?Math.min(100,Math.round(rub.size/32*100)):Math.round(peel*100);}
+function update(){const value=progress();$('print-progress').value=value;draw();if(value>=100&&!busy&&!done){busy=true;active=null;point=null;$('print-hint').textContent=phase===2?'Tranh đã mở. Một mùa hoa của bạn.':'Đã hoàn thành · Đang chuyển bước';document.dispatchEvent(new CustomEvent('hoi:print-sound',{detail:{kind:'complete'}}));timer=setTimeout(()=>{busy=false;if(phase<2){phase++;showPhase();}else{done=true;$('print-result').hidden=false;$('print-task').innerHTML='Một sắc Việt.<br>Một nét riêng.';$('print-status').textContent='Tranh đã hoàn thành. Thêm tên và tải ảnh bên cạnh.';draw();}},700);}}
+function showPhase(){const data=[['01 / LĂN MỰC','Một lượt mực.<br>Một nét bắt đầu.','Giữ ngón tay hoặc chuột, kéo con lăn phủ mực lên khắp khuôn gỗ.','Lăn qua các vùng chưa có mực.'],['02 / MIẾT GIẤY','Giữ một nét.<br>Miết một lượt.','Giữ và miết khắp mặt giấy. Những vùng đã miết sẽ hiện nét mờ của hình in.','Miết đều từng vùng trên mặt giấy.'],['03 / MỞ TRANH','Kéo một góc.<br>Mở một sắc Việt.','Nắm góc dưới bên phải của tờ giấy, kéo lên về phía góc trên bên trái để mở tranh.','Kéo từ vòng tròn ở góc giấy.']][phase];$('print-step').textContent=data[0];$('print-task').innerHTML=data[1];$('print-instruction').textContent=data[2];$('print-hint').textContent=data[3];canvas.setAttribute('aria-label',data[2]);$('print-status').textContent=data[2];update();}
+function reset(){clearTimeout(timer);phase=0;busy=false;done=false;active=null;last=null;point=null;peel=0;ink.clear();rub.clear();$('print-result').hidden=true;showPhase();}
+function coordinates(e){const r=canvas.getBoundingClientRect();return{x:(e.clientX-r.left)*960/r.width,y:(e.clientY-r.top)*900/r.height};}
+function stamp(p){if(p.x<210||p.x>750||p.y<165||p.y>735)return;const set=phase===0?ink:rub;for(let dy=-28;dy<=28;dy+=28)for(let dx=-48;dx<=48;dx+=48){const col=Math.floor((p.x+dx-210)/90),row=Math.floor((p.y+dy-165)/95);if(col>=0&&col<6&&row>=0&&row<6)set.add(row*6+col);}}
+canvas.addEventListener('pointerdown',e=>{if(!ready||busy||done||active!==null||e.button!==0)return;const p=coordinates(e);if(phase===2&&Math.hypot(p.x-735,p.y-720)>80)return;if(phase<2&&(p.x<180||p.x>780||p.y<130||p.y>785))return;active=e.pointerId;last=p;point=p;canvas.setPointerCapture(e.pointerId);e.preventDefault();draw();});
+canvas.addEventListener('pointermove',e=>{if(e.pointerId!==active||busy||done)return;const p=coordinates(e);if(phase<2){const distance=Math.hypot(p.x-last.x,p.y-last.y),steps=Math.max(1,Math.ceil(distance/20));for(let i=1;i<=steps;i++)stamp({x:last.x+(p.x-last.x)*i/steps,y:last.y+(p.y-last.y)*i/steps});document.dispatchEvent(new CustomEvent('hoi:print-sound',{detail:{kind:phase===0?'roll':'paper'}}));}else peel=Math.max(peel,Math.min(1,Math.hypot(735-p.x,720-p.y)/570));last=p;point=p;e.preventDefault();update();});
+function release(e){if(e.pointerId!==active)return;active=null;last=null;point=null;draw();}
+['pointerup','pointercancel','lostpointercapture'].forEach(type=>canvas.addEventListener(type,release));
+canvas.addEventListener('keydown',e=>{if(!ready||busy||done||!['ArrowLeft','ArrowRight','ArrowUp','ArrowDown',' '].includes(e.key))return;e.preventDefault();if(phase<2){const set=phase===0?ink:rub;for(let i=0;i<36;i++)if(!set.has(i)){set.add(i);break;}}else peel=Math.min(1,peel+.15);update();});
+document.querySelectorAll('[data-print-motif]').forEach(button=>button.addEventListener('click',()=>{motif=button.dataset.printMotif;document.querySelectorAll('[data-print-motif]').forEach(b=>b.setAttribute('aria-pressed',String(b===button)));reset();}));
+document.querySelectorAll('[data-print-color]').forEach(button=>button.addEventListener('click',()=>{color=button.dataset.printColor;document.querySelectorAll('[data-print-color]').forEach(b=>b.setAttribute('aria-pressed',String(b===button)));reset();}));
+$('print-reset').addEventListener('click',reset);
+$('print-download').addEventListener('click',async()=>{const button=$('print-download');button.disabled=true;try{await document.fonts.ready;const output=document.createElement('canvas');output.width=1200;output.height=1600;const c=output.getContext('2d');texture(c,0,0,1200,1600,'#f0e5cd');printImage(c,80,90,1040,1210);const logo=new Image();logo.src=HM_ASSET("assets/logo-rebloom-icon.png");await logo.decode();c.save();c.globalCompositeOperation='multiply';c.drawImage(logo,530,1290,140,140);c.restore();c.textAlign='center';c.fillStyle=color;const name=$('print-name').value.trim()||'Một người yêu nét Việt';let size=28;c.font=`${size}px Be Vietnam Pro,sans-serif`;while(c.measureText('Một mùa hoa của '+name).width>1000&&size>15)c.font=`${--size}px Be Vietnam Pro,sans-serif`;c.fillText('Một mùa hoa của '+name,600,1490);const blob=await new Promise(resolve=>output.toBlob(resolve,'image/png'));if(!blob)throw Error('PNG');const url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download='ReBloom-Nhan-Mua-Hoa.png';document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),60000);$('print-status').textContent='Đã tạo tranh PNG để lưu.';}catch(_){$('print-status').textContent='Chưa tạo được ảnh. Hãy thử lại.';}finally{button.disabled=false;}});
+fetch(HM_ASSET("assets/viet-motifs.svg")).then(r=>{if(!r.ok)throw Error('motifs');return r.text();}).then(text=>{const doc=new DOMParser().parseFromString(text,'image/svg+xml');['rooster','carp','lotus'].forEach(key=>{art[key]=[...doc.querySelectorAll(`#${key} path`)].map(p=>new Path2D(p.getAttribute('d')));doc.querySelectorAll(`#${key} circle`).forEach(node=>{const p=new Path2D();p.arc(Number(node.getAttribute('cx')),Number(node.getAttribute('cy')),Number(node.getAttribute('r')),0,Math.PI*2);art[key].push(p);});});ready=true;reset();}).catch(()=>{$('print-hint').textContent='Chưa tải được khuôn in. Hãy tải lại trang.';});
+draw();
+})();
+</script><script>(() => {
+'use strict';
+const reduced=matchMedia('(prefers-reduced-motion:reduce)');
+const states=[...document.querySelectorAll('[data-smoke]')].map(canvas=>({canvas,ctx:canvas.getContext('2d'),visible:false,w:0,h:0,particles:[],spawn:0})).filter(s=>s.ctx);
+// A soft density field: translucent particles advect upwards and dissipate.
+// No stroked paths, glowing edges or repeated sine-wave ribbons.
+const texture=document.createElement('canvas');texture.width=texture.height=96;
+const tc=texture.getContext('2d');if(!tc)return;
+const gradient=tc.createRadialGradient(48,48,0,48,48,48);
+gradient.addColorStop(0,'rgba(218,220,208,.22)');gradient.addColorStop(.28,'rgba(218,220,208,.14)');gradient.addColorStop(.65,'rgba(218,220,208,.045)');gradient.addColorStop(1,'rgba(218,220,208,0)');tc.fillStyle=gradient;tc.fillRect(0,0,96,96);
+let frame=0,last=0,paused=false,time=0;
+function resize(s){const r=s.canvas.getBoundingClientRect(),ratio=Math.min(devicePixelRatio||1,1.5);s.w=r.width;s.h=r.height;s.canvas.width=Math.round(r.width*ratio);s.canvas.height=Math.round(r.height*ratio);s.ctx.setTransform(ratio,0,0,ratio,0,0);s.particles=[];s.spawn=0;}
+function emit(s){s.particles.push({x:s.w*.5+(Math.random()-.5)*2,y:s.h*.77,age:0,life:5.5+Math.random()*2.5,seed:Math.random()*100,vx:(Math.random()-.5)*3,speed:18+Math.random()*9});}
+function paint(s,dt){const {ctx:c,w,h}=s;if(!w||!h)return;c.clearRect(0,0,w,h);s.spawn+=dt;while(s.spawn>=.1){emit(s);s.spawn-=.1;}const scale=Math.max(.6,Math.min(1.4,w/420));c.globalCompositeOperation='source-over';
+s.particles=s.particles.filter(p=>p.age<p.life);for(const p of s.particles){p.age+=dt;const f=p.age/p.life;p.vx+=(Math.sin(time*.6+p.seed)*2.3-p.vx*.28)*dt;p.x+=p.vx*dt;p.y-=p.speed*scale*dt;const r=(3+Math.pow(f,1.3)*36)*scale;const fade=Math.min(1,p.age/.6)*Math.pow(Math.max(0,1-f),1.6);c.globalAlpha=fade*.55;c.drawImage(texture,p.x-r,p.y-r*1.7,r*2,r*3.4);}c.globalAlpha=1;}
+function loop(now){frame=0;if(document.hidden||reduced.matches||paused)return;if(now-last>42){const dt=Math.min((now-last)/1000,.08);time+=dt;last=now;states.filter(s=>s.visible).forEach(s=>paint(s,dt));}if(states.some(s=>s.visible))frame=requestAnimationFrame(loop);}
+function start(){if(!frame&&!document.hidden&&!reduced.matches&&!paused&&states.some(s=>s.visible)){last=performance.now();frame=requestAnimationFrame(loop);}}
+const observer=new IntersectionObserver(entries=>{entries.forEach(e=>{const s=states.find(s=>s.canvas===e.target);if(s){s.visible=e.isIntersecting;if(!s.visible){s.particles=[];s.spawn=0;s.ctx.clearRect(0,0,s.w,s.h);}}});start();},{rootMargin:'30px'});states.forEach(s=>{resize(s);observer.observe(s.canvas);});
+const ro=new ResizeObserver(entries=>entries.forEach(e=>{const s=states.find(s=>s.canvas===e.target);if(s)resize(s);}));states.forEach(s=>ro.observe(s.canvas));
+document.addEventListener('visibilitychange',start);reduced.addEventListener('change',()=>{if(reduced.matches){cancelAnimationFrame(frame);frame=0;states.forEach(s=>{s.particles=[];s.ctx.clearRect(0,0,s.w,s.h);});}else start();});
+document.getElementById('ambient-toggle')?.addEventListener('click',e=>{paused=e.currentTarget.getAttribute('aria-pressed')==='true';document.body.classList.toggle('motion-paused',paused);if(paused){cancelAnimationFrame(frame);frame=0;}else start();});
+})();
+</script><script>(()=>{'use strict';const $=id=>document.getElementById(id),canvas=$('sort-canvas'),c=canvas.getContext('2d');if(!c)return;let items=[],active=null,pointer=null;const bins=[{x:255,y:485,r:110,flower:true,label:'MẸT HOA / Nguyên liệu'},{x:725,y:485,r:110,flower:false,label:'KHAY RIÊNG / TẠP CHẤT'}];
+function reset(){active=null;pointer=null;items=Array.from({length:8},(_,i)=>({x:140+i%4*220,y:125+Math.floor(i/4)*145,homeX:140+i%4*220,homeY:125+Math.floor(i/4)*145,flower:![2,5,7].includes(i),done:false,color:['#b76465','#bc8c4e','#687a51'][i%3]}));$('sort-next').hidden=true;$('sort-message').textContent='Kéo hoa vào mẹt bên trái, dây buộc vào khay bên phải.';update();}
+function flower(x,y,size,color){c.save();c.translate(x,y);c.fillStyle=color;for(let j=0;j<7;j++){c.rotate(Math.PI*2/7);c.beginPath();c.ellipse(0,-size*.48,size*.22,size*.46,0,0,Math.PI*2);c.fill();}c.fillStyle='#d6b665';c.beginPath();c.arc(0,0,size*.18,0,Math.PI*2);c.fill();c.restore();}
+function draw(){c.clearRect(0,0,960,650);c.fillStyle='#e9dfca';c.fillRect(0,0,960,650);for(let i=0;i<30;i++){c.strokeStyle='#a9916d15';c.beginPath();c.moveTo(0,i*24);c.lineTo(960,i*24+13);c.stroke();}bins.forEach(b=>{c.fillStyle=b.flower?'#c7af7e':'#c3c1ac';c.beginPath();c.ellipse(b.x,b.y,b.r*1.35,b.r*.85,0,0,Math.PI*2);c.fill();c.save();c.beginPath();c.ellipse(b.x,b.y,b.r*1.35-9,b.r*.85-8,0,0,Math.PI*2);c.clip();for(let i=-160;i<=160;i+=16){c.strokeStyle='#816b4040';c.beginPath();c.moveTo(b.x+i,b.y-100);c.lineTo(b.x+i,b.y+100);c.moveTo(b.x-160,b.y+i);c.lineTo(b.x+160,b.y+i);c.stroke();}c.restore();c.textAlign='center';c.fillStyle='#45503a';c.font='16px Be Vietnam Pro,sans-serif';c.fillText(b.label,b.x,b.y+125);});items.forEach((a,i)=>{if(a.done)return;if(active===i||i===items.findIndex(a=>!a.done)){c.strokeStyle='#617047';c.lineWidth=2;c.beginPath();c.arc(a.x,a.y,56,0,Math.PI*2);c.stroke();}if(a.flower)flower(a.x,a.y,44,a.color);else{c.strokeStyle='#506774';c.lineWidth=10;c.beginPath();c.moveTo(a.x-30,a.y-20);c.bezierCurveTo(a.x+40,a.y+40,a.x-40,a.y+35,a.x+35,a.y-20);c.stroke();}});const count=items.filter(a=>a.done&&a.flower).length;for(let i=0;i<count;i++)flower(210+i%3*43,460+Math.floor(i/3)*35,20,items.filter(a=>a.done&&a.flower)[i].color);if(items.every(a=>a.done)){c.fillStyle='#3d4e35';c.textAlign='center';c.font='42px Lora,serif';c.fillText('TỪ HOA, TRỞ VỀ HƯƠNG',480,190);c.font='20px Be Vietnam Pro,sans-serif';c.fillText('5 bông hoa sẵn sàng đi tiếp trong câu chuyện ReBloom',480,238);c.strokeStyle='#a1654c';c.lineWidth=5;for(let i=0;i<13;i++){c.beginPath();c.moveTo(480,355);c.lineTo(400+i*13,280-Math.sin(i/12*Math.PI)*25);c.stroke();}}}
+function update(){$('sort-progress').value=items.filter(a=>a.done).length;if(items.every(a=>a.done)){$('sort-next').hidden=false;$('sort-message').textContent='Bạn đã giữ lại 5 bông hoa và tách 3 dây buộc. Tiếp tục đưa nguồn hoa đến xưởng hương ReBloom.';}draw();}
+function place(i,b){const a=items[i];if(a.flower===b.flower){a.done=true;$('sort-message').textContent=a.flower?'Một bông hoa được giữ lại cho hành trình tiếp nối.':'Dây buộc được tách riêng, giữ mẹt nguyên liệu sạch tạp chất.';document.dispatchEvent(new CustomEvent('hoi:craft-sound',{detail:{kind:'drop'}}));}else{$('sort-message').textContent=a.flower?'Bông hoa này cần vào mẹt nguyên liệu bên trái.':'Dây buộc cần được tách vào khay bên phải.';}a.x=a.homeX;a.y=a.homeY;update();}
+function point(e){const r=canvas.getBoundingClientRect();return{x:(e.clientX-r.left)*960/r.width,y:(e.clientY-r.top)*650/r.height};}
+canvas.addEventListener('pointerdown',e=>{if(pointer!==null)return;const p=point(e);const i=items.findIndex(a=>!a.done&&Math.hypot(p.x-a.x,p.y-a.y)<58);if(i<0)return;active=i;pointer=e.pointerId;canvas.setPointerCapture(pointer);e.preventDefault();draw();});canvas.addEventListener('pointermove',e=>{if(e.pointerId!==pointer)return;const p=point(e);items[active].x=Math.max(45,Math.min(915,p.x));items[active].y=Math.max(45,Math.min(605,p.y));draw();});function end(e,cancel=false){if(e.pointerId!==pointer)return;const i=active,a=items[i],b=bins.find(b=>((a.x-b.x)/(b.r*1.35))**2+((a.y-b.y)/(b.r*.85))**2<=1);active=null;pointer=null;if(b&&!cancel)place(i,b);else{a.x=a.homeX;a.y=a.homeY;draw();}}canvas.addEventListener('pointerup',e=>end(e));canvas.addEventListener('pointercancel',e=>end(e,true));canvas.addEventListener('keydown',e=>{if(!['ArrowLeft','ArrowRight'].includes(e.key)||pointer!==null)return;e.preventDefault();const i=items.findIndex(a=>!a.done);if(i>=0)place(i,bins[e.key==='ArrowLeft'?0:1]);});$('sort-reset').addEventListener('click',reset);reset();})();
+</script><script>(()=>{'use strict';document.querySelectorAll('[data-shop-category]').forEach(link=>link.addEventListener('click',()=>{const filter=document.querySelector(`[data-filter="${link.dataset.shopCategory}"]`);if(filter)filter.click();}));})();
+</script><script>document.querySelectorAll('a[href^="#"]').forEach(link=>link.addEventListener('click',()=>{const id=link.getAttribute('href').slice(1);const target=document.getElementById(id);if(!target)return;let parent=target.parentElement;while(parent){if(parent.tagName==='DETAILS')parent.open=true;parent=parent.parentElement;}requestAnimationFrame(()=>{window.dispatchEvent(new Event('resize'));target.scrollIntoView({behavior:'auto',block:'start'});});}));document.querySelectorAll('.optional-experience,.development-collection').forEach(panel=>panel.addEventListener('toggle',()=>{if(panel.open)window.dispatchEvent(new Event('resize'));}));</script><script>document.getElementById('flower-source-form').addEventListener('submit',event=>{event.preventDefault();const data=new FormData(event.currentTarget);document.querySelector('[data-connect]').click();document.getElementById('connect-draft').value=['Chào nhóm ReBloom,','Mình muốn kết nối nguồn hoa với thông tin sau:','Đối tác: '+data.get('source'),'Loại hoa và tình trạng: '+data.get('flowers'),'Lượng ước tính: '+(data.get('amount')||'Chưa xác định'),'Thời điểm: '+(data.get('when')||'Cần trao đổi'),'Khu vực: '+data.get('location'),'Thông tin liên hệ: '+(data.get('contact')||'Sẽ bổ sung'),'Mong cùng nhóm trao đổi về khả năng tiếp nhận phù hợp.'].join('\n\n');});</script><script id="gentle-motion-settings">
+(()=>{const button=document.getElementById('gentle-motion-toggle');const label=button.querySelector('span');const path=button.querySelector('path');const reduced=matchMedia('(prefers-reduced-motion: reduce)');let wanted=true;try{wanted=localStorage.getItem('rebloom.motion')!=='off';}catch{}function render(){const on=wanted&&!reduced.matches;document.body.classList.toggle('gentle-motion',on);document.documentElement.dataset.motion=on?'on':'off';button.setAttribute('aria-pressed',String(!on));label.textContent=on?'Tắt chuyển động':'Bật chuyển động nhẹ';path.setAttribute('d',on?'M8 5v14M16 5v14':'m8 5 11 7-11 7z');if(!on)document.querySelectorAll('.hm-reveal-word').forEach(el=>el.getAnimations().forEach(a=>a.cancel()));}button.addEventListener('click',()=>{wanted=!wanted;try{localStorage.setItem('rebloom.motion',wanted?'on':'off');}catch{}render();});reduced.addEventListener?.('change',render);document.addEventListener('visibilitychange',()=>{if(document.hidden)document.body.classList.remove('hero-in-view');});if('IntersectionObserver' in window){new IntersectionObserver(entries=>{document.body.classList.toggle('hero-in-view',entries[0].isIntersecting&&!document.hidden);},{threshold:.1}).observe(document.getElementById('trang-chu'));document.addEventListener('visibilitychange',()=>{if(!document.hidden){const box=document.getElementById('trang-chu').getBoundingClientRect();document.body.classList.toggle('hero-in-view',box.bottom>0&&box.top<innerHeight);}});}else document.body.classList.add('hero-in-view');render();})();
+</script><script id="gentle-heading-reveal">
+(()=>{const reduce=matchMedia('(prefers-reduced-motion: reduce)');if(reduce.matches||!('IntersectionObserver' in window))return;const headings=document.querySelectorAll('#hero-title,#products-title,#story-title,#heritage-title,#journey-title,#flower-partners-title');const observer=new IntersectionObserver(entries=>{entries.forEach(entry=>{if(!entry.isIntersecting)return;observer.unobserve(entry.target);if(reduce.matches||document.documentElement.dataset.motion==='off')return;const walker=document.createTreeWalker(entry.target,NodeFilter.SHOW_TEXT);const nodes=[];while(walker.nextNode())if(walker.currentNode.textContent.trim())nodes.push(walker.currentNode);nodes.forEach((node,index)=>{const span=document.createElement('span');span.className='hm-reveal-word';span.textContent=node.textContent;node.replaceWith(span);span.animate([{opacity:.2},{opacity:1}],{duration:750,delay:Math.min(index,3)*180,easing:'ease-out',fill:'backwards'});});});},{threshold:.2});headings.forEach(heading=>observer.observe(heading));reduce.addEventListener?.('change',event=>{if(event.matches){document.querySelectorAll('.hm-reveal-word').forEach(el=>el.getAnimations().forEach(animation=>animation.cancel()));observer.disconnect();}});})();
+</script><script id="drawn-flower-effect">
+(()=>{const flower=document.querySelector('.drawn-flower');if(!flower||!('IntersectionObserver' in window))return;const reduce=matchMedia('(prefers-reduced-motion: reduce)');const observer=new IntersectionObserver(entries=>{if(!entries[0].isIntersecting)return;observer.disconnect();if(reduce.matches||document.documentElement.dataset.motion==='off')return;flower.querySelectorAll('path').forEach((path,index)=>{const length=path.getTotalLength();path.animate([{strokeDasharray:String(length),strokeDashoffset:length,opacity:.3},{strokeDasharray:String(length),strokeDashoffset:0,opacity:1}],{duration:1300,delay:index*150,easing:'ease-out',fill:'backwards'});});},{threshold:.5});observer.observe(flower);document.getElementById('gentle-motion-toggle').addEventListener('click',()=>{if(document.documentElement.dataset.motion==='off')flower.querySelectorAll('path').forEach(path=>path.getAnimations().forEach(a=>a.cancel()));});reduce.addEventListener?.('change',event=>{if(event.matches)flower.querySelectorAll('path').forEach(path=>path.getAnimations().forEach(a=>a.cancel()));});})();
+</script><script id="scroll-section-accents">
+(()=>{const reduced=matchMedia('(prefers-reduced-motion: reduce)');const headings=document.querySelectorAll('#products-title,#story-title,#heritage-title,#journey-title,#flower-partners-title,#notes-title');headings.forEach(heading=>{const line=document.createElement('span');line.className='scroll-accent-line';line.setAttribute('aria-hidden','true');heading.append(line);});if(!('IntersectionObserver' in window))return;const observer=new IntersectionObserver(entries=>entries.forEach(entry=>{if(!entry.isIntersecting)return;observer.unobserve(entry.target);if(reduced.matches||document.documentElement.dataset.motion==='off')return;const line=entry.target.querySelector('.scroll-accent-line');line.animate([{transform:'scaleX(0)',opacity:.35},{transform:'scaleX(1)',opacity:1}],{duration:1100,easing:'cubic-bezier(.2,.7,.2,1)',fill:'backwards'});}),{threshold:.5});headings.forEach(heading=>observer.observe(heading));function stop(){document.querySelectorAll('.scroll-accent-line').forEach(line=>line.getAnimations().forEach(animation=>animation.cancel()));}document.getElementById('gentle-motion-toggle').addEventListener('click',()=>{if(document.documentElement.dataset.motion==='off')stop();});reduced.addEventListener?.('change',event=>{if(event.matches)stop();});})();
+</script><script id="nature-ambient-effects">
+(()=>{const reduced=matchMedia('(prefers-reduced-motion: reduce)');const body=document.body;const bloom=document.querySelector('.nature-scroll-flower');let inFrame=false;function active(){return !reduced.matches&&document.documentElement.dataset.motion!=='off'&&!document.hidden;}function updateBloom(){inFrame=false;if(!bloom)return;const rect=bloom.closest('section').getBoundingClientRect();const amount=Math.max(0,Math.min(1,(innerHeight*.85-rect.top)/(innerHeight*.65)));const petals=bloom.querySelector('.bloom-petals');petals.style.transform=active()?`scale(${.45+.55*amount})`:'scale(1)';petals.style.opacity=active()?String(.25+.75*amount):'1';}function scroll(){if(!inFrame){inFrame=true;requestAnimationFrame(updateBloom);}}function sync(){body.classList.toggle('nature-tab-active',!document.hidden);scroll();}if('IntersectionObserver' in window){const observer=new IntersectionObserver(entries=>entries.forEach(entry=>entry.target.classList.toggle('nature-in-view',entry.isIntersecting)),{threshold:.05});document.querySelectorAll('#cau-chuyen,#nep-viet,#product-grid .product-image-wrap').forEach(el=>observer.observe(el));}else document.querySelectorAll('#cau-chuyen,#nep-viet,#product-grid .product-image-wrap').forEach(el=>el.classList.add('nature-in-view'));window.addEventListener('scroll',scroll,{passive:true});window.addEventListener('resize',scroll,{passive:true});document.addEventListener('visibilitychange',sync);reduced.addEventListener?.('change',sync);document.getElementById('gentle-motion-toggle').addEventListener('click',sync);sync();})();
+</script><script id="signature-motion-effects">
+(()=>{const reduced=matchMedia('(prefers-reduced-motion: reduce)');const active=()=>!reduced.matches&&document.documentElement.dataset.motion!=='off';const heading=document.querySelector('#hero-title em');if(heading&&active()){heading.animate([{clipPath:'inset(0 100% 0 0)',opacity:.4},{clipPath:'inset(0 0 0 0)',opacity:1}],{duration:1300,delay:250,easing:'cubic-bezier(.2,.7,.2,1)',fill:'backwards'});}const brand=document.querySelector('.footer-brand'),logo=brand?.querySelector('.footer-draw-logo path'),trail=brand?.querySelector('.footer-fragrance-trail path');if(brand&&logo&&trail&&'IntersectionObserver' in window){const observer=new IntersectionObserver(entries=>{if(!entries[0].isIntersecting)return;observer.disconnect();if(!active())return;const length=trail.getTotalLength();trail.animate([{strokeDasharray:String(length),strokeDashoffset:length,opacity:0},{strokeDasharray:String(length),strokeDashoffset:0,opacity:.7,offset:.6},{strokeDasharray:String(length),strokeDashoffset:0,opacity:0}],{duration:1900,easing:'ease-out'});const logoLength=logo.getTotalLength();const fill=logo.getAttribute('fill');logo.animate([{strokeDasharray:String(logoLength),strokeDashoffset:logoLength,fill:'transparent'},{strokeDasharray:String(logoLength),strokeDashoffset:0,fill:'transparent',offset:.65},{strokeDasharray:String(logoLength),strokeDashoffset:0,fill}],{duration:1900,delay:300,easing:'ease-out',fill:'backwards'});},{threshold:.4});observer.observe(brand);}function stop(){document.querySelectorAll('#hero-title em,.footer-draw-logo path,.footer-fragrance-trail path').forEach(el=>el.getAnimations().forEach(a=>a.cancel()));}document.getElementById('gentle-motion-toggle').addEventListener('click',()=>{if(!active())stop();});reduced.addEventListener?.('change',event=>{if(event.matches)stop();});})();
+</script><script>
+(()=>{const video=document.getElementById('heritage-decor-video');const button=document.getElementById('heritage-video-toggle');if(!video||!button)return;const reduced=matchMedia('(prefers-reduced-motion: reduce)');let visible=false,userPaused=false,manual=false;function update(){const playing=!video.paused;button.textContent=playing?'Tạm dừng':'Phát video';button.setAttribute('aria-label',button.textContent);button.setAttribute('aria-pressed',String(playing));}function sync(){const allowed=!reduced.matches&&document.documentElement.dataset.motion!=='off';if(visible&&!document.hidden&&!userPaused&&(allowed||manual)){video.muted=true;video.play().catch(update);}else{video.pause();if(reduced.matches&&!manual)video.load();}update();}button.addEventListener('click',()=>{if(video.paused){userPaused=false;manual=true;visible=true;}else{userPaused=true;manual=false;}sync();});video.addEventListener('play',update);video.addEventListener('pause',update);if('IntersectionObserver'in window)new IntersectionObserver(entries=>{visible=entries[0].isIntersecting;sync();},{threshold:.35}).observe(video);reduced.addEventListener('change',()=>{manual=false;sync();});document.addEventListener('visibilitychange',sync);new MutationObserver(sync).observe(document.documentElement,{attributes:true,attributeFilter:['data-motion']});update();})();
+</script></body>
+</html>
